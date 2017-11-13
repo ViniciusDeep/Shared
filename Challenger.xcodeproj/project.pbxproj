@@ -56,15 +56,23 @@
 		75B7B4D91FB9F4B70088B7EF /* Challenger */ = {
 			isa = PBXGroup;
 			children = (
+				75B7B4EF1FBA219E0088B7EF /* StoryBoards */,
 				75B7B4DA1FB9F4B70088B7EF /* AppDelegate.swift */,
 				75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */,
-				75B7B4DE1FB9F4B70088B7EF /* Cadastro.storyboard */,
 				75B7B4E41FB9F4B70088B7EF /* Assets.xcassets */,
 				75B7B4E61FB9F4B70088B7EF /* LaunchScreen.storyboard */,
 				75B7B4E91FB9F4B70088B7EF /* Info.plist */,
 				75B7B4E11FB9F4B70088B7EF /* Challenger.xcdatamodeld */,
 			);
 			path = Challenger;
+			sourceTree = "<group>";
+		};
+		75B7B4EF1FBA219E0088B7EF /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				75B7B4DE1FB9F4B70088B7EF /* Cadastro.storyboard */,
+			);
+			path = StoryBoards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
