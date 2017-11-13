@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		75B7B4DB1FB9F4B70088B7EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B4DA1FB9F4B70088B7EF /* AppDelegate.swift */; };
 		75B7B4DD1FB9F4B70088B7EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */; };
-		75B7B4E01FB9F4B70088B7EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B7B4DE1FB9F4B70088B7EF /* Main.storyboard */; };
+		75B7B4E01FB9F4B70088B7EF /* Cadastro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B7B4DE1FB9F4B70088B7EF /* Cadastro.storyboard */; };
 		75B7B4E31FB9F4B70088B7EF /* Challenger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B4E11FB9F4B70088B7EF /* Challenger.xcdatamodeld */; };
 		75B7B4E51FB9F4B70088B7EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75B7B4E41FB9F4B70088B7EF /* Assets.xcassets */; };
 		75B7B4E81FB9F4B70088B7EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B7B4E61FB9F4B70088B7EF /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 		75B7B4D71FB9F4B70088B7EF /* Challenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75B7B4DA1FB9F4B70088B7EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		75B7B4DF1FB9F4B70088B7EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		75B7B4DF1FB9F4B70088B7EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Cadastro.storyboard; sourceTree = "<group>"; };
 		75B7B4E21FB9F4B70088B7EF /* Challenger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Challenger.xcdatamodel; sourceTree = "<group>"; };
 		75B7B4E41FB9F4B70088B7EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75B7B4E71FB9F4B70088B7EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 			children = (
 				75B7B4DA1FB9F4B70088B7EF /* AppDelegate.swift */,
 				75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */,
-				75B7B4DE1FB9F4B70088B7EF /* Main.storyboard */,
+				75B7B4DE1FB9F4B70088B7EF /* Cadastro.storyboard */,
 				75B7B4E41FB9F4B70088B7EF /* Assets.xcassets */,
 				75B7B4E61FB9F4B70088B7EF /* LaunchScreen.storyboard */,
 				75B7B4E91FB9F4B70088B7EF /* Info.plist */,
@@ -128,7 +128,7 @@
 			files = (
 				75B7B4E81FB9F4B70088B7EF /* LaunchScreen.storyboard in Resources */,
 				75B7B4E51FB9F4B70088B7EF /* Assets.xcassets in Resources */,
-				75B7B4E01FB9F4B70088B7EF /* Main.storyboard in Resources */,
+				75B7B4E01FB9F4B70088B7EF /* Cadastro.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,12 +148,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		75B7B4DE1FB9F4B70088B7EF /* Main.storyboard */ = {
+		75B7B4DE1FB9F4B70088B7EF /* Cadastro.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				75B7B4DF1FB9F4B70088B7EF /* Base */,
 			);
-			name = Main.storyboard;
+			name = Cadastro.storyboard;
 			sourceTree = "<group>";
 		};
 		75B7B4E61FB9F4B70088B7EF /* LaunchScreen.storyboard */ = {
