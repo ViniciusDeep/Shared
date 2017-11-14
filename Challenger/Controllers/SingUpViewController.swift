@@ -12,15 +12,32 @@ class SingUpViewController: UIViewController {
 
    
     
+    @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+ 
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        self.imgProfile.layer.cornerRadius = self.imgProfile.frame.size.width / 2;
+        self.imgProfile.layer.masksToBounds = true
+        
+    }
+    
+   
+    @IBAction func imgSelected(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        
+        self.present(imagePicker, animated: true, completion: nil)
+    
+    }
+    
     
 
     @IBAction func BackButton(_ sender: Any) {
@@ -28,11 +45,27 @@ class SingUpViewController: UIViewController {
         }
     
     
+    
+    
     @IBAction func signButton(_ sender: Any) {
    
     
     }
+}
+
+
+extension SingUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
-    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerEditedImage] as? UIImage
+        
+        imgProfile.image = image
+        picker.dismiss(animated: true, completion: nil)
+        
+        
+        
+    }
 }
