@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 class SingUpViewController: UIViewController {
 
    
@@ -61,6 +62,19 @@ class SingUpViewController: UIViewController {
             }
         }
     
+        //successfully autheticated
+//    let ref = Database.database().reference(fromURL: "https://challenge-efdc5.firebaseio.com/")
+//        
+//        let values = ["email": email, "password": password]
+//        ref.onDisconnectUpdateChildValues(values) { (err, ref) in
+//            if err != nil {
+//                print(err)
+//                return
+//            }
+//            print("Saved user sucessfully into FIREBASE DB")
+//        }
+        
+
         
         self.dismiss(animated: true, completion: nil)
     
