@@ -7,6 +7,7 @@ target 'Challenger' do
 
   # Pods for Challenger
   pod 'JTAppleCalendar', '~> 7.0’
+  pod ‘Firebase/Core’
   pod ‘Firebase/Database’
   pod ‘Firebase/Auth’
   pod ‘Firebase/Storage’ 

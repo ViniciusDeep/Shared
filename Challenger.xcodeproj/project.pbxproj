@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		754874991FBA3E4700EE2613 /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754874981FBA3E4700EE2613 /* SingUpViewController.swift */; };
 		7548749B1FBB4DB300EE2613 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7548749A1FBB4DB300EE2613 /* Assets.xcassets */; };
+		75B02A7B1FBB7AE8008DB651 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75B02A7A1FBB6255008DB651 /* GoogleService-Info.plist */; };
 		75B7B4DB1FB9F4B70088B7EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B4DA1FB9F4B70088B7EF /* AppDelegate.swift */; };
 		75B7B4DD1FB9F4B70088B7EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */; };
 		75B7B4E01FB9F4B70088B7EF /* Cadastro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B7B4DE1FB9F4B70088B7EF /* Cadastro.storyboard */; };
@@ -175,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75B7B4E81FB9F4B70088B7EF /* LaunchScreen.storyboard in Resources */,
+				75B02A7B1FBB7AE8008DB651 /* GoogleService-Info.plist in Resources */,
 				75B7B4E01FB9F4B70088B7EF /* Cadastro.storyboard in Resources */,
 				7548749B1FBB4DB300EE2613 /* Assets.xcassets in Resources */,
 			);

@@ -19,7 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
        
-        //        FirebaseApp.configure()
+        
+//        let ref = Firebase.Database().reference(fromURL: "https://challenge-efdc5.firebaseio.com/")
+//        ref.updateChildValues(["someValue": 123123])
+//
+        
+        FirebaseApp.configure()
         
         return true
     }

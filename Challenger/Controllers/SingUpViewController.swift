@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class SingUpViewController: UIViewController {
 
    
@@ -48,7 +48,21 @@ class SingUpViewController: UIViewController {
     
     
     @IBAction func signButton(_ sender: Any) {
-   
+        guard let email = userEmail.text, let password = userPassword.text else {
+            print("form is not valid")
+            return
+        }
+        
+    
+       Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            if error != nil {
+               print(error)
+                return
+            }
+        }
+    
+        
+        self.dismiss(animated: true, completion: nil)
     
     }
 }
