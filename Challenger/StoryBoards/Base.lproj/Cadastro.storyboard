@@ -120,16 +120,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EG7-CF-Jv3">
-                                <rect key="frame" x="40" y="415" width="295" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="SignFacebook"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVk-V3-bu8">
-                                <rect key="frame" x="40" y="495" width="295" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="SignGoogle"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dra-2d-6fp">
                                 <rect key="frame" x="106" y="103" width="163" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -177,8 +167,6 @@
     </scenes>
     <resources>
         <image name="Logo" width="456" height="412"/>
-        <image name="SignFacebook" width="649" height="139"/>
-        <image name="SignGoogle" width="575" height="99"/>
         <image name="camera1600" width="24" height="24"/>
         <image name="imgPerfil" width="337" height="300"/>
         <image name="loginFacebook" width="573" height="100"/>

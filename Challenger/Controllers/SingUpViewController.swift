@@ -10,18 +10,24 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import Firebase
-class SingUpViewController: UIViewController {
 
-   
+
+class SingUpViewController: UIViewController {
     
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
+   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        
+        
     }
+    
+    
+    
 
     override func viewDidAppear(_ animated: Bool) {
         self.imgProfile.layer.cornerRadius = self.imgProfile.frame.size.width / 2;
@@ -102,6 +108,15 @@ class SingUpViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     
     }
+    
+    
+    
+   
+    
+    
+    
+    
+    
 }
 
 
