@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 import Firebase
 class SingUpViewController: UIViewController {
 
@@ -56,24 +57,44 @@ class SingUpViewController: UIViewController {
         
     
        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            if error != nil {
-               print(error)
-                return
+            guard let user = user else {
+                return print("Usuário inexiste")
             }
+            if error != nil {
+                return print(error?.localizedDescription ?? "Empty")
+            }
+            let ref = Database.database().reference()
+            let usersReference = ref.child("users")
+            let uid = user.uid
+            guard let email = user.email else {
+                return print("Email inexiste")
+            }
+            usersReference.child(uid).setValue(["email": email], withCompletionBlock: { (error, reference) in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                print("Usuário salvo")
+            })
+        
+//            Auth.auth().signIn(withEmail: "fsfs", password: "fdfsf", completion: { (user, error) in
+//
+//            })
         }
     
         //successfully autheticated
-//    let ref = Database.database().reference(fromURL: "https://challenge-efdc5.firebaseio.com/")
-//        
-//        let values = ["email": email, "password": password]
+        
+        
+//
+//        let values = ["email": email]
 //        ref.onDisconnectUpdateChildValues(values) { (err, ref) in
 //            if err != nil {
 //                print(err)
 //                return
 //            }
-//            print("Saved user sucessfully into FIREBASE DB")
+//            print("Saved user sucessfully into the FIREBASE DB")
 //        }
-        
+//
+//        usersReference.childByAutoId().setValue(values)
 
         
         self.dismiss(animated: true, completion: nil)
