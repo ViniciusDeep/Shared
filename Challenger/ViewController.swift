@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import Firebase
+import FirebaseAuth
 
 class ViewController: UIViewController {
 
+    
+    
+    @IBOutlet weak var userEmail: UITextField!
+    @IBOutlet weak var userPassword: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +28,18 @@ class ViewController: UIViewController {
     }
 
     @IBAction func loginButton(_ sender: Any) {
+    
+        
+        Auth.auth().signIn(withEmail: userEmail.text!, password: userPassword.text!) { (user, error) in
+            if error != nil {
+                return print(error)
+                
+            }
+            print("Usuário aunteticado")
+            
+            
+        }
+    
     }
     
 }

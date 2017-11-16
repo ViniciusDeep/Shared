@@ -59,6 +59,8 @@ class SingUpViewController: UIViewController {
        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             guard let user = user else {
                 return print("Usuário inexiste")
+    
+                
             }
             if error != nil {
                 return print(error?.localizedDescription ?? "Empty")
@@ -76,9 +78,9 @@ class SingUpViewController: UIViewController {
                 print("Usuário salvo")
             })
         
-//            Auth.auth().signIn(withEmail: "fsfs", password: "fdfsf", completion: { (user, error) in
-//
-//            })
+            Auth.auth().signIn(withEmail: "fsfs", password: "fdfsf", completion: { (user, error) in
+        
+            })
         }
     
         //successfully autheticated
