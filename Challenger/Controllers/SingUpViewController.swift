@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import Firebase
+import FirebaseStorage
 
 
 class SingUpViewController: UIViewController {
