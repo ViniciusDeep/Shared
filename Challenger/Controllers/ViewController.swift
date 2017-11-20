@@ -36,7 +36,7 @@ class ViewController: UIViewController {
                 return print(error)
                 
             }
-            print("Usuário aunteticado")
+            self.performSegue(withIdentifier: "userAuthenticated", sender: sender)
             
             
         }

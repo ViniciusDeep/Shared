@@ -23,6 +23,7 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jgr-7S-UV6"/>
+                                    <segue destination="LZj-qF-lBe" kind="show" id="UMe-hL-2aM"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oye-lS-E3I">
@@ -79,6 +80,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="476" y="133.5832083958021"/>
+        </scene>
+        <!--TabBar-->
+        <scene sceneID="4tI-0H-sWZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TabBar" id="LZj-qF-lBe" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xnf-wJ-B5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="838" y="987"/>
         </scene>
         <!--Sing Up View Controller-->
         <scene sceneID="qr6-Rs-m7P">
