@@ -13,7 +13,6 @@
 		75B02A7B1FBB7AE8008DB651 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75B02A7A1FBB6255008DB651 /* GoogleService-Info.plist */; };
 		75B7B4DD1FB9F4B70088B7EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */; };
 		75B7B4E01FB9F4B70088B7EF /* Cadastro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B7B4DE1FB9F4B70088B7EF /* Cadastro.storyboard */; };
-		75B7B4E31FB9F4B70088B7EF /* Challenger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B4E11FB9F4B70088B7EF /* Challenger.xcdatamodeld */; };
 		75B7B4E81FB9F4B70088B7EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B7B4E61FB9F4B70088B7EF /* LaunchScreen.storyboard */; };
 		A40204F41FC360610029B022 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40204F31FC360610029B022 /* Group.swift */; };
 		A40204F91FC360790029B022 /* SearchGroups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40204F51FC360790029B022 /* SearchGroups.storyboard */; };
@@ -29,6 +28,7 @@
 		A40205181FC363E30029B022 /* images-2.png in Resources */ = {isa = PBXBuildFile; fileRef = A40205141FC363E20029B022 /* images-2.png */; };
 		A40205191FC363E30029B022 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = A40205151FC363E20029B022 /* images.png */; };
 		A402051A1FC363E30029B022 /* slr_camera_application_slr_3037.png in Resources */ = {isa = PBXBuildFile; fileRef = A40205161FC363E20029B022 /* slr_camera_application_slr_3037.png */; };
+		A43645221FC36F08007BC6C3 /* UserInfoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43645211FC36F08007BC6C3 /* UserInfoDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +40,6 @@
 		75B7B4D71FB9F4B70088B7EF /* Challenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		75B7B4DF1FB9F4B70088B7EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Cadastro.storyboard; sourceTree = "<group>"; };
-		75B7B4E21FB9F4B70088B7EF /* Challenger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Challenger.xcdatamodel; sourceTree = "<group>"; };
 		75B7B4E71FB9F4B70088B7EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75B7B4E91FB9F4B70088B7EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A40204F31FC360610029B022 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -57,6 +56,7 @@
 		A40205141FC363E20029B022 /* images-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "images-2.png"; sourceTree = "<group>"; };
 		A40205151FC363E20029B022 /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
 		A40205161FC363E20029B022 /* slr_camera_application_slr_3037.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slr_camera_application_slr_3037.png; sourceTree = "<group>"; };
+		A43645211FC36F08007BC6C3 /* UserInfoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDelegate.swift; sourceTree = "<group>"; };
 		F1354917724723FB0CE9EB1A /* Pods-Challenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Challenger/Pods-Challenger.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,7 +129,6 @@
 				754874971FBA3DFF00EE2613 /* Controllers */,
 				75B7B4E61FB9F4B70088B7EF /* LaunchScreen.storyboard */,
 				75B7B4E91FB9F4B70088B7EF /* Info.plist */,
-				75B7B4E11FB9F4B70088B7EF /* Challenger.xcdatamodeld */,
 				75B02A7A1FBB6255008DB651 /* GoogleService-Info.plist */,
 				7548749A1FBB4DB300EE2613 /* Assets.xcassets */,
 			);
@@ -170,6 +169,7 @@
 			children = (
 				A402050E1FC360A60029B022 /* AppDelegate.swift */,
 				A402050F1FC360A60029B022 /* SaveDelegate.swift */,
+				A43645211FC36F08007BC6C3 /* UserInfoDelegate.swift */,
 			);
 			name = Delegates;
 			path = ../../eoq/Delegates;
@@ -346,7 +346,7 @@
 				A40205111FC360A60029B022 /* SaveDelegate.swift in Sources */,
 				754874991FBA3E4700EE2613 /* SingUpViewController.swift in Sources */,
 				A40204F41FC360610029B022 /* Group.swift in Sources */,
-				75B7B4E31FB9F4B70088B7EF /* Challenger.xcdatamodeld in Sources */,
+				A43645221FC36F08007BC6C3 /* UserInfoDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,19 +533,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		75B7B4E11FB9F4B70088B7EF /* Challenger.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				75B7B4E21FB9F4B70088B7EF /* Challenger.xcdatamodel */,
-			);
-			currentVersion = 75B7B4E21FB9F4B70088B7EF /* Challenger.xcdatamodel */;
-			path = Challenger.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 75B7B4CF1FB9F4B70088B7EF /* Project object */;
 }
