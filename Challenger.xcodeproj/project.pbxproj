@@ -29,6 +29,7 @@
 		A40205191FC363E30029B022 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = A40205151FC363E20029B022 /* images.png */; };
 		A402051A1FC363E30029B022 /* slr_camera_application_slr_3037.png in Resources */ = {isa = PBXBuildFile; fileRef = A40205161FC363E20029B022 /* slr_camera_application_slr_3037.png */; };
 		A43645221FC36F08007BC6C3 /* UserInfoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43645211FC36F08007BC6C3 /* UserInfoDelegate.swift */; };
+		A43645271FC4BC4B007BC6C3 /* MyAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		A40205151FC363E20029B022 /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
 		A40205161FC363E20029B022 /* slr_camera_application_slr_3037.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slr_camera_application_slr_3037.png; sourceTree = "<group>"; };
 		A43645211FC36F08007BC6C3 /* UserInfoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDelegate.swift; sourceTree = "<group>"; };
+		A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountController.swift; sourceTree = "<group>"; };
 		F1354917724723FB0CE9EB1A /* Pods-Challenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Challenger/Pods-Challenger.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 				A40205001FC360930029B022 /* AddGroup.swift */,
 				A40205011FC360930029B022 /* TableViewGroups.swift */,
 				754874981FBA3E4700EE2613 /* SingUpViewController.swift */,
+				A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75B7B4DD1FB9F4B70088B7EF /* ViewController.swift in Sources */,
+				A43645271FC4BC4B007BC6C3 /* MyAccountController.swift in Sources */,
 				A40205021FC360930029B022 /* AddGroup.swift in Sources */,
 				A40204FF1FC3607F0029B022 /* CellGroups.swift in Sources */,
 				A40205101FC360A60029B022 /* AppDelegate.swift in Sources */,

@@ -23,7 +23,6 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jgr-7S-UV6"/>
-                                    <segue destination="LZj-qF-lBe" kind="showDetail" identifier="userAuthenticated" action="showViewController:sender:" id="UMe-hL-2aM"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oye-lS-E3I">
@@ -75,6 +74,7 @@
                     <connections>
                         <outlet property="userEmail" destination="Oye-lS-E3I" id="lrh-5I-79Y"/>
                         <outlet property="userPassword" destination="5bL-ms-57I" id="7L7-wM-tbe"/>
+                        <segue destination="LZj-qF-lBe" kind="showDetail" identifier="userAuthenticated" id="Mmb-uy-9Cs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

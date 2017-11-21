@@ -35,9 +35,9 @@ class ViewController: UIViewController {
             if error != nil {
                 return print(error)
                 
-            }
+            }else {
             self.performSegue(withIdentifier: "userAuthenticated", sender: sender)
-            
+            }
             
         }
     

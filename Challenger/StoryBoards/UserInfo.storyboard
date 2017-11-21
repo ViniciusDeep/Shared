@@ -30,7 +30,7 @@
         <!--My Account-->
         <scene sceneID="lXY-K1-ooc">
             <objects>
-                <viewController storyboardIdentifier="3" id="WSg-le-pT2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="3" id="WSg-le-pT2" customClass="MyAccountController" customModule="Challenger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DQJ-wp-FnZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,6 +60,10 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="logOut:" destination="WSg-le-pT2" eventType="touchUpInside" id="Yx6-FC-qF8"/>
+                                    <action selector="logOut:" destination="4Ah-ZP-bEn" eventType="touchUpInside" id="i2G-Xh-Yvx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hK3-oR-9xZ">
                                 <rect key="frame" x="16" y="345" width="343" height="30"/>
@@ -81,10 +85,22 @@
                         <viewLayoutGuide key="safeArea" id="WBB-9a-LlU"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Account" id="oj8-Aj-NCN"/>
+                    <connections>
+                        <segue destination="TQo-s9-lTx" kind="presentation" identifier="Login" id="0KX-Nh-H4O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KXX-1Y-Ssd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4Ah-ZP-bEn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1112.8" y="282.90854572713647"/>
+        </scene>
+        <!--Cadastro-->
+        <scene sceneID="4z1-wI-HAk">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Cadastro" storyboardName="Cadastro" id="TQo-s9-lTx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RzC-dO-sgf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1080" y="765"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="6CR-Vs-Z1c">
