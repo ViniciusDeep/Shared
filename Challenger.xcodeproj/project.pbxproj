@@ -7,25 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29E5DDA17FCBF8B1634E1C2A /* Pods_Challenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314CBC288D1157F65E85B08C /* Pods_Challenger.framework */; };
+		754874991FBA3E4700EE2613 /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754874981FBA3E4700EE2613 /* SingUpViewController.swift */; };
+		7548749B1FBB4DB300EE2613 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7548749A1FBB4DB300EE2613 /* Assets.xcassets */; };
+		75B02A7B1FBB7AE8008DB651 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75B02A7A1FBB6255008DB651 /* GoogleService-Info.plist */; };
 		75B7B4DB1FB9F4B70088B7EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B4DA1FB9F4B70088B7EF /* AppDelegate.swift */; };
 		75B7B4DD1FB9F4B70088B7EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */; };
 		75B7B4E01FB9F4B70088B7EF /* Cadastro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B7B4DE1FB9F4B70088B7EF /* Cadastro.storyboard */; };
 		75B7B4E31FB9F4B70088B7EF /* Challenger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B4E11FB9F4B70088B7EF /* Challenger.xcdatamodeld */; };
-		75B7B4E51FB9F4B70088B7EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75B7B4E41FB9F4B70088B7EF /* Assets.xcassets */; };
 		75B7B4E81FB9F4B70088B7EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B7B4E61FB9F4B70088B7EF /* LaunchScreen.storyboard */; };
-		DB7272CB1FBA057C00489165 /* Teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7272CA1FBA057C00489165 /* Teste.swift */; };
+		DB5B01431FC5E8E700BD5F1A /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5B01421FC5E8E700BD5F1A /* Calendar.storyboard */; };
+		DB5B01451FC5EACE00BD5F1A /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */; };
+		DB5B01481FC5EB1B00BD5F1A /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B01471FC5EB1B00BD5F1A /* CustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		314CBC288D1157F65E85B08C /* Pods_Challenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Challenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50D75D6DA781FF239D486480 /* Pods-Challenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Challenger/Pods-Challenger.debug.xcconfig"; sourceTree = "<group>"; };
+		754874981FBA3E4700EE2613 /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
+		7548749A1FBB4DB300EE2613 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		75B02A7A1FBB6255008DB651 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		75B7B4D71FB9F4B70088B7EF /* Challenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75B7B4DA1FB9F4B70088B7EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		75B7B4DF1FB9F4B70088B7EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Cadastro.storyboard; sourceTree = "<group>"; };
 		75B7B4E21FB9F4B70088B7EF /* Challenger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Challenger.xcdatamodel; sourceTree = "<group>"; };
-		75B7B4E41FB9F4B70088B7EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75B7B4E71FB9F4B70088B7EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75B7B4E91FB9F4B70088B7EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB7272CA1FBA057C00489165 /* Teste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teste.swift; sourceTree = "<group>"; };
+		DB5B01421FC5E8E700BD5F1A /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
+		DB5B01471FC5EB1B00BD5F1A /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		F1354917724723FB0CE9EB1A /* Pods-Challenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Challenger/Pods-Challenger.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +45,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29E5DDA17FCBF8B1634E1C2A /* Pods_Challenger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16F13EA5ABE6C310ADC36CBB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				314CBC288D1157F65E85B08C /* Pods_Challenger.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		26BD2B42096D30286195E5DE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				50D75D6DA781FF239D486480 /* Pods-Challenger.debug.xcconfig */,
+				F1354917724723FB0CE9EB1A /* Pods-Challenger.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		754874971FBA3DFF00EE2613 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				754874981FBA3E4700EE2613 /* SingUpViewController.swift */,
+				DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		75B7B4CE1FB9F4B70088B7EF = {
 			isa = PBXGroup;
 			children = (
 				75B7B4D91FB9F4B70088B7EF /* Challenger */,
 				75B7B4D81FB9F4B70088B7EF /* Products */,
+				26BD2B42096D30286195E5DE /* Pods */,
+				16F13EA5ABE6C310ADC36CBB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,12 +101,14 @@
 			children = (
 				75B7B4EF1FBA219E0088B7EF /* StoryBoards */,
 				75B7B4DA1FB9F4B70088B7EF /* AppDelegate.swift */,
+				754874971FBA3DFF00EE2613 /* Controllers */,
 				75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */,
-				75B7B4E41FB9F4B70088B7EF /* Assets.xcassets */,
+				DB5B01461FC5EB0A00BD5F1A /* CellGroup */,
 				75B7B4E61FB9F4B70088B7EF /* LaunchScreen.storyboard */,
 				75B7B4E91FB9F4B70088B7EF /* Info.plist */,
 				75B7B4E11FB9F4B70088B7EF /* Challenger.xcdatamodeld */,
-				DB7272CA1FBA057C00489165 /* Teste.swift */,
+				75B02A7A1FBB6255008DB651 /* GoogleService-Info.plist */,
+				7548749A1FBB4DB300EE2613 /* Assets.xcassets */,
 			);
 			path = Challenger;
 			sourceTree = "<group>";
@@ -74,8 +117,17 @@
 			isa = PBXGroup;
 			children = (
 				75B7B4DE1FB9F4B70088B7EF /* Cadastro.storyboard */,
+				DB5B01421FC5E8E700BD5F1A /* Calendar.storyboard */,
 			);
 			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		DB5B01461FC5EB0A00BD5F1A /* CellGroup */ = {
+			isa = PBXGroup;
+			children = (
+				DB5B01471FC5EB1B00BD5F1A /* CustomCell.swift */,
+			);
+			path = CellGroup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,9 +137,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75B7B4EC1FB9F4B70088B7EF /* Build configuration list for PBXNativeTarget "Challenger" */;
 			buildPhases = (
+				FDA10BE9E185CB0ECCF352A7 /* [CP] Check Pods Manifest.lock */,
 				75B7B4D31FB9F4B70088B7EF /* Sources */,
 				75B7B4D41FB9F4B70088B7EF /* Frameworks */,
 				75B7B4D51FB9F4B70088B7EF /* Resources */,
+				66D37B22F8070C0EA440C004 /* [CP] Embed Pods Frameworks */,
+				2F9B93C3E02B7F46942C5363 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -138,12 +193,81 @@
 			buildActionMask = 2147483647;
 			files = (
 				75B7B4E81FB9F4B70088B7EF /* LaunchScreen.storyboard in Resources */,
-				75B7B4E51FB9F4B70088B7EF /* Assets.xcassets in Resources */,
+				75B02A7B1FBB7AE8008DB651 /* GoogleService-Info.plist in Resources */,
 				75B7B4E01FB9F4B70088B7EF /* Cadastro.storyboard in Resources */,
+				DB5B01431FC5E8E700BD5F1A /* Calendar.storyboard in Resources */,
+				7548749B1FBB4DB300EE2613 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2F9B93C3E02B7F46942C5363 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Challenger/Pods-Challenger-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Challenger/Pods-Challenger-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66D37B22F8070C0EA440C004 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Challenger/Pods-Challenger-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Challenger/Pods-Challenger-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDA10BE9E185CB0ECCF352A7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Challenger-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		75B7B4D31FB9F4B70088B7EF /* Sources */ = {
@@ -152,8 +276,10 @@
 			files = (
 				75B7B4DD1FB9F4B70088B7EF /* ViewController.swift in Sources */,
 				75B7B4DB1FB9F4B70088B7EF /* AppDelegate.swift in Sources */,
+				DB5B01451FC5EACE00BD5F1A /* CalendarController.swift in Sources */,
+				754874991FBA3E4700EE2613 /* SingUpViewController.swift in Sources */,
+				DB5B01481FC5EB1B00BD5F1A /* CustomCell.swift in Sources */,
 				75B7B4E31FB9F4B70088B7EF /* Challenger.xcdatamodeld in Sources */,
-				DB7272CB1FBA057C00489165 /* Teste.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,13 +414,14 @@
 		};
 		75B7B4ED1FB9F4B70088B7EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50D75D6DA781FF239D486480 /* Pods-Challenger.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J762AZ7K8V;
 				INFOPLIST_FILE = Challenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = IFCE.Challenger;
+				PRODUCT_BUNDLE_IDENTIFIER = br.bepid.challenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -303,13 +430,14 @@
 		};
 		75B7B4EE1FB9F4B70088B7EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1354917724723FB0CE9EB1A /* Pods-Challenger.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J762AZ7K8V;
 				INFOPLIST_FILE = Challenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = IFCE.Challenger;
+				PRODUCT_BUNDLE_IDENTIFIER = br.bepid.challenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

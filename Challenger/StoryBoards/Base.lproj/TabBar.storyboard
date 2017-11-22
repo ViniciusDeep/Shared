@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SpZ-6y-gNv">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="yf4-C3-x3O">
+            <objects>
+                <tabBarController id="SpZ-6y-gNv" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FqM-bD-YZi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="0.95111029439999994" alpha="1" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="n3m-NH-Iwj" kind="relationship" relationship="viewControllers" id="cSn-1g-qzf"/>
+                        <segue destination="GOp-6A-ZUg" kind="relationship" relationship="viewControllers" id="NGr-bE-d0L"/>
+                        <segue destination="B22-AY-aG9" kind="relationship" relationship="viewControllers" id="hdj-do-oc6"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ACA-SD-qjM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-486" y="42"/>
+        </scene>
+        <!--MyGroups-->
+        <scene sceneID="fmu-lm-2hP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyGroups" id="n3m-NH-Iwj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Groups" image="ic_group_black" id="2pZ-H9-rOt"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y4p-Di-MwP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="222" y="-148"/>
+        </scene>
+        <!--SearchGroups-->
+        <scene sceneID="TKm-cN-FAu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchGroups" id="GOp-6A-ZUg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="ic_search_black" id="yTn-5j-4XX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Etm-f2-1P0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="222" y="22"/>
+        </scene>
+        <!--UserInfo-->
+        <scene sceneID="GnB-ZK-hJ6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserInfo" id="B22-AY-aG9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Account" image="ic_account_circle_black" id="mDr-D9-0KG"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vfL-1A-2Vp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="223" y="185"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_account_circle_black" width="24" height="24"/>
+        <image name="ic_group_black" width="24" height="24"/>
+        <image name="ic_search_black" width="24" height="24"/>
+    </resources>
+</document>
