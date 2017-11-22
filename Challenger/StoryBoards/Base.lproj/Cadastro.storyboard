@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o9P-7c-dfs">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,25 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Redirect View Controller-->
+        <scene sceneID="Hd6-K4-O2d">
+            <objects>
+                <viewController id="o9P-7c-dfs" customClass="RedirectViewController" customModule="Challenger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EDp-Nm-68G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="TGg-x5-1AX"/>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="userNotAuthenticated" action="showDetailViewController:sender:" id="owQ-TP-d5U"/>
+                        <segue destination="LZj-qF-lBe" kind="showDetail" identifier="userAuthenticated" id="ZYi-qd-T3n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZHm-wW-gqn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-404" y="176"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -74,7 +93,7 @@
                     <connections>
                         <outlet property="userEmail" destination="Oye-lS-E3I" id="lrh-5I-79Y"/>
                         <outlet property="userPassword" destination="5bL-ms-57I" id="7L7-wM-tbe"/>
-                        <segue destination="LZj-qF-lBe" kind="showDetail" identifier="userAuthenticated" id="Mmb-uy-9Cs"/>
+                        <segue destination="LZj-qF-lBe" kind="show" identifier="userAuthenticated" id="ZvD-G1-O5e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -163,4 +182,7 @@
         <image name="loginFacebook" width="573" height="100"/>
         <image name="loginGoogle" width="602" height="102"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZvD-G1-O5e"/>
+    </inferredMetricsTieBreakers>
 </document>
