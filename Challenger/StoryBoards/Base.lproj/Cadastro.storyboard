@@ -38,17 +38,17 @@
                                 <state key="normal" title="Button" image="loginGoogle"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8CI-md-ebh">
-                                <rect key="frame" x="297" y="606" width="57" height="30"/>
+                                <rect key="frame" x="299" y="606" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign-Up"/>
+                                <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <segue destination="Eez-Ik-KoA" kind="presentation" id="7hq-pZ-Plm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVc-Hf-XGs">
-                                <rect key="frame" x="8" y="606" width="131" height="30"/>
+                                <rect key="frame" x="18" y="606" width="112" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Forgout Password?"/>
+                                <state key="normal" title="Forgot account?"/>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ek-Rs-9Ll">
                                 <rect key="frame" x="33" y="402" width="295" height="52"/>
