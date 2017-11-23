@@ -14,7 +14,6 @@
 		75B7B4DD1FB9F4B70088B7EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */; };
 		75B7B4E01FB9F4B70088B7EF /* Cadastro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B7B4DE1FB9F4B70088B7EF /* Cadastro.storyboard */; };
 		75B7B4E81FB9F4B70088B7EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B7B4E61FB9F4B70088B7EF /* LaunchScreen.storyboard */; };
-		A40204F41FC360610029B022 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40204F31FC360610029B022 /* Group.swift */; };
 		A40204F91FC360790029B022 /* SearchGroups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40204F51FC360790029B022 /* SearchGroups.storyboard */; };
 		A40204FA1FC360790029B022 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40204F61FC360790029B022 /* TabBar.storyboard */; };
 		A40204FB1FC360790029B022 /* UserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40204F71FC360790029B022 /* UserInfo.storyboard */; };
@@ -31,6 +30,8 @@
 		A43645221FC36F08007BC6C3 /* UserInfoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43645211FC36F08007BC6C3 /* UserInfoDelegate.swift */; };
 		A43645271FC4BC4B007BC6C3 /* MyAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */; };
 		A43645291FC6082B007BC6C3 /* RedirectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43645281FC6082B007BC6C3 /* RedirectViewController.swift */; };
+		A47A18361FC748DC00F0B085 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A18351FC748DC00F0B085 /* Groups.swift */; };
+		A47A18381FC7491500F0B085 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A18371FC7491500F0B085 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +45,6 @@
 		75B7B4DF1FB9F4B70088B7EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Cadastro.storyboard; sourceTree = "<group>"; };
 		75B7B4E71FB9F4B70088B7EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75B7B4E91FB9F4B70088B7EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A40204F31FC360610029B022 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		A40204F51FC360790029B022 /* SearchGroups.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchGroups.storyboard; sourceTree = "<group>"; };
 		A40204F61FC360790029B022 /* TabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		A40204F71FC360790029B022 /* UserInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInfo.storyboard; sourceTree = "<group>"; };
@@ -61,6 +61,8 @@
 		A43645211FC36F08007BC6C3 /* UserInfoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDelegate.swift; sourceTree = "<group>"; };
 		A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountController.swift; sourceTree = "<group>"; };
 		A43645281FC6082B007BC6C3 /* RedirectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectViewController.swift; sourceTree = "<group>"; };
+		A47A18351FC748DC00F0B085 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
+		A47A18371FC7491500F0B085 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F1354917724723FB0CE9EB1A /* Pods-Challenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Challenger/Pods-Challenger.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,10 +129,10 @@
 		75B7B4D91FB9F4B70088B7EF /* Challenger */ = {
 			isa = PBXGroup;
 			children = (
+				A47A18341FC748BE00F0B085 /* Objects */,
 				A40205121FC363E20029B022 /* Imagens */,
 				A402050D1FC360A60029B022 /* Delegates */,
 				A40204FD1FC3607F0029B022 /* TableViewCells */,
-				A40204F21FC360610029B022 /* Model */,
 				75B7B4EF1FBA219E0088B7EF /* StoryBoards */,
 				754874971FBA3DFF00EE2613 /* Controllers */,
 				75B7B4E61FB9F4B70088B7EF /* LaunchScreen.storyboard */,
@@ -151,14 +153,6 @@
 				75B7B4DE1FB9F4B70088B7EF /* Cadastro.storyboard */,
 			);
 			path = StoryBoards;
-			sourceTree = "<group>";
-		};
-		A40204F21FC360610029B022 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A40204F31FC360610029B022 /* Group.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		A40204FD1FC3607F0029B022 /* TableViewCells */ = {
@@ -191,6 +185,15 @@
 			);
 			name = Imagens;
 			path = ../../eoq/Imagens;
+			sourceTree = "<group>";
+		};
+		A47A18341FC748BE00F0B085 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				A47A18351FC748DC00F0B085 /* Groups.swift */,
+				A47A18371FC7491500F0B085 /* User.swift */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,9 +355,10 @@
 				A43645291FC6082B007BC6C3 /* RedirectViewController.swift in Sources */,
 				A40205031FC360930029B022 /* TableViewGroups.swift in Sources */,
 				A40205111FC360A60029B022 /* SaveDelegate.swift in Sources */,
+				A47A18381FC7491500F0B085 /* User.swift in Sources */,
 				754874991FBA3E4700EE2613 /* SingUpViewController.swift in Sources */,
-				A40204F41FC360610029B022 /* Group.swift in Sources */,
 				A43645221FC36F08007BC6C3 /* UserInfoDelegate.swift in Sources */,
+				A47A18361FC748DC00F0B085 /* Groups.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
