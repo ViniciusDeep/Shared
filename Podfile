@@ -12,5 +12,5 @@ target 'Challenger' do
   pod ‘Firebase/Auth’
   pod ‘Firebase/Storage’ 
   pod ‘GoogleSignIn’
- 
+  pod 'SDWebImage', '~> 4.0'
 end
