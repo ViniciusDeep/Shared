@@ -19,6 +19,8 @@
 		DB5B01431FC5E8E700BD5F1A /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5B01421FC5E8E700BD5F1A /* Calendar.storyboard */; };
 		DB5B01451FC5EACE00BD5F1A /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */; };
 		DB5B01481FC5EB1B00BD5F1A /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B01471FC5EB1B00BD5F1A /* CustomCell.swift */; };
+		DBBC5DD91FC7286B00124B18 /* CalendarInvitesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC5DD81FC7286B00124B18 /* CalendarInvitesController.swift */; };
+		DBBC5DDB1FC7289B00124B18 /* CalendarRequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC5DDA1FC7289B00124B18 /* CalendarRequestsController.swift */; };
 		DBE3D68A1FC609A500067652 /* CalendarSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE3D6891FC609A500067652 /* CalendarSettingsController.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,8 @@
 		DB5B01421FC5E8E700BD5F1A /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		DB5B01471FC5EB1B00BD5F1A /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		DBBC5DD81FC7286B00124B18 /* CalendarInvitesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarInvitesController.swift; sourceTree = "<group>"; };
+		DBBC5DDA1FC7289B00124B18 /* CalendarRequestsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRequestsController.swift; sourceTree = "<group>"; };
 		DBE3D6891FC609A500067652 /* CalendarSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSettingsController.swift; sourceTree = "<group>"; };
 		F1354917724723FB0CE9EB1A /* Pods-Challenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Challenger/Pods-Challenger.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,7 +80,9 @@
 			children = (
 				754874981FBA3E4700EE2613 /* SingUpViewController.swift */,
 				DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */,
+				DBBC5DD81FC7286B00124B18 /* CalendarInvitesController.swift */,
 				DBE3D6891FC609A500067652 /* CalendarSettingsController.swift */,
+				DBBC5DDA1FC7289B00124B18 /* CalendarRequestsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -279,6 +285,8 @@
 			files = (
 				75B7B4DD1FB9F4B70088B7EF /* ViewController.swift in Sources */,
 				DBE3D68A1FC609A500067652 /* CalendarSettingsController.swift in Sources */,
+				DBBC5DDB1FC7289B00124B18 /* CalendarRequestsController.swift in Sources */,
+				DBBC5DD91FC7286B00124B18 /* CalendarInvitesController.swift in Sources */,
 				75B7B4DB1FB9F4B70088B7EF /* AppDelegate.swift in Sources */,
 				DB5B01451FC5EACE00BD5F1A /* CalendarController.swift in Sources */,
 				754874991FBA3E4700EE2613 /* SingUpViewController.swift in Sources */,
