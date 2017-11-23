@@ -8,19 +8,14 @@
 import UIKit
 import Foundation
 
-class CalendarSettingsController: UIViewController {
+class CalendarSettingsController: UITableViewController {
     
-    
-    @IBOutlet weak var settingsTableView: UITableView!
-    
-    @IBOutlet weak var groupTableViewCell: UITableViewCell!
-    
-    @IBOutlet weak var functionsTableViewCell: UITableViewCell!
-    
-    
-    @IBOutlet weak var leaveTableViewCell: UITableViewCell!
+  
+    @IBOutlet var settingsTableCalendarView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Settings"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,5 +24,11 @@ class CalendarSettingsController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0{
+            return CGFloat.leastNormalMagnitude
+        }
+        return CGFloat.init(3)
     }
 }
