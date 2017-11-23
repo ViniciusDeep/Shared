@@ -12,7 +12,6 @@ import JTAppleCalendar
 class CalendarController: UIViewController {
     
     @IBOutlet weak var calendarView: JTAppleCalendarView!
-    
     @IBOutlet weak var month: UILabel!
     @IBOutlet weak var year: UILabel!
     
@@ -22,6 +21,8 @@ class CalendarController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
