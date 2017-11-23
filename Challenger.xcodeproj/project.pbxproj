@@ -10,6 +10,8 @@
 		29E5DDA17FCBF8B1634E1C2A /* Pods_Challenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314CBC288D1157F65E85B08C /* Pods_Challenger.framework */; };
 		754874991FBA3E4700EE2613 /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754874981FBA3E4700EE2613 /* SingUpViewController.swift */; };
 		7548749B1FBB4DB300EE2613 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7548749A1FBB4DB300EE2613 /* Assets.xcassets */; };
+		75885A131FC73B7B00CE4F1A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75885A121FC73B7B00CE4F1A /* User.swift */; };
+		75885A151FC73BF800CE4F1A /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75885A141FC73BF800CE4F1A /* Groups.swift */; };
 		75B02A7B1FBB7AE8008DB651 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75B02A7A1FBB6255008DB651 /* GoogleService-Info.plist */; };
 		75B7B4DB1FB9F4B70088B7EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B4DA1FB9F4B70088B7EF /* AppDelegate.swift */; };
 		75B7B4DD1FB9F4B70088B7EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 		50D75D6DA781FF239D486480 /* Pods-Challenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Challenger/Pods-Challenger.debug.xcconfig"; sourceTree = "<group>"; };
 		754874981FBA3E4700EE2613 /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		7548749A1FBB4DB300EE2613 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		75885A121FC73B7B00CE4F1A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		75885A141FC73BF800CE4F1A /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		75B02A7A1FBB6255008DB651 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		75B7B4D71FB9F4B70088B7EF /* Challenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75B7B4DA1FB9F4B70088B7EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +75,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		75885A111FC73B3500CE4F1A /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				75885A121FC73B7B00CE4F1A /* User.swift */,
+				75885A141FC73BF800CE4F1A /* Groups.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
 		75B7B4CE1FB9F4B70088B7EF = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +109,7 @@
 				75B7B4DA1FB9F4B70088B7EF /* AppDelegate.swift */,
 				754874971FBA3DFF00EE2613 /* Controllers */,
 				75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */,
+				75885A111FC73B3500CE4F1A /* Objects */,
 				75B7B4E61FB9F4B70088B7EF /* LaunchScreen.storyboard */,
 				75B7B4E91FB9F4B70088B7EF /* Info.plist */,
 				75B7B4E11FB9F4B70088B7EF /* Challenger.xcdatamodeld */,
@@ -259,7 +273,9 @@
 				75B7B4DD1FB9F4B70088B7EF /* ViewController.swift in Sources */,
 				75B7B4DB1FB9F4B70088B7EF /* AppDelegate.swift in Sources */,
 				754874991FBA3E4700EE2613 /* SingUpViewController.swift in Sources */,
+				75885A131FC73B7B00CE4F1A /* User.swift in Sources */,
 				75B7B4E31FB9F4B70088B7EF /* Challenger.xcdatamodeld in Sources */,
+				75885A151FC73BF800CE4F1A /* Groups.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
