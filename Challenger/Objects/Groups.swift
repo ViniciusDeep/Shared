@@ -9,18 +9,18 @@
 import Foundation
 
 class Groups {
-    
     let name: String
-    let image: String
+    let imageKey: String
     let users: [User]
     let admin: [User]
+    let imageURL: URL
     
-    
-    init (name: String, image: String, admin: [User], users: [User]) {
+    init (name: String, imageKey: String, admin: [User], users: [User], imageURL: URL) {
         self.name = name
-        self.image = image
+        self.imageKey = imageKey
         self.users = users
         self.admin = admin
+        self.imageURL = imageURL
     }
     
     
