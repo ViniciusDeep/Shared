@@ -10,12 +10,12 @@ import Foundation
 
 class Groups {
     let name: String
-    let imageKey: String
-    let users: [User]
-    let admin: [User]
+    let imageKey: String?
+    let users: [User]?
+    let admin: [User]?
     let imageURL: URL
     
-    init (name: String, imageKey: String, admin: [User], users: [User], imageURL: URL) {
+    init (name: String, imageKey: String?, admin: [User]?, users: [User]?, imageURL: URL) {
         self.name = name
         self.imageKey = imageKey
         self.users = users
