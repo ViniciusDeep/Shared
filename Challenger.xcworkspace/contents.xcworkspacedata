@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/joao.albuquerque/Desktop/Challlenger/Challenger/Controllers/SearchGroupsViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:Challenger.xcodeproj">
    </FileRef>
    <FileRef
