@@ -66,7 +66,7 @@ class SingUpViewController: UIViewController {
        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             guard let user = user else {
                 return print("Usuário inexiste")
-    
+                
                 
             }
             if error != nil {

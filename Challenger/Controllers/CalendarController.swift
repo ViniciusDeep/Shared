@@ -8,26 +8,41 @@
 
 import Foundation
 import JTAppleCalendar
+import FirebaseAuth
+import FirebaseDatabase
+import Firebase
+import FirebaseStorage
 
-class CalendarController: UIViewController {
+class CalendarController: UIViewController{
     
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var month: UILabel!
     @IBOutlet weak var year: UILabel!
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var imageButtonOutlet: UIButton!
+    @IBOutlet weak var archiveButtonOutlet: UIButton!
+    @IBOutlet weak var textFieldOutlet: UITextField!
+    @IBOutlet weak var sendButtonOutlet: UIButton!
+    
     var thisCalendar = Calendar.current
+    var dateSelected = Date()
+    
+    var archives : [Archive] = []
     
     let formatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
         calendarView.scrollingMode = .stopAtEachSection
-        
+        hiddenChat(hide: true)
         calendarView.visibleDates { (visibleDates) in
             self.setupViewOfCalendar(from: visibleDates)
         }
@@ -35,7 +50,62 @@ class CalendarController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    //Buttons
     
+    @IBAction func buttonImageSend(_ sender: UIButton) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func buttonDownloadArchive(_ sender: UIButton) {
+    }
+    
+    
+    //Normal Functions
+    func hiddenChat(hide: Bool){
+        if(hide){
+            tableView.isHidden = true
+            imageButtonOutlet.isHidden = true
+            archiveButtonOutlet.isHidden = true
+            textFieldOutlet.isHidden = true
+            sendButtonOutlet.isHidden = true
+        }else{
+            tableView.isHidden = false
+            imageButtonOutlet.isHidden = false
+            archiveButtonOutlet.isHidden = false
+            textFieldOutlet.isHidden = false
+            sendButtonOutlet.isHidden = false
+        }
+    }
+    //Table View Functions
+    
+    
+//    //Firebase Functions
+//    func checkIfUserIsLoggedIn() {
+//        if Auth.auth().currentUser?.uid == nil {
+//            if Auth.auth().currentUser?.uid == nil {
+//                perform(#selector(HandleLogout), with: nil, afterDelay: 0)
+//            }else{
+//                Database.database().reference().child("user")
+//            }
+//        }
+//        
+//    }
+//    @objc func HandleLogout() {
+//        do {
+//            try Auth.auth().signOut()
+//        } catch let logoutError {
+//            print(logoutError)
+//        }
+//        
+//        let loginController = SingUpViewController()
+//        present(loginController, animated: true, completion: nil)
+//    }
+    
+//Calendar functions
     func setupViewOfCalendar(from visibleDates: DateSegmentInfo){
         let date = visibleDates.monthDates.first!.date
         formatter.dateFormat = "yyyy"
@@ -85,7 +155,7 @@ class CalendarController: UIViewController {
     
     
 }
-
+//Calendar extension
 extension CalendarController : JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
     func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         let cell = cell as! CustomCell
@@ -98,11 +168,14 @@ extension CalendarController : JTAppleCalendarViewDelegate, JTAppleCalendarViewD
         print(cellState.dateBelongsTo)
         handleCellTextColor(cell: cell, cellState: cellState)
         handleCellSelected(cell: cell, cellState: cellState)
+        dateSelected = date
+        hiddenChat(hide: false)
     }
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         print(cellState.dateBelongsTo)
         handleCellTextColor(cell: cell, cellState: cellState)
         handleCellSelected(cell: cell, cellState: cellState)
+        hiddenChat(hide: true)
     }
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
@@ -130,4 +203,45 @@ extension CalendarController : JTAppleCalendarViewDelegate, JTAppleCalendarViewD
         setupViewOfCalendar(from: visibleDates)
     }
     
+}
+//IMAGE PICKER EXTENSION
+extension CalendarController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//        formatter.dateFormat = "yyyy mM dd"
+//        formatter.timeZone = Calendar.current.timeZone
+//        formatter.locale = Calendar.current.locale
+        var imageUrl : String?
+        let timestamp = dateSelected.timeIntervalSince1970
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            let imageUploadManager = UploaderManager()
+            imageUploadManager.uploadImage(image, completionBlock: { (url,id, error) in
+                print(url?.absoluteString)
+                imageUrl = url?.absoluteString
+                var newArchive = Archive(name: id,groupID: "0", date: timestamp, archive: imageUrl!, type: "jpeg")
+                imageUploadManager.uploadArchive(archive: newArchive)
+            })
+        }
+        
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension CalendarController : UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Comment", for: indexPath)
+            return cell
+        }else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Archive", for: indexPath)
+            let archiveName = archives[indexPath.row].name
+            return cell
+        }
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return archives.count
+    }
 }
