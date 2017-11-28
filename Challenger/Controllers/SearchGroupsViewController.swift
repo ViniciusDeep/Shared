@@ -18,6 +18,10 @@ class SearchGroupsViewController: UIViewController, UISearchBarDelegate {
         searchBar.delegate = self
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if !groups.isEmpty {
+            self.groups.remove(at: 0)
+            self.tableView.reloadData()
+        }
         guard let text = searchBar.text else {
             return
         }
