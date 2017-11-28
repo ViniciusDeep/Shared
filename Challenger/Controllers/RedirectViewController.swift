@@ -27,6 +27,7 @@ class RedirectViewController: UIViewController {
     }
     func verifyIfSessionExists() {
         let user = Firebase.Auth.auth().currentUser
+        sleep(1)
         if user != nil {
             performSegue(withIdentifier: "userAuthenticated", sender: nil)
         }else {

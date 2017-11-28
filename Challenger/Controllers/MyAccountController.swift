@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class MyAccountController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

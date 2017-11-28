@@ -13,4 +13,7 @@ target 'Challenger' do
   pod ‘Firebase/Storage’ 
   pod ‘GoogleSignIn’
   pod 'SDWebImage', '~> 4.0'
+  pod 'HandyJSON', :git => 'https://github.com/alibaba/HandyJSON', :branch => 'dev_for_swift4.0'
+
+  
 end

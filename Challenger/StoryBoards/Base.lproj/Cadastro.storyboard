@@ -16,6 +16,17 @@
                     <view key="view" contentMode="scaleToFill" id="EDp-Nm-68G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_dos_meninos.png" translatesAutoresizingMaskIntoConstraints="NO" id="8kT-Ke-d0r">
+                                <rect key="frame" x="95" y="96" width="184" height="220"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Lm4-AU-ein">
+                                <rect key="frame" x="169" y="416" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="TGg-x5-1AX"/>
                     </view>
@@ -26,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZHm-wW-gqn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-404" y="176"/>
+            <point key="canvasLocation" x="-594.39999999999998" y="133.5832083958021"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -181,6 +192,7 @@
         <image name="imgPerfil" width="337" height="300"/>
         <image name="loginFacebook" width="573" height="100"/>
         <image name="loginGoogle" width="602" height="102"/>
+        <image name="logo_dos_meninos.png" width="702" height="710"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ZYi-qd-T3n"/>

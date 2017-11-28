@@ -6,9 +6,9 @@
 //  Copyright © 2017 Vinicius Mangueira Correia. All rights reserved.
 //
 
-import Foundation
+import HandyJSON
 
-class Groups {
+struct Groups {
     let name: String
     let imageKey: String?
     let users: [User]?
@@ -22,7 +22,7 @@ class Groups {
         self.admin = admin
         self.imageURL = imageURL
     }
-    
-    
-    
+
 }
+
+

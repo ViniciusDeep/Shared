@@ -27,10 +27,12 @@
 		A40205181FC363E30029B022 /* images-2.png in Resources */ = {isa = PBXBuildFile; fileRef = A40205141FC363E20029B022 /* images-2.png */; };
 		A40205191FC363E30029B022 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = A40205151FC363E20029B022 /* images.png */; };
 		A402051A1FC363E30029B022 /* slr_camera_application_slr_3037.png in Resources */ = {isa = PBXBuildFile; fileRef = A40205161FC363E20029B022 /* slr_camera_application_slr_3037.png */; };
+		A40889521FCCAD8D00F68818 /* logo_dos_meninos.png in Resources */ = {isa = PBXBuildFile; fileRef = A40889511FCCAD8D00F68818 /* logo_dos_meninos.png */; };
 		A43645221FC36F08007BC6C3 /* UserInfoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43645211FC36F08007BC6C3 /* UserInfoDelegate.swift */; };
 		A43645271FC4BC4B007BC6C3 /* MyAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */; };
 		A43645291FC6082B007BC6C3 /* RedirectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43645281FC6082B007BC6C3 /* RedirectViewController.swift */; };
 		A44573D01FCC9B8600F8F6DF /* SearchGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44573CF1FCC9B8600F8F6DF /* SearchGroupsViewController.swift */; };
+		A4578FA11FCDDAFB00E4DB8C /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4578FA01FCDDAFB00E4DB8C /* Group.swift */; };
 		A47A18361FC748DC00F0B085 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A18351FC748DC00F0B085 /* Groups.swift */; };
 		A47A18381FC7491500F0B085 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A18371FC7491500F0B085 /* User.swift */; };
 /* End PBXBuildFile section */
@@ -59,10 +61,12 @@
 		A40205141FC363E20029B022 /* images-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "images-2.png"; sourceTree = "<group>"; };
 		A40205151FC363E20029B022 /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
 		A40205161FC363E20029B022 /* slr_camera_application_slr_3037.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slr_camera_application_slr_3037.png; sourceTree = "<group>"; };
+		A40889511FCCAD8D00F68818 /* logo_dos_meninos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_dos_meninos.png; sourceTree = "<group>"; };
 		A43645211FC36F08007BC6C3 /* UserInfoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDelegate.swift; sourceTree = "<group>"; };
 		A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountController.swift; sourceTree = "<group>"; };
 		A43645281FC6082B007BC6C3 /* RedirectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectViewController.swift; sourceTree = "<group>"; };
 		A44573CF1FCC9B8600F8F6DF /* SearchGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchGroupsViewController.swift; path = /Users/joao.albuquerque/Desktop/Challlenger/Challenger/Controllers/SearchGroupsViewController.swift; sourceTree = "<absolute>"; };
+		A4578FA01FCDDAFB00E4DB8C /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		A47A18351FC748DC00F0B085 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		A47A18371FC7491500F0B085 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F1354917724723FB0CE9EB1A /* Pods-Challenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Challenger/Pods-Challenger.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 		A40205121FC363E20029B022 /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				A40889511FCCAD8D00F68818 /* logo_dos_meninos.png */,
 				A40205131FC363E20029B022 /* camera1600.png */,
 				A40205141FC363E20029B022 /* images-2.png */,
 				A40205151FC363E20029B022 /* images.png */,
@@ -195,6 +200,7 @@
 			children = (
 				A47A18351FC748DC00F0B085 /* Groups.swift */,
 				A47A18371FC7491500F0B085 /* User.swift */,
+				A4578FA01FCDDAFB00E4DB8C /* Group.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 				A40204FC1FC360790029B022 /* MyGroups.storyboard in Resources */,
 				A40205171FC363E30029B022 /* camera1600.png in Resources */,
 				75B7B4E81FB9F4B70088B7EF /* LaunchScreen.storyboard in Resources */,
+				A40889521FCCAD8D00F68818 /* logo_dos_meninos.png in Resources */,
 				75B02A7B1FBB7AE8008DB651 /* GoogleService-Info.plist in Resources */,
 				75B7B4E01FB9F4B70088B7EF /* Cadastro.storyboard in Resources */,
 				A40205191FC363E30029B022 /* images.png in Resources */,
@@ -307,6 +314,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -317,6 +325,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -359,6 +368,7 @@
 				A40205101FC360A60029B022 /* AppDelegate.swift in Sources */,
 				A43645291FC6082B007BC6C3 /* RedirectViewController.swift in Sources */,
 				A40205031FC360930029B022 /* TableViewGroups.swift in Sources */,
+				A4578FA11FCDDAFB00E4DB8C /* Group.swift in Sources */,
 				A40205111FC360A60029B022 /* SaveDelegate.swift in Sources */,
 				A47A18381FC7491500F0B085 /* User.swift in Sources */,
 				754874991FBA3E4700EE2613 /* SingUpViewController.swift in Sources */,
@@ -503,7 +513,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J762AZ7K8V;
+				DEVELOPMENT_TEAM = WYVM8V28A5;
 				INFOPLIST_FILE = Challenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.bepid.challenge;
@@ -519,7 +529,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J762AZ7K8V;
+				DEVELOPMENT_TEAM = WYVM8V28A5;
 				INFOPLIST_FILE = Challenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.bepid.challenge;

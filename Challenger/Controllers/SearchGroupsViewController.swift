@@ -1,10 +1,13 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import HandyJSON
+
+let dictionary = [String: String]()
 
 class SearchGroupsViewController: UIViewController, UISearchBarDelegate {
 
-    let groups : [Groups] = []
+    var groups : [Group] = []
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,33 +23,38 @@ class SearchGroupsViewController: UIViewController, UISearchBarDelegate {
         }
         let ref = Database.database().reference()
         ref.child("group").observeSingleEvent(of: .value, with: { (snapshot) in
+            let snapshots = snapshot.children.allObjects.flatMap { $0 as? DataSnapshot }
             
-            if snapshot.value as? NSDictionary != nil{
-                let dict = snapshot.value as! NSDictionary
-                let names = (dict.allKeys.flatMap{ dict.value(forKey: String(describing: $0)) } as? [NSDictionary])?.flatMap{ $0.value(forKey: "name") } as? [String]
-                if (names?.contains(text))! {
-                    
-                }else {
-                    return
-                }
+            let keys = snapshots.map { $0.key }
+            
+            var groups = (snapshots.flatMap { Group.deserialize(from: $0.value as? NSDictionary) })
+                .enumerated()
+                .flatMap { index, group -> Group in
+                    group.key = keys[index]
+                    return group
             }
-        
-    })
-}
+            let group = groups.filter { $0.name! == text }.first
+            if let group = group {
+                self.groups.append(group)
+                self.tableView.reloadData()
+            }
+        })
+    }
 }
 
 extension SearchGroupsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CellGroups
         cell.nameGroup.text = groups[indexPath.row].name
-        cell.imageGroup.sd_setImage(with: groups[indexPath.row].imageURL, completed: nil)
+        let url = URL(string: groups[indexPath.row].image! )
+        cell.imageGroup.sd_setImage(with: url, completed: nil)
         cell.imageGroup.layer.cornerRadius = cell.imageGroup.frame.size.width / 2
         cell.imageGroup.layer.masksToBounds = true
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        return groups.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 126

@@ -87,10 +87,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="zA0-Pt-MSZ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Search Groups" id="pjd-mU-eDx">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ruo-ta-FTm"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Search Groups" id="pjd-mU-eDx"/>
                     <connections>
+                        <outlet property="searchBar" destination="hzH-s8-oBp" id="8Ph-Md-f5r"/>
                         <outlet property="tableView" destination="hme-y1-HX9" id="z1A-bG-hcj"/>
                     </connections>
                 </viewController>
