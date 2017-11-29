@@ -13,5 +13,7 @@ class Group: HandyJSON {
     var name: String?
     var image: String?
     var key: String?
+    var users: [String]?
+    var admin: [String]?
     required init() {}
 }
