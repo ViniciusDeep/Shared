@@ -35,29 +35,6 @@ class FilesManager: NSObject {
             completionBlock(nil,nil, "Image not converted to Data.")
         }
     }
-    func uploadComment(_ comment: String, completionBlock: @escaping (_ url: URL?,_ imageID: String?, _ errorMessage: String?) -> Void) {
-        let storage = Storage.storage()
-        let storageReference = storage.reference()
-        //let imageName = "\().jpg"
-        let autoID = Database.database().reference().childByAutoId().key
-        let imagesReference = storageReference.child("UploadedImages").child(autoID)
-        
-        if let commentData = comment.data(using: .utf8){
-            let metadata = StorageMetadata()
-            metadata.contentType = "text"
-            
-            _ = imagesReference.putData(commentData, metadata: metadata, completion: { (metadata, error) in
-                if let metadata = metadata {
-                    completionBlock(metadata.downloadURL(), autoID, nil)
-                }else {
-                    completionBlock(nil,nil, error?.localizedDescription)
-                }
-            })
-            
-        }else {
-            completionBlock(nil,nil, "Image not converted to Data.")
-        }
-    }
     func uploadArchive(archive: Archive){
         
         let ref = Database.database().reference()

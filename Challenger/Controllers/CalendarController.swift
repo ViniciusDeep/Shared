@@ -39,8 +39,10 @@ class CalendarController: UIViewController{
         
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
+        calendarView.scrollToDate(Date())
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
         calendarView.scrollingMode = .stopAtEachSection
         hiddenChat(hide: true)
         calendarView.visibleDates { (visibleDates) in
@@ -62,21 +64,18 @@ class CalendarController: UIViewController{
     
     @IBAction func buttonTextSend(_ sender: UIButton) {
         if(textFieldOutlet.text != ""){
-            var commentURL : String?
             let timestamp = dateSelected.timeIntervalSince1970
             let textFilesManager = FilesManager()
-            textFilesManager.uploadComment(textFieldOutlet.text!, completionBlock: { (url,id, error) in
-                print(url?.absoluteString)
-                commentURL = url?.absoluteString
-                let newArchive = Archive(name: id,groupID: "0", date: timestamp, archive: commentURL!, type: "text")
-                textFilesManager.uploadArchive(archive: newArchive)
-            })
+            let autoID = Database.database().reference().childByAutoId().key
+            let newArchive = Archive(name: autoID,groupID: "0", date: timestamp, archive: self.textFieldOutlet.text!, type: "text")
+            textFilesManager.uploadArchive(archive: newArchive)
+            self.archives.append(newArchive)
+            self.tableView.reloadData()
             textFieldOutlet.text = ""
         }else{
             
         }
     }
-    
     //Normal Functions
     func hiddenChat(hide: Bool){
         if(hide){
@@ -93,8 +92,16 @@ class CalendarController: UIViewController{
             sendButtonOutlet.isHidden = false
         }
     }
-    
-    
+    func isSameDay(dayOne: TimeInterval, dayTwo: TimeInterval) -> Bool{
+        let dateOne = Date(timeIntervalSince1970: dayOne)
+        let dateTwo = Date(timeIntervalSince1970: dayTwo)
+        let calendar = Calendar.current
+        let sameYear = calendar.component(.year, from: dateOne) == calendar.component(.year, from: dateTwo)
+        let sameDay = calendar.component(.day, from: dateOne) == calendar.component(.day, from: dateTwo)
+        let sameMonth = calendar.component(.month, from: dateOne) == calendar.component(.month, from: dateTwo)
+        return  sameDay && sameYear && sameMonth
+    }
+    //Calendar Functions
     func setupViewOfCalendar(from visibleDates: DateSegmentInfo){
         let date = visibleDates.monthDates.first!.date
         formatter.dateFormat = "yyyy"
@@ -141,10 +148,31 @@ class CalendarController: UIViewController{
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
     }
-    
+    //Table Functions
+    func populateTableView(date: Double, groupID : String) {
+        if !archives.isEmpty {
+            self.archives.removeAll()
+            tableView.reloadData()
+        }
+        let ref = Database.database().reference()
+        ref.child("archives/0").observeSingleEvent(of: .value, with: { (snapshot) in
+            let snapshots = snapshot.children.allObjects.flatMap { $0 as? DataSnapshot }
+            
+            let keys = snapshots.map { $0.key }
+            
+            var archives = (snapshots.flatMap { Archive.deserialize(from: $0.value as? NSDictionary) })
+                .enumerated()
+                .flatMap { index, archive -> Archive in
+                    archive.archiveID = keys[index]
+                    return archive
+            }
+            self.archives = archives.filter { $0.groupID! == groupID && self.isSameDay(dayOne: $0.date ?? 0, dayTwo: date)}
+            self.tableView.reloadData()
+        })
+    }
     
 }
-//Calendar extension
+//Calendar extensions
 extension CalendarController : JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
     func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         let cell = cell as! CustomCell
@@ -154,10 +182,10 @@ extension CalendarController : JTAppleCalendarViewDelegate, JTAppleCalendarViewD
         handleCellTextColor(cell: cell, cellState: cellState)
     }
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        print(cellState.dateBelongsTo)
         handleCellTextColor(cell: cell, cellState: cellState)
         handleCellSelected(cell: cell, cellState: cellState)
         dateSelected = date
+        populateTableView(date: date.timeIntervalSince1970, groupID: "0")
         
         hiddenChat(hide: false)
     }
@@ -194,7 +222,7 @@ extension CalendarController : JTAppleCalendarViewDelegate, JTAppleCalendarViewD
     }
     
 }
-//IMAGE PICKER EXTENSION
+//Image Picker Extensions
 extension CalendarController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
@@ -212,23 +240,24 @@ extension CalendarController : UIImagePickerControllerDelegate, UINavigationCont
                 imageUrl = url?.absoluteString
                 let newArchive = Archive(name: id,groupID: "0", date: timestamp, archive: imageUrl!, type: "jpeg")
                 imagesFilesManager.uploadArchive(archive: newArchive)
+                self.archives.append(newArchive)
+                self.tableView.reloadData()
             })
         }
-        
         
         picker.dismiss(animated: true, completion: nil)
     }
 }
-
+//Table extensions
 extension CalendarController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let archive = archives[indexPath.row]
         switch(archive.type!){
-        case "Comment":
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Comment", for: indexPath) as? FileArchiveCell
-            cell?.textLabel?.text = archive.archive
-            return cell!
-        case "png":
+        case "text":
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Comment", for: indexPath)
+            cell.textLabel?.text = archive.archive
+            return cell
+        case "jpeg":
             let cell = tableView.dequeueReusableCell(withIdentifier: "Archive", for: indexPath) as? FileArchiveCell
             cell?.archiveLabel.text = archive.name
             return cell!
@@ -236,7 +265,12 @@ extension CalendarController : UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return archives.count
+        return self.archives.count
     }
 }
