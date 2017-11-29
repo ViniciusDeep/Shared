@@ -2,7 +2,7 @@
 //  User.swift
 //  Challenger
 //
-//  Created by João Luiz dos Santos Albuquerque on 23/11/17.
+//  Created by Vinicius Mangueira Correia on 23/11/17.
 //  Copyright © 2017 Vinicius Mangueira Correia. All rights reserved.
 //
 
@@ -19,6 +19,4 @@ class User {
         self.image = image
         self.id = id
     }
-    
-    
 }
