@@ -12,13 +12,16 @@ import FirebaseAuth
 
 class MyAccountController: UIViewController {
 
+    @IBOutlet weak var email: UILabel!
+    
+    @IBOutlet weak var logOut: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        let user = Firebase.Auth.auth().currentUser
+        email.text = user?.email
+        self.logOut.layer.cornerRadius = self.logOut.frame.size.width / 1.5
+        self.logOut.layer.masksToBounds = true
     }
 
     @IBAction func logOut(_ sender: Any) {

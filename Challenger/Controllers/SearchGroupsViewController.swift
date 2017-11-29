@@ -13,6 +13,7 @@ class SearchGroupsViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
