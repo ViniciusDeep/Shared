@@ -28,7 +28,7 @@ class CalendarController: UIViewController{
     
     var thisCalendar = Calendar.current
     var dateSelected = Date()
-    
+
     var archives : [Archive] = []
     
     let formatter = DateFormatter()
@@ -60,9 +60,22 @@ class CalendarController: UIViewController{
         self.present(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func buttonDownloadArchive(_ sender: UIButton) {
+    @IBAction func buttonTextSend(_ sender: UIButton) {
+        if(textFieldOutlet.text != ""){
+            var commentURL : String?
+            let timestamp = dateSelected.timeIntervalSince1970
+            let textFilesManager = FilesManager()
+            textFilesManager.uploadComment(textFieldOutlet.text!, completionBlock: { (url,id, error) in
+                print(url?.absoluteString)
+                commentURL = url?.absoluteString
+                let newArchive = Archive(name: id,groupID: "0", date: timestamp, archive: commentURL!, type: "text")
+                textFilesManager.uploadArchive(archive: newArchive)
+            })
+            textFieldOutlet.text = ""
+        }else{
+            
+        }
     }
-    
     
     //Normal Functions
     func hiddenChat(hide: Bool){
@@ -80,32 +93,8 @@ class CalendarController: UIViewController{
             sendButtonOutlet.isHidden = false
         }
     }
-    //Table View Functions
     
     
-//    //Firebase Functions
-//    func checkIfUserIsLoggedIn() {
-//        if Auth.auth().currentUser?.uid == nil {
-//            if Auth.auth().currentUser?.uid == nil {
-//                perform(#selector(HandleLogout), with: nil, afterDelay: 0)
-//            }else{
-//                Database.database().reference().child("user")
-//            }
-//        }
-//        
-//    }
-//    @objc func HandleLogout() {
-//        do {
-//            try Auth.auth().signOut()
-//        } catch let logoutError {
-//            print(logoutError)
-//        }
-//        
-//        let loginController = SingUpViewController()
-//        present(loginController, animated: true, completion: nil)
-//    }
-    
-//Calendar functions
     func setupViewOfCalendar(from visibleDates: DateSegmentInfo){
         let date = visibleDates.monthDates.first!.date
         formatter.dateFormat = "yyyy"
@@ -169,6 +158,7 @@ extension CalendarController : JTAppleCalendarViewDelegate, JTAppleCalendarViewD
         handleCellTextColor(cell: cell, cellState: cellState)
         handleCellSelected(cell: cell, cellState: cellState)
         dateSelected = date
+        
         hiddenChat(hide: false)
     }
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
@@ -216,12 +206,12 @@ extension CalendarController : UIImagePickerControllerDelegate, UINavigationCont
         var imageUrl : String?
         let timestamp = dateSelected.timeIntervalSince1970
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
-            let imageUploadManager = UploaderManager()
-            imageUploadManager.uploadImage(image, completionBlock: { (url,id, error) in
+            let imagesFilesManager = FilesManager()
+            imagesFilesManager.uploadImage(image, completionBlock: { (url,id, error) in
                 print(url?.absoluteString)
                 imageUrl = url?.absoluteString
-                var newArchive = Archive(name: id,groupID: "0", date: timestamp, archive: imageUrl!, type: "jpeg")
-                imageUploadManager.uploadArchive(archive: newArchive)
+                let newArchive = Archive(name: id,groupID: "0", date: timestamp, archive: imageUrl!, type: "jpeg")
+                imagesFilesManager.uploadArchive(archive: newArchive)
             })
         }
         
@@ -232,13 +222,18 @@ extension CalendarController : UIImagePickerControllerDelegate, UINavigationCont
 
 extension CalendarController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Comment", for: indexPath)
-            return cell
-        }else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Archive", for: indexPath)
-            let archiveName = archives[indexPath.row].name
-            return cell
+        let archive = archives[indexPath.row]
+        switch(archive.type!){
+        case "Comment":
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Comment", for: indexPath) as? FileArchiveCell
+            cell?.textLabel?.text = archive.archive
+            return cell!
+        case "png":
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Archive", for: indexPath) as? FileArchiveCell
+            cell?.archiveLabel.text = archive.name
+            return cell!
+        default:
+            return UITableViewCell()
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

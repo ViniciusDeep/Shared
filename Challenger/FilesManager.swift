@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 import FirebaseStorage
-class UploaderManager: NSObject {
+class FilesManager: NSObject {
     
     func uploadImage(_ image: UIImage, completionBlock: @escaping (_ url: URL?,_ imageID: String?, _ errorMessage: String?) -> Void) {
         let storage = Storage.storage()
@@ -34,6 +35,29 @@ class UploaderManager: NSObject {
             completionBlock(nil,nil, "Image not converted to Data.")
         }
     }
+    func uploadComment(_ comment: String, completionBlock: @escaping (_ url: URL?,_ imageID: String?, _ errorMessage: String?) -> Void) {
+        let storage = Storage.storage()
+        let storageReference = storage.reference()
+        //let imageName = "\().jpg"
+        let autoID = Database.database().reference().childByAutoId().key
+        let imagesReference = storageReference.child("UploadedImages").child(autoID)
+        
+        if let commentData = comment.data(using: .utf8){
+            let metadata = StorageMetadata()
+            metadata.contentType = "text"
+            
+            _ = imagesReference.putData(commentData, metadata: metadata, completion: { (metadata, error) in
+                if let metadata = metadata {
+                    completionBlock(metadata.downloadURL(), autoID, nil)
+                }else {
+                    completionBlock(nil,nil, error?.localizedDescription)
+                }
+            })
+            
+        }else {
+            completionBlock(nil,nil, "Image not converted to Data.")
+        }
+    }
     func uploadArchive(archive: Archive){
         
         let ref = Database.database().reference()
@@ -46,6 +70,23 @@ class UploaderManager: NSObject {
                     "name" : archive.name, "date": archive.date,
                     "archive" : archive.archive, "type" : archive.type] as [String : Any]
         
-        archiveReference.child(archive.groupID).child(key).setValue(post)
+        archiveReference.child(archive.groupID!).child(key).setValue(post)
     }
+//    func receiveArchive(type : String) -> Archive?{
+//        let storage = Storage.storage()
+//        let storageRef = storage.reference()
+//        let archiveRef = storageRef.child("UploadedImages/archive.png")
+//        archiveRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+//            if let error = error {
+//
+//            }else {
+//                if(type == "Archive"){
+//                    let archive = UIImage(data : data!)
+//                }else{
+//                    let archive = UILabel(
+//                }
+//
+//            }
+//        }
+//    }
 }

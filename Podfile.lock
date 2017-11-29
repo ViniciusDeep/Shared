@@ -53,6 +53,7 @@ PODS:
   - GTMSessionFetcher/Core (1.1.12)
   - GTMSessionFetcher/Full (1.1.12):
     - GTMSessionFetcher/Core (= 1.1.12)
+  - HandyJSON (4.0.0-beta.1)
   - JTAppleCalendar (7.1.4)
   - leveldb-library (1.20)
   - nanopb (0.3.8):
@@ -70,8 +71,19 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - GoogleSignIn
+  - HandyJSON (from `https://github.com/alibaba/HandyJSON`, branch `dev_for_swift4.0`)
   - JTAppleCalendar (~> 7.0)
   - SDWebImage (~> 4.2)
+
+EXTERNAL SOURCES:
+  HandyJSON:
+    :branch: dev_for_swift4.0
+    :git: https://github.com/alibaba/HandyJSON
+
+CHECKOUT OPTIONS:
+  HandyJSON:
+    :commit: 9701df1c296e3ba6a11fc0194d4ab8f1e77df873
+    :git: https://github.com/alibaba/HandyJSON
 
 SPEC CHECKSUMS:
   Firebase: 27321a925aa85520618255a7c630859e0502ccbd
@@ -85,11 +97,12 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMOAuth2: be83fd28d63ae3087e7d351b1f39c1a7e24ab6e7
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
+  HandyJSON: fe8eb05d9dcc1891d5c181758930d340295e0913
   JTAppleCalendar: aaeee95e939e0b0a381fb51eb77738bd26bb10f6
   leveldb-library: 4f9eedf84ab46b4fa3b7893bf30714b2a1a74022
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
 
-PODFILE CHECKSUM: 74fd55df681540e0595394659866016f382b239c
+PODFILE CHECKSUM: 55da6daad652c0176f82a42647d1d32fa5728480
 
 COCOAPODS: 1.3.1

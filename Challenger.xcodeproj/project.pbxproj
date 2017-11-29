@@ -16,7 +16,7 @@
 		75B7B4E01FB9F4B70088B7EF /* Cadastro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B7B4DE1FB9F4B70088B7EF /* Cadastro.storyboard */; };
 		75B7B4E31FB9F4B70088B7EF /* Challenger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B4E11FB9F4B70088B7EF /* Challenger.xcdatamodeld */; };
 		75B7B4E81FB9F4B70088B7EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B7B4E61FB9F4B70088B7EF /* LaunchScreen.storyboard */; };
-		DB5AE6951FCC97A1008DC8F7 /* UploaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5AE6941FCC97A1008DC8F7 /* UploaderManager.swift */; };
+		DB5AE6951FCC97A1008DC8F7 /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */; };
 		DB5B01431FC5E8E700BD5F1A /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5B01421FC5E8E700BD5F1A /* Calendar.storyboard */; };
 		DB5B01451FC5EACE00BD5F1A /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */; };
 		DB5B01481FC5EB1B00BD5F1A /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B01471FC5EB1B00BD5F1A /* CustomCell.swift */; };
@@ -26,6 +26,7 @@
 		DBBC5DDB1FC7289B00124B18 /* CalendarRequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC5DDA1FC7289B00124B18 /* CalendarRequestsController.swift */; };
 		DBBC5DDE1FC7359F00124B18 /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC5DDD1FC7359F00124B18 /* Archive.swift */; };
 		DBBC5DE01FC73F3D00124B18 /* CalendarSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBC5DDF1FC73F3D00124B18 /* CalendarSettings.storyboard */; };
+		DBDEE12C1FCDF71E0078C664 /* FileArchiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDEE12B1FCDF71E0078C664 /* FileArchiveCell.swift */; };
 		DBE3D68A1FC609A500067652 /* CalendarSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE3D6891FC609A500067652 /* CalendarSettingsController.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +43,7 @@
 		75B7B4E21FB9F4B70088B7EF /* Challenger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Challenger.xcdatamodel; sourceTree = "<group>"; };
 		75B7B4E71FB9F4B70088B7EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75B7B4E91FB9F4B70088B7EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB5AE6941FCC97A1008DC8F7 /* UploaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploaderManager.swift; sourceTree = "<group>"; };
+		DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
 		DB5B01421FC5E8E700BD5F1A /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		DB5B01471FC5EB1B00BD5F1A /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 		DBBC5DDA1FC7289B00124B18 /* CalendarRequestsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRequestsController.swift; sourceTree = "<group>"; };
 		DBBC5DDD1FC7359F00124B18 /* Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archive.swift; sourceTree = "<group>"; };
 		DBBC5DDF1FC73F3D00124B18 /* CalendarSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalendarSettings.storyboard; sourceTree = "<group>"; };
+		DBDEE12B1FCDF71E0078C664 /* FileArchiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileArchiveCell.swift; sourceTree = "<group>"; };
 		DBE3D6891FC609A500067652 /* CalendarSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSettingsController.swift; sourceTree = "<group>"; };
 		F1354917724723FB0CE9EB1A /* Pods-Challenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Challenger/Pods-Challenger.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,7 +129,7 @@
 				75B7B4E61FB9F4B70088B7EF /* LaunchScreen.storyboard */,
 				DB5AE6961FCC9815008DC8F7 /* Managers */,
 				75B7B4E91FB9F4B70088B7EF /* Info.plist */,
-				DB5AE6941FCC97A1008DC8F7 /* UploaderManager.swift */,
+				DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */,
 				75B7B4E11FB9F4B70088B7EF /* Challenger.xcdatamodeld */,
 				75B02A7A1FBB6255008DB651 /* GoogleService-Info.plist */,
 				7548749A1FBB4DB300EE2613 /* Assets.xcassets */,
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				DB5B01471FC5EB1B00BD5F1A /* CustomCell.swift */,
+				DBDEE12B1FCDF71E0078C664 /* FileArchiveCell.swift */,
 			);
 			path = CellGroup;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -282,6 +286,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -321,11 +326,12 @@
 				DBBC5DDE1FC7359F00124B18 /* Archive.swift in Sources */,
 				DBE3D68A1FC609A500067652 /* CalendarSettingsController.swift in Sources */,
 				DBBC5DDB1FC7289B00124B18 /* CalendarRequestsController.swift in Sources */,
+				DBDEE12C1FCDF71E0078C664 /* FileArchiveCell.swift in Sources */,
 				DBBC5DD91FC7286B00124B18 /* CalendarInvitesController.swift in Sources */,
 				75B7B4DB1FB9F4B70088B7EF /* AppDelegate.swift in Sources */,
 				DB5B01451FC5EACE00BD5F1A /* CalendarController.swift in Sources */,
 				754874991FBA3E4700EE2613 /* SingUpViewController.swift in Sources */,
-				DB5AE6951FCC97A1008DC8F7 /* UploaderManager.swift in Sources */,
+				DB5AE6951FCC97A1008DC8F7 /* FilesManager.swift in Sources */,
 				DB5B01481FC5EB1B00BD5F1A /* CustomCell.swift in Sources */,
 				75B7B4E31FB9F4B70088B7EF /* Challenger.xcdatamodeld in Sources */,
 				DBB78C451FC74205001D1B81 /* User.swift in Sources */,

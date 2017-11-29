@@ -7,19 +7,22 @@
 //
 
 import Foundation
-
-class Archive {
+import HandyJSON
+class Archive : HandyJSON{
+    
     var archiveID: String?
-    let groupID : String!
-    let date : Double!
+    var groupID : String?
+    var date : Double?
     var name :  String?
-    var archive : String!
-    var type : String!
-    init(name:String?,groupID: String,date: Double, archive: String, type: String){
+    var archive : String?
+    var type : String?
+    init(name:String?,groupID: String?,date: Double?, archive: String?, type: String?){
         self.name = name
         self.groupID = groupID
         self.date = date
         self.archive = archive
         self.type = type
     }
+     required init() {}
+    
 }

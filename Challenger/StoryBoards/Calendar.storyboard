@@ -180,7 +180,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Archive" rowHeight="92" id="68f-nK-ddN">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Archive" rowHeight="92" id="68f-nK-ddN" customClass="FileArchiveCell" customModule="Challenger" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="68f-nK-ddN" id="r8j-dZ-JDw">
@@ -199,11 +199,14 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Download"/>
                                                     <connections>
-                                                        <action selector="buttonDownloadArchive:" destination="RGy-J3-no2" eventType="touchUpInside" id="znY-QL-nnN"/>
+                                                        <action selector="buttonDownload:" destination="68f-nK-ddN" eventType="touchUpInside" id="196-bh-6TZ"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="archiveLabel" destination="xWr-3O-ING" id="ojc-iU-BxX"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -211,6 +214,9 @@
                                 <rect key="frame" x="343" y="586" width="26" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="ic_send"/>
+                                <connections>
+                                    <action selector="buttonTextSend:" destination="RGy-J3-no2" eventType="touchUpInside" id="OSY-C7-ZgE"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a8x-7o-hV6">
                                 <rect key="frame" x="62" y="583" width="279" height="30"/>
