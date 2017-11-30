@@ -20,7 +20,7 @@ class MyAccountController: UIViewController {
         super.viewDidLoad()
         let user = Firebase.Auth.auth().currentUser
         email.text = user?.email
-        self.logOut.layer.cornerRadius = self.logOut.frame.size.width / 1.5
+        self.logOut.layer.cornerRadius = self.logOut.frame.size.width / 80
         self.logOut.layer.masksToBounds = true
     }
 

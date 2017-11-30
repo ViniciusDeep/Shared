@@ -28,7 +28,7 @@ class CalendarController: UIViewController{
     
     var thisCalendar = Calendar.current
     var dateSelected = Date()
-
+    var group : Group? = nil
     var archives : [Archive] = []
     
     let formatter = DateFormatter()
@@ -76,6 +76,11 @@ class CalendarController: UIViewController{
             
         }
     }
+    
+    @IBAction func backButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     //Normal Functions
     func hiddenChat(hide: Bool){
         if(hide){
@@ -247,6 +252,7 @@ extension CalendarController : UIImagePickerControllerDelegate, UINavigationCont
         
         picker.dismiss(animated: true, completion: nil)
     }
+    
 }
 //Table extensions
 extension CalendarController : UITableViewDataSource, UITableViewDelegate {

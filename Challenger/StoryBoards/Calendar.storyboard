@@ -295,6 +295,11 @@
                         <viewLayoutGuide key="safeArea" id="wLo-jL-c6w"/>
                     </view>
                     <navigationItem key="navigationItem" title="Group Name" id="jLT-BS-c94">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="B5F-w5-BAe">
+                            <connections>
+                                <action selector="backButton:" destination="RGy-J3-no2" id="g2w-Kq-2kA"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ic_settings" id="g1j-gy-vuG">
                             <connections>
                                 <segue destination="hZV-9g-rHR" kind="show" id="R5Q-YM-HjM"/>
