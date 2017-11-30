@@ -131,7 +131,7 @@ class AddGroup: UIViewController, UITextFieldDelegate {
         let user = User(email: email!, image: key, id: uid)
         if let imageData = UIImagePNGRepresentation(image) {
             sendMedia(image: imageData , imageKey: key, completion: {(url) in
-                database.child("group").child(key).updateChildValues(["name": name, "image": url.absoluteString, "admin": [user.id], "users": [user.id], "imageKey" : key])
+                database.child("group").child(key).updateChildValues(["name": name, "image": url.absoluteString, "admin": [user.id], "users": [user.id], "key" : key])
                 self.dismiss(animated: true, completion: {
                 self.didCreateGroup?.didAdd(name, key, [user.id], [user.id], url.absoluteString)
                 })

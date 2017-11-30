@@ -25,18 +25,16 @@ class CalendarController: UIViewController{
     @IBOutlet weak var archiveButtonOutlet: UIButton!
     @IBOutlet weak var textFieldOutlet: UITextField!
     @IBOutlet weak var sendButtonOutlet: UIButton!
-    
     var thisCalendar = Calendar.current
     var dateSelected = Date()
     var group : Group? = nil
     var archives : [Archive] = []
-    
     let formatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
+        self.title = group?.name
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
         calendarView.scrollToDate(Date())
@@ -67,7 +65,7 @@ class CalendarController: UIViewController{
             let timestamp = dateSelected.timeIntervalSince1970
             let textFilesManager = FilesManager()
             let autoID = Database.database().reference().childByAutoId().key
-            let newArchive = Archive(name: autoID,groupID: "0", date: timestamp, archive: self.textFieldOutlet.text!, type: "text")
+            let newArchive = Archive(name: autoID,groupID: group?.key, date: timestamp, archive: self.textFieldOutlet.text!, type: "text")
             textFilesManager.uploadArchive(archive: newArchive)
             self.archives.append(newArchive)
             self.tableView.reloadData()
@@ -160,7 +158,10 @@ class CalendarController: UIViewController{
             tableView.reloadData()
         }
         let ref = Database.database().reference()
-        ref.child("archives/0").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("archives/" + (group?.key)!).observeSingleEvent(of: .value, with: { (snapshot) in
+            if !snapshot.exists() {
+                return
+            }
             let snapshots = snapshot.children.allObjects.flatMap { $0 as? DataSnapshot }
             
             let keys = snapshots.map { $0.key }
@@ -243,7 +244,7 @@ extension CalendarController : UIImagePickerControllerDelegate, UINavigationCont
             imagesFilesManager.uploadImage(image, completionBlock: { (url,id, error) in
                 print(url?.absoluteString)
                 imageUrl = url?.absoluteString
-                let newArchive = Archive(name: id,groupID: "0", date: timestamp, archive: imageUrl!, type: "jpeg")
+                let newArchive = Archive(name: id,groupID: self.group?.key, date: timestamp, archive: imageUrl!, type: "jpeg")
                 imagesFilesManager.uploadArchive(archive: newArchive)
                 self.archives.append(newArchive)
                 self.tableView.reloadData()
