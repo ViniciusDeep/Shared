@@ -6,7 +6,7 @@ target 'Challenger' do
   use_frameworks!
 
   # Pods for Challenger
-  pod 'JTAppleCalendar', '~> 7.0’
+  pod 'JTAppleCalendar'
   pod ‘Firebase/Core’
   pod ‘Firebase/Database’
   pod ‘Firebase/Auth’
@@ -14,6 +14,4 @@ target 'Challenger' do
   pod ‘GoogleSignIn’
   pod 'SDWebImage', '~> 4.2'
   pod 'HandyJSON', :git => 'https://github.com/alibaba/HandyJSON', :branch => 'dev_for_swift4.0'
-
-
 end

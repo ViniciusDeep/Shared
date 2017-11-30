@@ -64,7 +64,7 @@ class AddGroup: UIViewController, UITextFieldDelegate {
             return
         }
    //     sendMedia(image: UIImagePNGRepresentation(image.image!)!)
-        self.dismiss(animated: true, completion: {self.didCreateGroup?.didAdd(name, image)})
+        self.dismiss(animated: true, completion: {self.didCreateGroup?.didAdd(name, image, admin: <#[User]#>)})
     }
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)

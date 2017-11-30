@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fJc-uz-IXr">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search-->
+        <scene sceneID="zgt-Cd-Ahc">
+            <objects>
+                <navigationController storyboardIdentifier="SearchGroups" id="fJc-uz-IXr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="ic_search_black" id="OLr-oI-M24"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NV0-nX-c0C">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lqs-OD-W8y" kind="relationship" relationship="rootViewController" id="wTQ-Rt-aXR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hmL-AB-oB2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-660" y="130"/>
+        </scene>
+        <!--Search Groups-->
+        <scene sceneID="X1L-C2-yOA">
+            <objects>
+                <viewController id="lqs-OD-W8y" customClass="SearchGroupsViewController" customModule="Challenger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uly-ey-Fia">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hzH-s8-oBp">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hme-y1-HX9">
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CustomCell" rowHeight="126" id="gTc-Py-wfj" customClass="CellGroups" customModule="Challenger" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="126"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gTc-Py-wfj" id="gJr-cu-jIt">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="125.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jrf-3a-bAo">
+                                                    <rect key="frame" x="16" y="16" width="93.5" height="93.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="93.5" id="Nzx-tT-8s1"/>
+                                                        <constraint firstAttribute="height" constant="93.5" id="bbW-Mo-xTD"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZyQ-Xd-H0Z">
+                                                    <rect key="frame" x="125.5" y="16" width="218.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jrf-3a-bAo" firstAttribute="top" secondItem="gJr-cu-jIt" secondAttribute="top" constant="16" id="0f5-Yn-5Zx"/>
+                                                <constraint firstItem="ZyQ-Xd-H0Z" firstAttribute="top" secondItem="jrf-3a-bAo" secondAttribute="top" id="3E2-KG-jVe"/>
+                                                <constraint firstAttribute="bottom" secondItem="jrf-3a-bAo" secondAttribute="bottom" constant="16" id="4Gz-Za-2N2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZyQ-Xd-H0Z" secondAttribute="trailing" constant="16" id="8mu-qp-AR9"/>
+                                                <constraint firstItem="jrf-3a-bAo" firstAttribute="leading" secondItem="gJr-cu-jIt" secondAttribute="leading" constant="16" id="Ti4-TA-yl2"/>
+                                                <constraint firstItem="ZyQ-Xd-H0Z" firstAttribute="leading" secondItem="jrf-3a-bAo" secondAttribute="trailing" constant="16" id="ahs-mg-RwB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageGroup" destination="jrf-3a-bAo" id="TFq-IK-wGq"/>
+                                            <outlet property="nameGroup" destination="ZyQ-Xd-H0Z" id="IZG-hz-Tal"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="zA0-Pt-MSZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search Groups" id="pjd-mU-eDx"/>
+                    <connections>
+                        <outlet property="searchBar" destination="hzH-s8-oBp" id="8Ph-Md-f5r"/>
+                        <outlet property="tableView" destination="hme-y1-HX9" id="z1A-bG-hcj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jmk-EV-XOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="263" y="168"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_search_black" width="24" height="24"/>
+    </resources>
+</document>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yLk-L0-Pah">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o9P-7c-dfs">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,36 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Redirect View Controller-->
+        <scene sceneID="Hd6-K4-O2d">
+            <objects>
+                <viewController id="o9P-7c-dfs" customClass="RedirectViewController" customModule="Challenger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EDp-Nm-68G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_dos_meninos.png" translatesAutoresizingMaskIntoConstraints="NO" id="8kT-Ke-d0r">
+                                <rect key="frame" x="95" y="96" width="184" height="220"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Lm4-AU-ein">
+                                <rect key="frame" x="169" y="416" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="TGg-x5-1AX"/>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="userNotAuthenticated" action="showDetailViewController:sender:" id="owQ-TP-d5U"/>
+                        <segue destination="LZj-qF-lBe" kind="showDetail" identifier="userAuthenticated" id="ZYi-qd-T3n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZHm-wW-gqn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-594.39999999999998" y="133.5832083958021"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -38,17 +68,17 @@
                                 <state key="normal" title="Button" image="loginGoogle"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8CI-md-ebh">
-                                <rect key="frame" x="297" y="606" width="57" height="30"/>
+                                <rect key="frame" x="299" y="606" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign-Up"/>
+                                <state key="normal" title="Sign Up"/>
                                 <connections>
-                                    <segue destination="Eez-Ik-KoA" kind="presentation" id="7hq-pZ-Plm"/>
+                                    <segue destination="Eez-Ik-KoA" kind="presentation" id="OTx-v0-Mm6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVc-Hf-XGs">
-                                <rect key="frame" x="8" y="606" width="131" height="30"/>
+                                <rect key="frame" x="18" y="606" width="112" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Forgout Password?"/>
+                                <state key="normal" title="Forgot account?"/>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ek-Rs-9Ll">
                                 <rect key="frame" x="33" y="402" width="295" height="52"/>
@@ -74,11 +104,20 @@
                     <connections>
                         <outlet property="userEmail" destination="Oye-lS-E3I" id="lrh-5I-79Y"/>
                         <outlet property="userPassword" destination="5bL-ms-57I" id="7L7-wM-tbe"/>
+                        <segue destination="LZj-qF-lBe" kind="show" identifier="userAuthenticated" id="ZvD-G1-O5e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="476" y="133.5832083958021"/>
+        </scene>
+        <!--TabBar-->
+        <scene sceneID="4tI-0H-sWZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TabBar" id="LZj-qF-lBe" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xnf-wJ-B5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="22" y="657"/>
         </scene>
         <!--Sing Up View Controller-->
         <scene sceneID="qr6-Rs-m7P">
@@ -146,24 +185,6 @@
             </objects>
             <point key="canvasLocation" x="1288.8" y="131.78410794602701"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ztx-zd-gdD">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yLk-L0-Pah" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mCd-ra-bhn">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="kib-Wr-Q4c"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QGR-6f-Jag" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-422" y="134"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Logo" width="456" height="412"/>
@@ -171,5 +192,9 @@
         <image name="imgPerfil" width="337" height="300"/>
         <image name="loginFacebook" width="573" height="100"/>
         <image name="loginGoogle" width="602" height="102"/>
+        <image name="logo_dos_meninos.png" width="702" height="710"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZvD-G1-O5e"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -23,22 +23,28 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
     }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
-    
-    
+
+  
     @IBAction func loginButton(_ sender: Any) {
-        
+    
         
         Auth.auth().signIn(withEmail: userEmail.text!, password: userPassword.text!) { (user, error) in
             if error != nil {
                 return print(error)
                 
             }else {
-                self.performSegue(withIdentifier: "userAuthenticated", sender: sender)
+            self.performSegue(withIdentifier: "userAuthenticated", sender: sender)
             }
             
         }
-        
+    
     }
     
 }
+
