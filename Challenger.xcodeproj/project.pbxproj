@@ -25,7 +25,6 @@
 		A40205181FC363E30029B022 /* images-2.png in Resources */ = {isa = PBXBuildFile; fileRef = A40205141FC363E20029B022 /* images-2.png */; };
 		A40205191FC363E30029B022 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = A40205151FC363E20029B022 /* images.png */; };
 		A402051A1FC363E30029B022 /* slr_camera_application_slr_3037.png in Resources */ = {isa = PBXBuildFile; fileRef = A40205161FC363E20029B022 /* slr_camera_application_slr_3037.png */; };
-		A40889521FCCAD8D00F68818 /* logo_dos_meninos.png in Resources */ = {isa = PBXBuildFile; fileRef = A40889511FCCAD8D00F68818 /* logo_dos_meninos.png */; };
 		A43645271FC4BC4B007BC6C3 /* MyAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */; };
 		A43645291FC6082B007BC6C3 /* RedirectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43645281FC6082B007BC6C3 /* RedirectViewController.swift */; };
 		A44573D01FCC9B8600F8F6DF /* SearchGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44573CF1FCC9B8600F8F6DF /* SearchGroupsViewController.swift */; };
@@ -35,6 +34,7 @@
 		A4578FC31FD06EB300E4DB8C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4578FBA1FD06E2B00E4DB8C /* User.swift */; };
 		A4578FC61FD0703700E4DB8C /* Cadastro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4578FC41FD0703700E4DB8C /* Cadastro.storyboard */; };
 		A4578FC81FD0775400E4DB8C /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4578FC71FD0775400E4DB8C /* SingUpViewController.swift */; };
+		A4F3A6781FD0959E007B0425 /* logo_dos_meninos.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F3A6771FD0959E007B0425 /* logo_dos_meninos.png */; };
 		DB5AE6951FCC97A1008DC8F7 /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */; };
 		DB5B01431FC5E8E700BD5F1A /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5B01421FC5E8E700BD5F1A /* Calendar.storyboard */; };
 		DB5B01451FC5EACE00BD5F1A /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */; };
@@ -61,15 +61,14 @@
 		A40204F71FC360790029B022 /* UserInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInfo.storyboard; sourceTree = "<group>"; };
 		A40204F81FC360790029B022 /* MyGroups.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyGroups.storyboard; sourceTree = "<group>"; };
 		A40204FE1FC3607F0029B022 /* CellGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellGroups.swift; sourceTree = "<group>"; };
-		A40205001FC360930029B022 /* AddGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddGroup.swift; path = ../../../eoq/AddGroup.swift; sourceTree = "<group>"; };
-		A40205011FC360930029B022 /* TableViewGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewGroups.swift; path = ../../../eoq/TableViewGroups.swift; sourceTree = "<group>"; };
+		A40205001FC360930029B022 /* AddGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGroup.swift; sourceTree = "<group>"; };
+		A40205011FC360930029B022 /* TableViewGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewGroups.swift; sourceTree = "<group>"; };
 		A402050E1FC360A60029B022 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A402050F1FC360A60029B022 /* SaveDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveDelegate.swift; sourceTree = "<group>"; };
 		A40205131FC363E20029B022 /* camera1600.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera1600.png; sourceTree = "<group>"; };
 		A40205141FC363E20029B022 /* images-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "images-2.png"; sourceTree = "<group>"; };
 		A40205151FC363E20029B022 /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
 		A40205161FC363E20029B022 /* slr_camera_application_slr_3037.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slr_camera_application_slr_3037.png; sourceTree = "<group>"; };
-		A40889511FCCAD8D00F68818 /* logo_dos_meninos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_dos_meninos.png; sourceTree = "<group>"; };
 		A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountController.swift; sourceTree = "<group>"; };
 		A43645281FC6082B007BC6C3 /* RedirectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectViewController.swift; sourceTree = "<group>"; };
 		A44573CF1FCC9B8600F8F6DF /* SearchGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchGroupsViewController.swift; path = /Users/joao.albuquerque/Desktop/Challlenger/Challenger/Controllers/SearchGroupsViewController.swift; sourceTree = "<absolute>"; };
@@ -81,6 +80,7 @@
 		A4578FC51FD0703700E4DB8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Cadastro.storyboard; sourceTree = "<group>"; };
 		A4578FC71FD0775400E4DB8C /* SingUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		A47A18371FC7491500F0B085 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A4F3A6771FD0959E007B0425 /* logo_dos_meninos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_dos_meninos.png; sourceTree = "<group>"; };
 		DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
 		DB5B01421FC5E8E700BD5F1A /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
@@ -199,8 +199,7 @@
 			children = (
 				A40204FE1FC3607F0029B022 /* CellGroups.swift */,
 			);
-			name = TableViewCells;
-			path = ../../eoq/TableViewCells;
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		A402050D1FC360A60029B022 /* Delegates */ = {
@@ -209,21 +208,19 @@
 				A402050E1FC360A60029B022 /* AppDelegate.swift */,
 				A402050F1FC360A60029B022 /* SaveDelegate.swift */,
 			);
-			name = Delegates;
-			path = ../../eoq/Delegates;
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		A40205121FC363E20029B022 /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
-				A40889511FCCAD8D00F68818 /* logo_dos_meninos.png */,
+				A4F3A6771FD0959E007B0425 /* logo_dos_meninos.png */,
 				A40205131FC363E20029B022 /* camera1600.png */,
 				A40205141FC363E20029B022 /* images-2.png */,
 				A40205151FC363E20029B022 /* images.png */,
 				A40205161FC363E20029B022 /* slr_camera_application_slr_3037.png */,
 			);
-			name = Imagens;
-			path = ../../eoq/Imagens;
+			path = Imagens;
 			sourceTree = "<group>";
 		};
 		A4578FB61FD06D7300E4DB8C /* Recovered References */ = {
@@ -332,7 +329,6 @@
 				75B7B4E81FB9F4B70088B7EF /* LaunchScreen.storyboard in Resources */,
 				DBBC5DE01FC73F3D00124B18 /* CalendarSettings.storyboard in Resources */,
 				DB5B01431FC5E8E700BD5F1A /* Calendar.storyboard in Resources */,
-				A40889521FCCAD8D00F68818 /* logo_dos_meninos.png in Resources */,
 				75B02A7B1FBB7AE8008DB651 /* GoogleService-Info.plist in Resources */,
 				A40205191FC363E30029B022 /* images.png in Resources */,
 				A40204FB1FC360790029B022 /* UserInfo.storyboard in Resources */,
@@ -340,6 +336,7 @@
 				A40204FA1FC360790029B022 /* TabBar.storyboard in Resources */,
 				A40205181FC363E30029B022 /* images-2.png in Resources */,
 				A402051A1FC363E30029B022 /* slr_camera_application_slr_3037.png in Resources */,
+				A4F3A6781FD0959E007B0425 /* logo_dos_meninos.png in Resources */,
 				A4578FC61FD0703700E4DB8C /* Cadastro.storyboard in Resources */,
 				7548749B1FBB4DB300EE2613 /* Assets.xcassets in Resources */,
 			);
