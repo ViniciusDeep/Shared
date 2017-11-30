@@ -2,6 +2,8 @@ import UIKit
 import Firebase
 import FirebaseStorage
 import FirebaseDatabase
+import FirebaseAuth
+
 
 class AddGroup: UIViewController, UITextFieldDelegate {
     
@@ -9,62 +11,63 @@ class AddGroup: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var imageView: UIImageView!
     
     var didCreateGroup : DidAddGroup? = nil
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         nameOutlet.delegate = self
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    //Send Media
-    func sendMedia(image: Data) {
+    func sendMedia(image: Data, imageKey: String, completion: @escaping (_ url: URL) -> Void){
         let storage = Storage.storage()
-        let storageRef = storage.reference()
-        let imageRef = storageRef.child("images/image.png")
+        let storageRef = storage.reference().child("images/profileImageGroups")
+        let imageRef = storageRef.child(imageKey)
         imageRef.putData(image, metadata: nil) {(metadata, error) in
-            guard let err = error else{
+            if error == nil {
+                imageRef.downloadURL(completion: { (url, err) in
+                    if err == nil {
+                        if let url = url {
+                            completion(url)
+                        }
+                    }
+                })
+            }else {
+                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 return
             }
     }
+        
     }
     
-    //End Send Media
-    
-    //Receive media
-    func receiveMedia() -> UIImage?{
-        let storage = Storage.storage()
-        let storageRef = storage.reference()
-        let imageRef = storageRef.child("images/image.png")
-        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-        imageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
-            if let error = error {
-                // Uh-oh, an error occurred!
-            } else {
-                // Data for "images/island.jpg" is returned
-     
-                let image = UIImage(data: data!)
-                self.imageView.image = image
-                
-            }
-        }
-        return nil
-    }
-    
-    //Buttons
     @IBAction func save(_ sender: UIBarButtonItem) {
-        let database = Database.database().reference()
-//        let storageRef = database.reference()
+        sender.isEnabled = false
+        if nameOutlet.text == "" {
+            sender.isEnabled = true
+            return
+        }
+        guard let image = imageView.image else {
+            sender.isEnabled = true
+            return
+        }
         guard let name = nameOutlet.text else {
             return
         }
-        let key = database.childByAutoId().key
-        database.child("group").child(key).updateChildValues(["name": name])
-        guard let image = imageView else {
-            return
+        
+        verifyIfExists(name) { result in
+            if !result {
+                self.addGroupToFirebase(name, image, completion: {(isConnected) in
+                    if isConnected == false {
+                        return
+                    }
+                })
+            } else {
+                let alert = UIAlertController(title: "Error", message: "This name is already in use.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
         }
-   //     sendMedia(image: UIImagePNGRepresentation(image.image!)!)
-        self.dismiss(animated: true, completion: {self.didCreateGroup?.didAdd(name, image, admin: <#[User]#>)})
+        sender.isEnabled = true
     }
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
@@ -78,11 +81,93 @@ class AddGroup: UIViewController, UITextFieldDelegate {
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
-        
         self.present(imagePicker, animated: true, completion: nil)
     }
+    
+    func verifyIfExists(_ name: String, completion: @escaping (_ result: Bool) -> Void)  {
+        let ref = Database.database().reference()
+        var result : Bool = false
+        ref.child("group").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            if let dict = snapshot.value as? NSDictionary{
+                let names = (dict.allKeys.flatMap{ dict.value(forKey: String(describing: $0)) } as? [NSDictionary])?.flatMap{ $0.value(forKey: "name") } as? [String]
+                if snapshot.exists() {
+                    let filtered = names?.filter({ (value) -> Bool in
+                        value == name
+                    })
+                    if (filtered?.isEmpty)! {
+                        //Doesn`t exists on Firebase
+                        result = false
+                    }else {
+                        //Exists on Firebase
+                        result = true
+                    }
+                } else {
+                    result = false
+                }
+            }
+                completion(result)
+            }) { (error) in
+                print(error.localizedDescription)
+        }
+    }
+    func addGroupToFirebase(_ name: String,_ image:  UIImage, completion: @escaping(_ isConnected: Bool) -> Void) {
+        let connectedRef = Database.database().reference(withPath: ".info/connected")
+        connectedRef.observe(.value, with: { snapshot in
+            var isConnected : Bool = true
+            if !(snapshot.value as? Bool ?? false) {
+                //not connected
+                let alert = UIAlertController(title: "Error", message: "No internet connection.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                isConnected = false
+            }
+            completion(isConnected)
+        })
+        let database = Database.database().reference()
+        let key = database.childByAutoId().key
+        let uid = Firebase.Auth.auth().currentUser!.uid
+        let email = Firebase.Auth.auth().currentUser!.email
+        let user = User(email: email!, image: key, id: uid)
+        if let imageData = UIImagePNGRepresentation(image) {
+            sendMedia(image: imageData , imageKey: key, completion: {(url) in
+                database.child("group").child(key).updateChildValues(["name": name, "image": url.absoluteString, "admin": [user.id], "users": [user.id], "imageKey" : key])
+                self.dismiss(animated: true, completion: {
+                self.didCreateGroup?.didAdd(name, key, [user.id], [user.id], url.absoluteString)
+                })
+            })
+            addGroupToUser(key)
+        }else {
+            let alert = UIAlertController(title: "Error", message: "Cannot read that image.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+    }
+    func addGroupToUser(_ key: String) {
+        var array  : [String] = []
+        let database = Database.database().reference()
+        let user = Firebase.Auth.auth().currentUser
+        let userRef = database.child("users").child(user!.uid)
+        userRef.child("groups").observeSingleEvent(of: .value) { (snapshot) in
+            if  let id = snapshot.value as? [String] {
+                    array = id
+                    array.append(key)
+                    userRef.updateChildValues(["groups" : array as NSArray])
+                    return
+            }
+            if let idS = snapshot.value as? String {
+                if(snapshot.exists()) {
+                    array = [idS]
+                    array.append(key)
+                    userRef.updateChildValues(["groups" : array as NSArray])
+                }
+            } else {
+                userRef.updateChildValues(["groups":  key])
+            }
+        }
+    }
 }
-//End buttons
 
 extension AddGroup: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
