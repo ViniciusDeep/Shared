@@ -10,8 +10,10 @@ import Foundation
 
 class CalendarSettingsController: UITableViewController{
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var groupImage: UIButton!
     @IBOutlet weak var groupName: UILabel!
+    
     var group : Group? = nil
     
     
@@ -24,6 +26,11 @@ class CalendarSettingsController: UITableViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let url = URL(string: (group?.image)!)
+        imageView.sd_setImage(with: url, completed: nil)
+        self.imageView.layer.cornerRadius =
+            self.imageView.frame.size.width / 20
+        self.imageView.layer.masksToBounds = true
     }
     
     override func didReceiveMemoryWarning() {
