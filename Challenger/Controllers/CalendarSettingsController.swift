@@ -38,26 +38,14 @@ class CalendarSettingsController: UITableViewController{
         
         self.present(imagepicker, animated: true, completion: nil)
     }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0{
-            return CGFloat.leastNormalMagnitude
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let nav = segue.destination as? UINavigationController else {
+            return
         }
-        return CGFloat.init(3)
-    }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1{
-            if indexPath.row == 0 {
-                print("teste")
-            }
-            if indexPath.row == 1 {
-                print("teste2")
-            }
+        if let controller = nav.topViewController as? CalendarMemberController {
+            controller.group = self.group
         }
     }
-    
-    
-    
 }
 extension CalendarSettingsController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
@@ -74,4 +62,20 @@ extension CalendarSettingsController: UIImagePickerControllerDelegate, UINavigat
         
         
     }
+}
+extension CalendarSettingsController {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0{
+            return CGFloat.leastNormalMagnitude
+        }
+        return CGFloat.init(3)
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let identifier = tableView.cellForRow(at: indexPath)?.reuseIdentifier else {
+            return
+    }
+        if identifier == "showMembers" {
+            performSegue(withIdentifier: "showMembers", sender: nil)
+        }
+}
 }

@@ -9,6 +9,8 @@ class AddGroup: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameOutlet: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     var didCreateGroup : DidAddGroup? = nil
     
@@ -40,13 +42,17 @@ class AddGroup: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func save(_ sender: UIBarButtonItem) {
-        sender.isEnabled = false
+        saveButton.isEnabled = false
+        cancelButton.isEnabled = false
+        //self.navigationItem.leftBarButtonItem?.isEnabled = false
         if nameOutlet.text == "" {
-            sender.isEnabled = true
+            saveButton.isEnabled = true
+            cancelButton.isEnabled = true
             return
         }
         guard let image = imageView.image else {
-            sender.isEnabled = true
+            saveButton.isEnabled = true
+            cancelButton.isEnabled = true
             return
         }
         guard let name = nameOutlet.text else {
@@ -57,6 +63,8 @@ class AddGroup: UIViewController, UITextFieldDelegate {
             if !result {
                 self.addGroupToFirebase(name, image, completion: {(isConnected) in
                     if isConnected == false {
+                        self.saveButton.isEnabled = true
+                        self.cancelButton.isEnabled = true
                         return
                     }
                 })
@@ -64,10 +72,12 @@ class AddGroup: UIViewController, UITextFieldDelegate {
                 let alert = UIAlertController(title: "Error", message: "This name is already in use.", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
+                self.saveButton.isEnabled = true
+                self.cancelButton.isEnabled = true
                 return
             }
         }
-        sender.isEnabled = true
+      
     }
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
@@ -128,12 +138,12 @@ class AddGroup: UIViewController, UITextFieldDelegate {
         let key = database.childByAutoId().key
         let uid = Firebase.Auth.auth().currentUser!.uid
         let email = Firebase.Auth.auth().currentUser!.email
-        let user = User(email: email!, image: key, id: uid)
+       // let user = User(email: email!, image: key, id: uid)
         if let imageData = UIImagePNGRepresentation(image) {
             sendMedia(image: imageData , imageKey: key, completion: {(url) in
-                database.child("group").child(key).updateChildValues(["name": name, "image": url.absoluteString, "admin": [user.id], "users": [user.id], "key" : key])
+                database.child("group").child(key).updateChildValues(["name": name, "image": url.absoluteString, "admin": [uid], "users": [uid], "key" : key])
                 self.dismiss(animated: true, completion: {
-                self.didCreateGroup?.didAdd(name, key, [user.id], [user.id], url.absoluteString)
+                self.didCreateGroup?.didAdd(name, key, [uid], [uid], url.absoluteString)
                 })
             })
             addGroupToUser(key)

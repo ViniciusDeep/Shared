@@ -79,7 +79,6 @@
                                         <connections>
                                             <outlet property="imageGroup" destination="jrf-3a-bAo" id="TFq-IK-wGq"/>
                                             <outlet property="nameGroup" destination="ZyQ-Xd-H0Z" id="IZG-hz-Tal"/>
-                                            <segue destination="Epf-Je-S53" kind="showDetail" identifier="groupSelected" id="jrz-OS-mHZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -97,14 +96,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jmk-EV-XOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="263" y="168"/>
-        </scene>
-        <!--Calendar-->
-        <scene sceneID="1MT-Hw-Fyw">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Calendar" id="Epf-Je-S53" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KkI-EB-dBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1001" y="97"/>
         </scene>
     </scenes>
     <resources>
