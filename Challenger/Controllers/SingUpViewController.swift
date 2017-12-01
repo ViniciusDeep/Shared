@@ -18,24 +18,24 @@ class SingUpViewController: UIViewController {
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
-   
+    @IBOutlet weak var userName: UITextField!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
     }
     
     
     
-
+    
     override func viewDidAppear(_ animated: Bool) {
         self.imgProfile.layer.cornerRadius = self.imgProfile.frame.size.width / 2;
         self.imgProfile.layer.masksToBounds = true
         
     }
     
-   
+    
     @IBAction func imgSelected(_ sender: Any) {
         let imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true
@@ -43,14 +43,14 @@ class SingUpViewController: UIViewController {
         imagePicker.delegate = self
         
         self.present(imagePicker, animated: true, completion: nil)
-    
+        
     }
     
     
-
+    
     @IBAction func BackButton(_ sender: Any) {
-    self.dismiss(animated: true, completion: nil)
-        }
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
     
@@ -60,9 +60,12 @@ class SingUpViewController: UIViewController {
             print("form is not valid")
             return
         }
+        guard let name = userName.text else {
+            return
+        }
         
-    
-       Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             guard let user = user else {
                 return print("Usuário inexiste")
             }
@@ -75,32 +78,37 @@ class SingUpViewController: UIViewController {
             guard let email = user.email else {
                 return print("Email inexiste")
             }
-            usersReference.child(uid).setValue(["email": email], withCompletionBlock: { (error, reference) in
+            usersReference.child(uid).updateChildValues(["email": email], withCompletionBlock: { (error, reference) in
                 if let error = error {
                     print(error.localizedDescription)
                 }
                 print("Usuário salvo")
             })
-        
+            usersReference.child(uid).updateChildValues(["name": name], withCompletionBlock: { (error, reference) in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                print("Usuário salvo")
+            })
             Auth.auth().signIn(withEmail: "fsfs", password: "fdfsf", completion: { (user, error) in
-        
+                
             })
         }
-    
+        
         //successfully autheticated
         
         
-//
-//        let values = ["email": email]
-//        ref.onDisconnectUpdateChildValues(values) { (err, ref) in
-//            if err != nil {
-//                print(err)
-//                return
-//            }
-//            print("Saved user sucessfully into the FIREBASE DB")
-//        }
-//
-//        usersReference.childByAutoId().setValue(values)
+        //
+        //        let values = ["email": email]
+        //        ref.onDisconnectUpdateChildValues(values) { (err, ref) in
+        //            if err != nil {
+        //                print(err)
+        //                return
+        //            }
+        //            print("Saved user sucessfully into the FIREBASE DB")
+        //        }
+        //
+        //        usersReference.childByAutoId().setValue(values)
         self.dismiss(animated: true, completion: nil)
     }
 }

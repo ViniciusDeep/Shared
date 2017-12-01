@@ -35,6 +35,7 @@
 		A4578FC61FD0703700E4DB8C /* Cadastro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4578FC41FD0703700E4DB8C /* Cadastro.storyboard */; };
 		A4578FC81FD0775400E4DB8C /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4578FC71FD0775400E4DB8C /* SingUpViewController.swift */; };
 		A4F3A6781FD0959E007B0425 /* logo_dos_meninos.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F3A6771FD0959E007B0425 /* logo_dos_meninos.png */; };
+		DB33E0761FD1D61F002411F8 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB33E0751FD1D61F002411F8 /* UserCell.swift */; };
 		DB5AE6951FCC97A1008DC8F7 /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */; };
 		DB5B01431FC5E8E700BD5F1A /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5B01421FC5E8E700BD5F1A /* Calendar.storyboard */; };
 		DB5B01451FC5EACE00BD5F1A /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */; };
@@ -42,6 +43,7 @@
 		DBBC5DD91FC7286B00124B18 /* CalendarInvitesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC5DD81FC7286B00124B18 /* CalendarInvitesController.swift */; };
 		DBBC5DDB1FC7289B00124B18 /* CalendarRequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBC5DDA1FC7289B00124B18 /* CalendarRequestsController.swift */; };
 		DBBC5DE01FC73F3D00124B18 /* CalendarSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBC5DDF1FC73F3D00124B18 /* CalendarSettings.storyboard */; };
+		DBD177CD1FD199580052EFA8 /* ShowImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD177CC1FD199580052EFA8 /* ShowImageController.swift */; };
 		DBDEE12C1FCDF71E0078C664 /* FileArchiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDEE12B1FCDF71E0078C664 /* FileArchiveCell.swift */; };
 		DBE3D68A1FC609A500067652 /* CalendarSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE3D6891FC609A500067652 /* CalendarSettingsController.swift */; };
 /* End PBXBuildFile section */
@@ -81,6 +83,7 @@
 		A4578FC71FD0775400E4DB8C /* SingUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		A47A18371FC7491500F0B085 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A4F3A6771FD0959E007B0425 /* logo_dos_meninos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_dos_meninos.png; sourceTree = "<group>"; };
+		DB33E0751FD1D61F002411F8 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
 		DB5B01421FC5E8E700BD5F1A /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
@@ -90,6 +93,7 @@
 		DBBC5DDA1FC7289B00124B18 /* CalendarRequestsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRequestsController.swift; sourceTree = "<group>"; };
 		DBBC5DDD1FC7359F00124B18 /* Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archive.swift; sourceTree = "<group>"; };
 		DBBC5DDF1FC73F3D00124B18 /* CalendarSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalendarSettings.storyboard; sourceTree = "<group>"; };
+		DBD177CC1FD199580052EFA8 /* ShowImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImageController.swift; sourceTree = "<group>"; };
 		DBDEE12B1FCDF71E0078C664 /* FileArchiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileArchiveCell.swift; sourceTree = "<group>"; };
 		DBE3D6891FC609A500067652 /* CalendarSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSettingsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +124,7 @@
 				A4578FC71FD0775400E4DB8C /* SingUpViewController.swift */,
 				75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */,
 				DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */,
+				DBD177CC1FD199580052EFA8 /* ShowImageController.swift */,
 				DBBC5DD81FC7286B00124B18 /* CalendarInvitesController.swift */,
 				DBE3D6891FC609A500067652 /* CalendarSettingsController.swift */,
 				DBBC5DDA1FC7289B00124B18 /* CalendarRequestsController.swift */,
@@ -197,6 +202,7 @@
 		A40204FD1FC3607F0029B022 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				DB33E0751FD1D61F002411F8 /* UserCell.swift */,
 				A40204FE1FC3607F0029B022 /* CellGroups.swift */,
 			);
 			path = TableViewCells;
@@ -430,6 +436,8 @@
 				DBBC5DDB1FC7289B00124B18 /* CalendarRequestsController.swift in Sources */,
 				DBDEE12C1FCDF71E0078C664 /* FileArchiveCell.swift in Sources */,
 				DBBC5DD91FC7286B00124B18 /* CalendarInvitesController.swift in Sources */,
+				DBD177CD1FD199580052EFA8 /* ShowImageController.swift in Sources */,
+				DB33E0761FD1D61F002411F8 /* UserCell.swift in Sources */,
 				DB5B01451FC5EACE00BD5F1A /* CalendarController.swift in Sources */,
 				DB5AE6951FCC97A1008DC8F7 /* FilesManager.swift in Sources */,
 				DB5B01481FC5EB1B00BD5F1A /* CustomCell.swift in Sources */,
@@ -579,7 +587,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WYVM8V28A5;
+				DEVELOPMENT_TEAM = J762AZ7K8V;
 				INFOPLIST_FILE = Challenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.bepid.challenge;
@@ -595,7 +603,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WYVM8V28A5;
+				DEVELOPMENT_TEAM = J762AZ7K8V;
 				INFOPLIST_FILE = Challenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.bepid.challenge;

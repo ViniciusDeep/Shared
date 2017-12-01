@@ -5,18 +5,14 @@
 //  Created by Vinicius Mangueira Correia on 23/11/17.
 //  Copyright © 2017 Vinicius Mangueira Correia. All rights reserved.
 //
+import HandyJSON
 
-import Foundation
 
-
-class User {
-    let email: String
-    let image: String
-    let id: String
-    
-    init(email: String, image: String, id: String) {
-        self.email = email
-        self.image = image
-        self.id = id
+class User : HandyJSON {
+    var name: String?
+    var email: String?
+    var groups : [String]?
+    var pendingInvitations : [String]?
+    required init() {
     }
 }
