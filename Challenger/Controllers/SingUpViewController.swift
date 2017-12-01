@@ -18,7 +18,7 @@ class SingUpViewController: UIViewController {
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
-   
+    @IBOutlet weak var userName: UITextField!
     
     
     override func viewDidLoad() {
@@ -60,6 +60,9 @@ class SingUpViewController: UIViewController {
             print("form is not valid")
             return
         }
+        guard let name = userName.text else {
+            return
+        }
         
     
        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
@@ -75,13 +78,18 @@ class SingUpViewController: UIViewController {
             guard let email = user.email else {
                 return print("Email inexiste")
             }
-            usersReference.child(uid).setValue(["email": email], withCompletionBlock: { (error, reference) in
+            usersReference.child(uid).updateChildValues(["email": email], withCompletionBlock: { (error, reference) in
                 if let error = error {
                     print(error.localizedDescription)
                 }
                 print("Usuário salvo")
             })
-        
+        usersReference.child(uid).updateChildValues(["name": name], withCompletionBlock: { (error, reference) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            print("Usuário salvo")
+        })
             Auth.auth().signIn(withEmail: "fsfs", password: "fdfsf", completion: { (user, error) in
         
             })

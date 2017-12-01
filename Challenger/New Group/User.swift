@@ -10,9 +10,10 @@ import HandyJSON
 
 
 class User : HandyJSON {
+    var name: String?
     var email: String?
     var groups : [String]?
-    
+    var pendingInvitations : [String]?
     required init() {
     }
 }
