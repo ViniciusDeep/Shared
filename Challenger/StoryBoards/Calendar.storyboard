@@ -276,6 +276,14 @@
                                     <constraint firstAttribute="height" constant="35" id="gMD-0Q-CCH"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMh-FM-ntd">
+                                <rect key="frame" x="305" y="69" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Expand"/>
+                                <connections>
+                                    <action selector="buttonExpand:" destination="RGy-J3-no2" eventType="touchUpInside" id="Peo-As-zY2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -302,19 +310,22 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ic_settings" id="g1j-gy-vuG">
                             <connections>
-                                <segue destination="hZV-9g-rHR" kind="show" id="R5Q-YM-HjM"/>
+                                <action selector="buttonSettings:" destination="RGy-J3-no2" id="TbB-rc-kkI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="archiveButtonOutlet" destination="ko5-Tn-4Yv" id="mId-Sv-AeJ"/>
                         <outlet property="calendarView" destination="cyG-yJ-VUf" id="75Q-rY-EUb"/>
+                        <outlet property="heightCalendarConst" destination="qEL-F2-jAH" id="dZk-o5-Nvq"/>
+                        <outlet property="heightTableConst" destination="ou3-2i-T3t" id="YAS-zF-qmY"/>
                         <outlet property="imageButtonOutlet" destination="OTE-3w-tNt" id="RHT-gD-PSw"/>
                         <outlet property="month" destination="wcL-Jm-907" id="dwO-DV-qDU"/>
                         <outlet property="sendButtonOutlet" destination="86o-8U-ltc" id="dMO-eh-6QB"/>
                         <outlet property="tableView" destination="WSV-Yk-tfF" id="sX0-a0-2Qj"/>
                         <outlet property="textFieldOutlet" destination="a8x-7o-hV6" id="6Z3-CX-Ihy"/>
                         <outlet property="year" destination="wne-el-71m" id="cCW-ua-Oz9"/>
+                        <segue destination="hZV-9g-rHR" kind="show" identifier="CalendarSettings" id="I0o-Bb-ZWO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UF6-Pd-7AC" userLabel="First Responder" sceneMemberID="firstResponder"/>

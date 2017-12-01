@@ -14,55 +14,107 @@ import Firebase
 import FirebaseStorage
 
 class CalendarController: UIViewController{
-    
+    var expandButtonClick : Int=0
+    var actualDate : Date?
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var month: UILabel!
     @IBOutlet weak var year: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var heightCalendarConst: NSLayoutConstraint! //275 initial 91 cell size
+    @IBOutlet weak var heightTableConst: NSLayoutConstraint! // 185 initial
+    
     @IBOutlet weak var imageButtonOutlet: UIButton!
     @IBOutlet weak var archiveButtonOutlet: UIButton!
     @IBOutlet weak var textFieldOutlet: UITextField!
     @IBOutlet weak var sendButtonOutlet: UIButton!
+    
     var thisCalendar = Calendar.current
-    var dateSelected = Date()
+    var dateSelected : Date?
     var group : Group? = nil
     var archives : [Archive] = []
     let formatter = DateFormatter()
+    var numberOfRows : Int?
+    var generateInDates : InDateCellGeneration?
+    var generateOutDates : OutDateCellGeneration?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.title = group?.name
+        
+        generateInDates = .forAllMonths
+        generateOutDates = .tillEndOfGrid
+        numberOfRows = nil
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
         calendarView.scrollToDate(Date())
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.tableFooterView = UIView()
+        setupCalendarView()
         calendarView.scrollingMode = .stopAtEachSection
-        hiddenChat(hide: true)
         calendarView.visibleDates { (visibleDates) in
             self.setupViewOfCalendar(from: visibleDates)
         }
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+        hiddenChat(hide: true)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CalendarSettings" {
+            if let controller = segue.destination as? CalendarSettingsController {
+                guard let index = sender as? Group else { return }
+                controller.group = index
+            }
+        }
+    }
     //Buttons
     
+    @IBAction func buttonSettings(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "CalendarSettings", sender: group)
+    }
+    @IBAction func buttonExpand(_ sender:   UIButton) {
+        if(expandButtonClick == 0){
+            numberOfRows = 1
+            generateInDates = .forFirstMonthOnly
+            generateOutDates = .off
+            heightCalendarConst.constant = 91
+            heightTableConst.constant = heightTableConst.constant + 184
+            expandButtonClick = 1
+        }else{
+            heightCalendarConst.constant = 274
+            heightTableConst.constant = heightTableConst.constant - 184
+            numberOfRows = nil
+            generateInDates = .forAllMonths
+            generateOutDates = .tillEndOfGrid
+            expandButtonClick = 0
+        }
+        if(dateSelected != nil){
+            calendarView.reloadData(){
+                self.calendarView.scrollToDate(self.dateSelected!)
+            }
+        }else{
+            calendarView.reloadData()
+        }
+    }
     @IBAction func buttonImageSend(_ sender: UIButton) {
+        if(dateSelected != nil){
         let imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         self.present(imagePicker, animated: true, completion: nil)
+        }
     }
     
     @IBAction func buttonTextSend(_ sender: UIButton) {
-        if(textFieldOutlet.text != ""){
-            let timestamp = dateSelected.timeIntervalSince1970
+        if(textFieldOutlet.text != "" && dateSelected != nil){
+            let timestamp = dateSelected?.timeIntervalSince1970
             let textFilesManager = FilesManager()
             let autoID = Database.database().reference().childByAutoId().key
             let newArchive = Archive(name: autoID,groupID: group?.key, date: timestamp, archive: self.textFieldOutlet.text!, type: "text")
@@ -191,7 +243,7 @@ extension CalendarController : JTAppleCalendarViewDelegate, JTAppleCalendarViewD
         handleCellTextColor(cell: cell, cellState: cellState)
         handleCellSelected(cell: cell, cellState: cellState)
         dateSelected = date
-        populateTableView(date: date.timeIntervalSince1970, groupID: "0")
+        populateTableView(date: date.timeIntervalSince1970, groupID: (group?.key)!)
         
         hiddenChat(hide: false)
     }
@@ -200,6 +252,7 @@ extension CalendarController : JTAppleCalendarViewDelegate, JTAppleCalendarViewD
         handleCellTextColor(cell: cell, cellState: cellState)
         handleCellSelected(cell: cell, cellState: cellState)
         hiddenChat(hide: true)
+        
     }
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
@@ -220,7 +273,7 @@ extension CalendarController : JTAppleCalendarViewDelegate, JTAppleCalendarViewD
         let startDate = formatter.date(from: "2017 01 01")!
         let endDate = formatter.date(from: "2018 12 31")!
         
-        let parameters = ConfigurationParameters(startDate: startDate, endDate: endDate, numberOfRows: nil, calendar: thisCalendar, generateInDates: .forAllMonths, generateOutDates: .tillEndOfGrid, firstDayOfWeek: .monday, hasStrictBoundaries: true)
+        let parameters = ConfigurationParameters(startDate: startDate, endDate: endDate, numberOfRows: numberOfRows, calendar: thisCalendar, generateInDates: generateInDates, generateOutDates: generateOutDates, firstDayOfWeek: .monday, hasStrictBoundaries: true)
         return parameters
     }
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
@@ -238,7 +291,7 @@ extension CalendarController : UIImagePickerControllerDelegate, UINavigationCont
 //        formatter.timeZone = Calendar.current.timeZone
 //        formatter.locale = Calendar.current.locale
         var imageUrl : String?
-        let timestamp = dateSelected.timeIntervalSince1970
+        let timestamp = dateSelected?.timeIntervalSince1970
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             let imagesFilesManager = FilesManager()
             imagesFilesManager.uploadImage(image, completionBlock: { (url,id, error) in
