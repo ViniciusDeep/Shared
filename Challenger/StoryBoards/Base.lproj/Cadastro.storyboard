@@ -185,7 +185,6 @@
                     <connections>
                         <outlet property="imgProfile" destination="xZI-Vo-jkj" id="XDN-EJ-T1L"/>
                         <outlet property="userEmail" destination="jHO-0I-ezn" id="C2O-nG-r0s"/>
-                        <outlet property="userLogin" destination="kKG-1w-hE9" id="MQo-0a-a3F"/>
                         <outlet property="userName" destination="kKG-1w-hE9" id="jj7-PP-wpE"/>
                         <outlet property="userPassword" destination="hzj-pf-2Yk" id="2Xe-YK-Ge0"/>
                     </connections>

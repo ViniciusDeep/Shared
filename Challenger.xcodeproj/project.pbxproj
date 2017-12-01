@@ -121,17 +121,17 @@
 		754874971FBA3DFF00EE2613 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A43645281FC6082B007BC6C3 /* RedirectViewController.swift */,
 				A4578FC71FD0775400E4DB8C /* SingUpViewController.swift */,
 				75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */,
-				DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */,
-				DBBC5DD81FC7286B00124B18 /* CalendarInvitesController.swift */,
-				DBE3D6891FC609A500067652 /* CalendarSettingsController.swift */,
-				DBBC5DDA1FC7289B00124B18 /* CalendarRequestsController.swift */,
 				A44573CF1FCC9B8600F8F6DF /* SearchGroupsViewController.swift */,
 				A40205001FC360930029B022 /* AddGroup.swift */,
 				A40205011FC360930029B022 /* TableViewGroups.swift */,
 				A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */,
-				A43645281FC6082B007BC6C3 /* RedirectViewController.swift */,
+				DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */,
+				DBE3D6891FC609A500067652 /* CalendarSettingsController.swift */,
+				DBBC5DDA1FC7289B00124B18 /* CalendarRequestsController.swift */,
+				DBBC5DD81FC7286B00124B18 /* CalendarInvitesController.swift */,
 				75232CC21FD1AAFB003433E6 /* CalendarMemberController.swift */,
 			);
 			path = Controllers;
