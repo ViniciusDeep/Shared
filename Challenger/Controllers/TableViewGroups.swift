@@ -9,34 +9,82 @@
 import UIKit
 import Firebase
 import FirebaseStorage
+import FirebaseAuth
+import FirebaseDatabase
+import SDWebImage
+import HandyJSON
 
-class TableViewGroups: UIViewController, DidAddGroup {
-
+class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     var groups : [Group] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-    
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        searchBar.delegate = self
+        loadGroups()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? AddGroup {
             controller.didCreateGroup = self
         }
+        guard let nav = segue.destination as? UINavigationController else { return }
+        if let controller = nav.topViewController  as? CalendarController {
+            guard let index = sender as? Int else { return }
+            controller.group = groups[index]
+        }
     }
-    func didAdd(_ nome: String, _ image: UIImageView) {
-        let group = Group(name: nome, image: image.image!)
+    func didAdd( _ name: String, _ imageKey: String, _ admin: [String], _ users: [String],_ imageURL: String){
+        let group = Group()
+        group.name = name
+        group.key = imageKey
+        group.admin = admin
+        group.image = imageURL
+        group.users = users
         groups.append(group)
         tableView.reloadData()
     }
+    func loadGroups() {
+        let user = Firebase.Auth.auth().currentUser
+        let userRef = Database.database().reference(withPath: "users/" + user!.uid + "/groups")
+        let groupsRef = Database.database().reference(withPath: "group" )
+        userRef.observeSingleEvent(of: .value) { (snapshot) in
+            
+            if let arrayGroups = snapshot.value as? NSArray {
+                for i in arrayGroups {
+                    groupsRef.child(i as! String).observeSingleEvent(of: .value, with: { (snapshot) in
+                        if let dict = snapshot.value as? NSDictionary {
+                            let group = Group.deserialize(from: dict)
+                            if let group = group {
+                                self.groups.append(group)
+                                self.tableView.reloadData()
+                            }
+                        }
+                    })
+                }
+            }
+            
+                if let group = snapshot.value as? String {
+                    groupsRef.child(group).observeSingleEvent(of: .value, with: { (snapshot) in
+                        if let dict = snapshot.value as? NSDictionary{
+                            let group =  Group.deserialize(from: dict)
+                            if let group = group {
+                                self.groups.append(group)
+                                self.tableView.reloadData()
+                            }
+                        }
+                        })
+                }
+            }
+        }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
 }
 
 extension TableViewGroups : UITableViewDataSource, UITableViewDelegate {
@@ -47,7 +95,8 @@ extension TableViewGroups : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as!  CellGroups
         cell.nameGroup.text = groups[indexPath.row].name
-       cell.imageGroup.image = groups[indexPath.row].image
+        let url = URL(string: groups[indexPath.row].image!)
+        cell.imageGroup.sd_setImage(with: url, completed: nil)
         cell.imageGroup.layer.cornerRadius = cell.imageGroup.frame.size.width / 2
         cell.imageGroup.layer.masksToBounds = true
         return cell
@@ -55,6 +104,12 @@ extension TableViewGroups : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 126
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "groupSelected", sender: indexPath.row)
+    }
+    
+    
+    
     
     
 }

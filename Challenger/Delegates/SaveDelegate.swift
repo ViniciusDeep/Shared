@@ -9,6 +9,6 @@
 import UIKit
 
 protocol DidAddGroup: class {
-    func didAdd(_ nome: String,_ image: UIImageView)
+    func didAdd( _ name: String, _ imageKey: String, _ admin: [String], _ users: [String],_ imageURL: String)
 }
 

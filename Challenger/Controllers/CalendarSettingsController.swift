@@ -12,11 +12,14 @@ class CalendarSettingsController: UITableViewController{
     
     @IBOutlet weak var groupImage: UIButton!
     @IBOutlet weak var groupName: UILabel!
+    var group : Group? = nil
+    
     
     @IBOutlet var settingsTableCalendarView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Settings"
+        groupName.text = group?.name
     }
     
     override func viewWillAppear(_ animated: Bool) {
