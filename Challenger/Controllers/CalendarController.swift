@@ -12,7 +12,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import Firebase
 import FirebaseStorage
-
+import SDWebImage
 class CalendarController: UIViewController{
     var expandButtonClick : Int=0
     var actualDate : Date?
@@ -25,6 +25,7 @@ class CalendarController: UIViewController{
     @IBOutlet weak var heightCalendarConst: NSLayoutConstraint! //275 initial 91 cell size
     @IBOutlet weak var heightTableConst: NSLayoutConstraint! // 185 initial
     
+    @IBOutlet weak var expandButtonOutlet: UIButton!
     @IBOutlet weak var imageButtonOutlet: UIButton!
     @IBOutlet weak var archiveButtonOutlet: UIButton!
     @IBOutlet weak var textFieldOutlet: UITextField!
@@ -33,6 +34,7 @@ class CalendarController: UIViewController{
     var thisCalendar = Calendar.current
     var dateSelected : Date?
     var group : Group? = nil
+    var email : String?
     var archives : [Archive] = []
     let formatter = DateFormatter()
     var numberOfRows : Int?
@@ -44,7 +46,10 @@ class CalendarController: UIViewController{
         super.viewDidLoad()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.title = group?.name
+        expandButtonOutlet.setImage(#imageLiteral(resourceName: "ic_expand_less"), for: UIControlState.normal)
         
+        let currentUser = Firebase.Auth.auth().currentUser
+        email = currentUser?.email
         generateInDates = .forAllMonths
         generateOutDates = .tillEndOfGrid
         numberOfRows = nil
@@ -66,12 +71,20 @@ class CalendarController: UIViewController{
         super.didReceiveMemoryWarning()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "CalendarSettings" {
-            if let controller = segue.destination as? CalendarSettingsController {
-                guard let index = sender as? Group else { return }
-                controller.group = index
-            }
+        
+        if let controller = segue.destination as? CalendarSettingsController {
+            guard let index = sender as? Group else { return }
+            controller.group = index
         }
+        
+        if let controller = segue.destination as? ShowImageController {
+            guard let index = sender as? String else {
+                print("OOOI")
+                return
+            }
+            controller.archive = index
+        }
+        
     }
     //Buttons
     
@@ -81,6 +94,8 @@ class CalendarController: UIViewController{
     @IBAction func buttonExpand(_ sender:   UIButton) {
         if(expandButtonClick == 0){
             numberOfRows = 1
+            expandButtonOutlet.setImage(#imageLiteral(resourceName: "ic_expand_more"), for: UIControlState.normal)
+            expandButtonOutlet.setTitle("Expand", for: UIControlState.normal)
             generateInDates = .forFirstMonthOnly
             generateOutDates = .off
             heightCalendarConst.constant = 91
@@ -90,6 +105,8 @@ class CalendarController: UIViewController{
             heightCalendarConst.constant = 274
             heightTableConst.constant = heightTableConst.constant - 184
             numberOfRows = nil
+            expandButtonOutlet.setImage(#imageLiteral(resourceName: "ic_expand_less"), for: UIControlState.normal)
+             expandButtonOutlet.setTitle("Reduce", for: UIControlState.normal)
             generateInDates = .forAllMonths
             generateOutDates = .tillEndOfGrid
             expandButtonClick = 0
@@ -229,6 +246,7 @@ class CalendarController: UIViewController{
         })
     }
     
+    
 }
 //Calendar extensions
 extension CalendarController : JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
@@ -315,17 +333,23 @@ extension CalendarController : UITableViewDataSource, UITableViewDelegate {
         switch(archive.type!){
         case "text":
             let cell = tableView.dequeueReusableCell(withIdentifier: "Comment", for: indexPath)
-            cell.textLabel?.text = archive.archive
+            cell.textLabel?.text = email
+            cell.detailTextLabel?.text = archive.archive
+            
             return cell
         case "jpeg":
             let cell = tableView.dequeueReusableCell(withIdentifier: "Archive", for: indexPath) as? FileArchiveCell
-            cell?.archiveLabel.text = archive.name
+            cell?.nameLabel.text = email
+            let url = URL(string: archives[indexPath.row].archive!)
+            cell?.imageOutlet.sd_setImage(with: url ,completed: nil)
             return cell!
         default:
             return UITableViewCell()
         }
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ShowImage", sender: archives[indexPath.row].archive)
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
