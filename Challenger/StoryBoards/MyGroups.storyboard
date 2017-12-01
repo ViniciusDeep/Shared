@@ -134,8 +134,10 @@
                         <viewLayoutGuide key="safeArea" id="cqo-x7-AiS"/>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="Buq-nN-3og" id="YF3-28-bnT"/>
                         <outlet property="imageView" destination="p61-pr-rgz" id="bdX-7N-Xng"/>
                         <outlet property="nameOutlet" destination="IVj-45-5TW" id="bJZ-4O-wzy"/>
+                        <outlet property="saveButton" destination="aKL-SR-lSW" id="eaF-6X-f04"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TxV-H7-OaA" userLabel="First Responder" sceneMemberID="firstResponder"/>

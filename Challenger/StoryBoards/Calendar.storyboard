@@ -208,7 +208,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZdD-xS-YdH">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZdD-xS-YdH">
                                                             <rect key="frame" x="8" y="28" width="117" height="85"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
@@ -360,7 +360,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
                                     <navigationItem id="Dmm-cQ-Hnj">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="stop" id="qyb-iW-1fP">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" style="plain" id="qyb-iW-1fP">
                                             <connections>
                                                 <action selector="goBackButton:" destination="oBN-bh-AqP" id="efh-m4-wim"/>
                                             </connections>
@@ -373,11 +373,11 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qtd-lK-9Gz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qtd-lK-9Gz">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Qtd-lK-9Gz" firstAttribute="top" secondItem="RRO-76-Pln" secondAttribute="top" constant="24" id="4Gx-lm-bMs"/>
                             <constraint firstItem="RRO-76-Pln" firstAttribute="top" secondItem="cQ5-Sq-uMP" secondAttribute="top" constant="20" id="B0r-Xo-Uf9"/>

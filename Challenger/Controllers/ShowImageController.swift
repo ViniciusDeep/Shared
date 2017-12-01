@@ -8,9 +8,12 @@
 
 import UIKit
 import SDWebImage
+import FirebaseStorage
+import Firebase
+import FirebaseCore
+import FirebaseDatabase
 class ShowImageController: UIViewController {
     var archive : String?
-    
     @IBOutlet weak var ImageOutlet: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,16 +27,30 @@ class ShowImageController: UIViewController {
     @IBAction func goBackButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
-    
     @IBAction func downloadButton(_ sender: UIBarButtonItem) {
-        do {
-            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-            let fileURL = documentsURL.appendingPathComponent("\(ImageOutlet).png")
-            if let pngImageData = UIImagePNGRepresentation(ImageOutlet.image!) {
-                try pngImageData.write(to: fileURL, options: .atomic)
+        downloadImage()
+    }
+    func downloadImage() {
+        let reference = Storage.storage().reference(forURL: archive!)
+        reference.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+            if (error != nil){
+                print(error)
+            }else {
+                let myImage : UIImage! = UIImage(data: data!)
+                UIImageWriteToSavedPhotosAlbum(myImage, nil, nil, nil)
             }
-        } catch {
         }
+        
+//        storageRef.downloadURL { (url, error) in
+//            guard let imageURL = url, error == nil else{
+//                return
+//            }
+//            guard let data = NSData(contentsOf: imageURL) else {
+//                return
+//            }
+//            let image = UIImage(data: data as Data)
+//
+//        }
     }
     /*
     // Only override draw() if you perform custom drawing.
