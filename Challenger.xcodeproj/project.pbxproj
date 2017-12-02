@@ -73,7 +73,7 @@
 		A40205161FC363E20029B022 /* slr_camera_application_slr_3037.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slr_camera_application_slr_3037.png; sourceTree = "<group>"; };
 		A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountController.swift; sourceTree = "<group>"; };
 		A43645281FC6082B007BC6C3 /* RedirectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectViewController.swift; sourceTree = "<group>"; };
-		A44573CF1FCC9B8600F8F6DF /* SearchGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchGroupsViewController.swift; path = /Users/yago.frota/Desktop/Challenge/Challlenger/Challenger/Controllers/SearchGroupsViewController.swift; sourceTree = "<absolute>"; };
+		A44573CF1FCC9B8600F8F6DF /* SearchGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchGroupsViewController.swift; path = /Users/Yuri/Documents/Challlenger/Challenger/Controllers/SearchGroupsViewController.swift; sourceTree = "<absolute>"; };
 		A4578FA01FCDDAFB00E4DB8C /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		A4578FB81FD06E2B00E4DB8C /* Groups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Groups.swift; path = "Challenger/New Group/Groups.swift"; sourceTree = SOURCE_ROOT; };
 		A4578FB91FD06E2B00E4DB8C /* Archive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Archive.swift; path = "Challenger/New Group/Archive.swift"; sourceTree = SOURCE_ROOT; };
@@ -166,10 +166,9 @@
 				75B7B4EF1FBA219E0088B7EF /* StoryBoards */,
 				DB5B01461FC5EB0A00BD5F1A /* CellGroup */,
 				754874971FBA3DFF00EE2613 /* Controllers */,
+				DA400E6F1FD34E4500970469 /* Managers */,
 				75B7B4E61FB9F4B70088B7EF /* LaunchScreen.storyboard */,
-				DB5AE6961FCC9815008DC8F7 /* Managers */,
 				75B7B4E91FB9F4B70088B7EF /* Info.plist */,
-				DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */,
 				75B02A7A1FBB6255008DB651 /* GoogleService-Info.plist */,
 				7548749A1FBB4DB300EE2613 /* Assets.xcassets */,
 			);
@@ -252,11 +251,12 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
-		DB5AE6961FCC9815008DC8F7 /* Managers */ = {
+		DA400E6F1FD34E4500970469 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */,
 			);
-			name = Managers;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		DB5B01461FC5EB0A00BD5F1A /* CellGroup */ = {
@@ -398,6 +398,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -409,6 +410,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
