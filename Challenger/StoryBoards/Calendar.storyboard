@@ -201,17 +201,11 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sSn-aI-Rg4">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6K-QQ-KJF">
-                                                            <rect key="frame" x="8" y="8" width="50" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZdD-xS-YdH">
-                                                            <rect key="frame" x="21" y="29" width="109" height="78"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZdD-xS-YdH">
+                                                            <rect key="frame" x="21" y="22" width="115" height="93"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="109" id="CBD-gY-oPV"/>
-                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="78" id="gKc-Gg-2O6"/>
+                                                                <constraint firstAttribute="width" constant="115" id="CBD-gY-oPV"/>
+                                                                <constraint firstAttribute="height" constant="93" id="gKc-Gg-2O6"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLD-49-cHW">
@@ -224,15 +218,21 @@
                                                             <nil key="highlightedColor"/>
                                                             <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6K-QQ-KJF">
+                                                            <rect key="frame" x="16" y="0.0" width="50" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="sLD-49-cHW" firstAttribute="top" secondItem="sSn-aI-Rg4" secondAttribute="top" constant="46" id="4Je-dM-wPC"/>
-                                                        <constraint firstItem="x6K-QQ-KJF" firstAttribute="leading" secondItem="sSn-aI-Rg4" secondAttribute="leading" constant="8" id="HK9-YN-oII"/>
-                                                        <constraint firstItem="x6K-QQ-KJF" firstAttribute="top" secondItem="sSn-aI-Rg4" secondAttribute="topMargin" id="TRO-Hu-Zt5"/>
-                                                        <constraint firstItem="ZdD-xS-YdH" firstAttribute="top" secondItem="x6K-QQ-KJF" secondAttribute="bottom" id="ah9-PK-qRl"/>
-                                                        <constraint firstAttribute="bottom" secondItem="ZdD-xS-YdH" secondAttribute="bottom" constant="8" id="eEB-BS-anf"/>
+                                                        <constraint firstItem="x6K-QQ-KJF" firstAttribute="leading" secondItem="sSn-aI-Rg4" secondAttribute="leading" constant="16" id="HK9-YN-oII"/>
+                                                        <constraint firstItem="x6K-QQ-KJF" firstAttribute="top" secondItem="sSn-aI-Rg4" secondAttribute="topMargin" constant="-8" id="TRO-Hu-Zt5"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ZdD-xS-YdH" secondAttribute="bottom" id="eEB-BS-anf"/>
                                                         <constraint firstItem="sLD-49-cHW" firstAttribute="centerY" secondItem="sSn-aI-Rg4" secondAttribute="centerY" id="fBk-Vz-vSY"/>
+                                                        <constraint firstItem="ZdD-xS-YdH" firstAttribute="top" secondItem="x6K-QQ-KJF" secondAttribute="bottom" constant="1" id="ixf-su-SbE"/>
                                                         <constraint firstItem="ZdD-xS-YdH" firstAttribute="leading" secondItem="sSn-aI-Rg4" secondAttribute="leading" constant="21" id="qlC-sA-0gm"/>
                                                         <constraint firstAttribute="trailing" secondItem="sLD-49-cHW" secondAttribute="trailing" constant="12" id="roq-AI-qSR"/>
                                                     </constraints>
