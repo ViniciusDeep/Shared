@@ -61,6 +61,7 @@ class CalendarController: UIViewController{
         calendarView.visibleDates { (visibleDates) in
             self.setupViewOfCalendar(from: visibleDates)
         }
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
@@ -75,13 +76,13 @@ class CalendarController: UIViewController{
             guard let index = sender as? Group else { return }
             controller.group = index
         }
-        
-        if let controller = segue.destination as? ShowImageController {
+        let navigationController = segue.destination as? UINavigationController
+        if let targetController = navigationController?.topViewController as? ShowImageController {
             guard let index = sender as? String else {
                 print("in imageView")
                 return
             }
-            controller.archive = index
+            targetController.archive = index
         }
         
     }

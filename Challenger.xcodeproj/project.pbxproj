@@ -36,6 +36,7 @@
 		A4578FC81FD0775400E4DB8C /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4578FC71FD0775400E4DB8C /* SingUpViewController.swift */; };
 		A4F3A6781FD0959E007B0425 /* logo_dos_meninos.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F3A6771FD0959E007B0425 /* logo_dos_meninos.png */; };
 		DA400E711FD35C5600970469 /* LoginBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DA400E701FD35C5600970469 /* LoginBackground.jpg */; };
+		DAC598DB1FD3904A0084182A /* image_160.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC598DA1FD3903C0084182A /* image_160.png */; };
 		DB33E0761FD1D61F002411F8 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB33E0751FD1D61F002411F8 /* UserCell.swift */; };
 		DB5AE6951FCC97A1008DC8F7 /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */; };
 		DB5B01431FC5E8E700BD5F1A /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5B01421FC5E8E700BD5F1A /* Calendar.storyboard */; };
@@ -85,6 +86,7 @@
 		A47A18371FC7491500F0B085 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A4F3A6771FD0959E007B0425 /* logo_dos_meninos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_dos_meninos.png; sourceTree = "<group>"; };
 		DA400E701FD35C5600970469 /* LoginBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoginBackground.jpg; sourceTree = "<group>"; };
+		DAC598DA1FD3903C0084182A /* image_160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_160.png; sourceTree = "<group>"; };
 		DB33E0751FD1D61F002411F8 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
 		DB5B01421FC5E8E700BD5F1A /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 		A40205121FC363E20029B022 /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				DAC598DA1FD3903C0084182A /* image_160.png */,
 				DA400E701FD35C5600970469 /* LoginBackground.jpg */,
 				A4F3A6771FD0959E007B0425 /* logo_dos_meninos.png */,
 				A40205131FC363E20029B022 /* camera1600.png */,
@@ -340,6 +343,7 @@
 				DB5B01431FC5E8E700BD5F1A /* Calendar.storyboard in Resources */,
 				75B02A7B1FBB7AE8008DB651 /* GoogleService-Info.plist in Resources */,
 				A40205191FC363E30029B022 /* images.png in Resources */,
+				DAC598DB1FD3904A0084182A /* image_160.png in Resources */,
 				A40204FB1FC360790029B022 /* UserInfo.storyboard in Resources */,
 				A40204F91FC360790029B022 /* SearchGroups.storyboard in Resources */,
 				A40204FA1FC360790029B022 /* TabBar.storyboard in Resources */,

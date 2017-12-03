@@ -51,6 +51,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginBackground.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="x06-Ma-KMc">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pjc-VK-O9e">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.76286445563888883" blue="0.40784313729999999" alpha="0.3224796660958904" colorSpace="calibratedRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbX-SZ-Iym">
                                 <rect key="frame" x="105" y="313" width="164" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -89,7 +93,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="rJl-eN-WO9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_160.png" translatesAutoresizingMaskIntoConstraints="NO" id="rJl-eN-WO9">
                                 <rect key="frame" x="84" y="80" width="207" height="97"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -103,10 +107,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Pjc-VK-O9e" firstAttribute="height" secondItem="x06-Ma-KMc" secondAttribute="height" id="0ln-mf-AfG"/>
                             <constraint firstItem="x06-Ma-KMc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ecq-h8-gJW"/>
                             <constraint firstItem="x06-Ma-KMc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="I1w-Qb-T36"/>
                             <constraint firstAttribute="bottomMargin" secondItem="x06-Ma-KMc" secondAttribute="bottom" id="NIP-jp-9sK"/>
+                            <constraint firstItem="Pjc-VK-O9e" firstAttribute="centerY" secondItem="x06-Ma-KMc" secondAttribute="centerY" id="nhr-Vd-ckz"/>
                             <constraint firstItem="x06-Ma-KMc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pca-xq-pcn"/>
+                            <constraint firstItem="Pjc-VK-O9e" firstAttribute="width" secondItem="x06-Ma-KMc" secondAttribute="width" id="ubF-s3-CwS"/>
+                            <constraint firstItem="Pjc-VK-O9e" firstAttribute="centerX" secondItem="x06-Ma-KMc" secondAttribute="centerX" id="z7C-RE-SeY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -190,6 +198,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Rqw-9e-6EK"/>
                     </view>
                     <connections>
@@ -206,8 +215,8 @@
     </scenes>
     <resources>
         <image name="LoginBackground.jpg" width="640" height="960"/>
-        <image name="Logo" width="456" height="412"/>
         <image name="camera1600" width="24" height="24"/>
+        <image name="image_160.png" width="160" height="160"/>
         <image name="imgPerfil" width="337" height="300"/>
         <image name="loginFacebook" width="573" height="100"/>
         <image name="loginGoogle" width="602" height="102"/>

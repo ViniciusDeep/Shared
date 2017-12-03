@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundImage.isHidden = true
+        backgroundImage.isOpaque = true
     }
     
     
