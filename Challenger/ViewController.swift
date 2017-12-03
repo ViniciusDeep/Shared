@@ -32,7 +32,8 @@ class ViewController: UIViewController {
         
         Auth.auth().signIn(withEmail: userEmail.text!, password: userPassword.text!) { (user, error) in
             if error != nil {
-                return print(error)
+                
+                return
                 
             }else {
                 self.performSegue(withIdentifier: "userAuthenticated", sender: sender)

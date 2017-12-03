@@ -6,8 +6,6 @@
 //  Copyright © 2017 Vinicius Mangueira Correia. All rights reserved.
 //
 import HandyJSON
-
-
 class User : HandyJSON {
     var name: String?
     var email: String?

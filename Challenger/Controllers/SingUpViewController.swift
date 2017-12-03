@@ -90,6 +90,12 @@ class SingUpViewController: UIViewController {
                 }
                 print("Usuário salvo")
             })
+        usersReference.child(uid).updateChildValues(["name": name], withCompletionBlock: { (error, reference) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            print("Usuário salvo")
+        })
             Auth.auth().signIn(withEmail: "fsfs", password: "fdfsf", completion: { (user, error) in
                 
             })

@@ -38,6 +38,7 @@ class AddGroup: UIViewController, UITextFieldDelegate {
                 return
             }
         }
+
         
     }
     
@@ -77,8 +78,8 @@ class AddGroup: UIViewController, UITextFieldDelegate {
                 return
             }
         }
-        
     }
+    
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -116,11 +117,12 @@ class AddGroup: UIViewController, UITextFieldDelegate {
                     result = false
                 }
             }
-            completion(result)
-        }) { (error) in
-            print(error.localizedDescription)
+                completion(result)
+            }) { (error) in
+                print(error.localizedDescription)
         }
     }
+    
     func addGroupToFirebase(_ name: String,_ image:  UIImage, completion: @escaping(_ isConnected: Bool) -> Void) {
         let connectedRef = Database.database().reference(withPath: ".info/connected")
         connectedRef.observe(.value, with: { snapshot in
@@ -138,12 +140,12 @@ class AddGroup: UIViewController, UITextFieldDelegate {
         let key = database.childByAutoId().key
         let uid = Firebase.Auth.auth().currentUser!.uid
         let email = Firebase.Auth.auth().currentUser!.email
-        // let user = User(email: email!, image: key, id: uid)
+       // let user = User(email: email!, image: key, id: uid)
         if let imageData = UIImagePNGRepresentation(image) {
             sendMedia(image: imageData , imageKey: key, completion: {(url) in
                 database.child("group").child(key).updateChildValues(["name": name, "image": url.absoluteString, "admin": [uid], "users": [uid], "key" : key])
                 self.dismiss(animated: true, completion: {
-                    self.didCreateGroup?.didAdd(name, key, [uid], [uid], url.absoluteString)
+                self.didCreateGroup?.didAdd(name, key, [uid], [uid], url.absoluteString)
                 })
             })
             addGroupToUser(key)
@@ -161,10 +163,10 @@ class AddGroup: UIViewController, UITextFieldDelegate {
         let userRef = database.child("users").child(user!.uid)
         userRef.child("groups").observeSingleEvent(of: .value) { (snapshot) in
             if  let id = snapshot.value as? [String] {
-                array = id
-                array.append(key)
-                userRef.updateChildValues(["groups" : array as NSArray])
-                return
+                    array = id
+                    array.append(key)
+                    userRef.updateChildValues(["groups" : array as NSArray])
+                    return
             }
             if let idS = snapshot.value as? String {
                 if(snapshot.exists()) {

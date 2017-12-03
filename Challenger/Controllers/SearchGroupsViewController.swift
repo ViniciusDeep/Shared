@@ -18,14 +18,14 @@ class SearchGroupsViewController: UIViewController, UISearchBarDelegate {
         tableView.dataSource = self
         searchBar.delegate = self
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let nav = segue.destination as? UINavigationController else { return }
-        if let controller = nav.topViewController  as? CalendarController {
-            guard let index = sender as? Int else { return }
-            controller.group = groups[index]
-        }
-    }
+
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let nav = segue.destination as? UINavigationController else { return }
+//        if let controller = nav.topViewController  as? CalendarController {
+//            guard let index = sender as? Int else { return }
+//            controller.group = groups[index]
+//        }
+//    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if !groups.isEmpty {
@@ -73,8 +73,9 @@ extension SearchGroupsViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 126
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "groupSelected", sender: indexPath.row)
-    }
+
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "groupSelected", sender: indexPath.row)
+//    }
     
 }

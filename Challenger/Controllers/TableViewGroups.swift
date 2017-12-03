@@ -84,6 +84,11 @@ class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
+   
+    @IBAction func reloadButton(_ sender: Any) {
+        groups.removeAll()
+        loadGroups()
+    }
     
 }
 
@@ -107,10 +112,5 @@ extension TableViewGroups : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "groupSelected", sender: indexPath.row)
     }
-    
-    
-    
-    
-    
 }
 

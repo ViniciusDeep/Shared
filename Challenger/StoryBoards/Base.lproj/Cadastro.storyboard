@@ -217,7 +217,7 @@
         <image name="LoginBackground.jpg" width="640" height="960"/>
         <image name="camera1600" width="24" height="24"/>
         <image name="image_160.png" width="160" height="160"/>
-        <image name="imgPerfil" width="337" height="300"/>
+        <image name="imgPerfil" width="582" height="582"/>
         <image name="loginFacebook" width="573" height="100"/>
         <image name="loginGoogle" width="602" height="102"/>
         <image name="logo_dos_meninos.png" width="702" height="710"/>
