@@ -19,10 +19,11 @@ class CalendarInviteController: UIViewController{
     @IBOutlet weak var searchBarView: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         searchTableView.delegate = self
         searchTableView.dataSource = self
         searchBarView.delegate = self
+//        searchTableView.estimatedRowHeight = UITableViewAutomaticDimension
+        searchTableView.tableFooterView = UIView()
         loadUsers()
         
     }
@@ -47,9 +48,29 @@ class CalendarInviteController: UIViewController{
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func done(_ sender: Any) {
+    func addGroupToUser(_ user: User) {
+        var array  : [String] = []
+        let database = Database.database().reference()
+        let userRef = database.child("users").child(user.userID!)
+        userRef.child("groups").observeSingleEvent(of: .value) { (snapshot) in
+            if  let id = snapshot.value as? [String] {
+                array = id
+                array.append(user.userID!)
+                userRef.updateChildValues(["groups" : array as NSArray])
+                return
+            }
+            if let idS = snapshot.value as? String {
+                if(snapshot.exists()) {
+                    array = [idS]
+                    array.append(user.userID!)
+                    userRef.updateChildValues(["groups" : array as NSArray])
+                }
+            } else {
+                userRef.updateChildValues(["groups":  user.userID])
+            }
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        }
     }
-    
 }
 extension CalendarInviteController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,9 +78,17 @@ extension CalendarInviteController : UITableViewDataSource, UITableViewDelegate{
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "InviteCell", for: indexPath)
-        cell.textLabel?.text = result[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCellInvites", for: indexPath) as! UserCellInvites
+        cell.email?.text = result[indexPath.row].email
+        cell.name.text = result[indexPath.row].name
+        if let stringUrl = result[indexPath.row].profileImage {
+            cell.imageProfile.sd_setImage(with: URL(string: stringUrl), completed: nil)
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        addGroupToUser(result[indexPath.row])
     }
 }
 extension CalendarInviteController: UISearchBarDelegate {

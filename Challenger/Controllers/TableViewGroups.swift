@@ -25,6 +25,8 @@ class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+        tableView.tableFooterView = UIView()
+        tableView.estimatedRowHeight = UITableViewAutomaticDimension
         loadGroups()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -106,9 +108,7 @@ extension TableViewGroups : UITableViewDataSource, UITableViewDelegate {
         cell.imageGroup.layer.masksToBounds = true
         return cell
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 126
-    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "groupSelected", sender: indexPath.row)
     }

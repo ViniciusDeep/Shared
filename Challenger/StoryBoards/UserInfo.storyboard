@@ -74,7 +74,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zd6-cu-SNe">
-                                <rect key="frame" x="77" y="140" width="221" height="21"/>
+                                <rect key="frame" x="126" y="140" width="222" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -88,6 +88,7 @@
                     <connections>
                         <outlet property="email" destination="zd6-cu-SNe" id="MVA-oJ-phG"/>
                         <outlet property="logOut" destination="Vfc-DF-CIC" id="mX2-fW-5ux"/>
+                        <outlet property="profileImage" destination="Q8n-V6-Rny" id="qJr-tB-pe4"/>
                         <segue destination="TQo-s9-lTx" kind="presentation" identifier="Login" id="0KX-Nh-H4O"/>
                     </connections>
                 </viewController>

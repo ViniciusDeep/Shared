@@ -19,7 +19,7 @@ class SingUpViewController: UIViewController {
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var userName: UITextField!
-    
+    var imageUrl : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +78,7 @@ class SingUpViewController: UIViewController {
             guard let email = user.email else {
                 return print("Email inexiste")
             }
-            let dict = ["userID" : uid, "email" : email, "name" : name]
+            let dict = ["userID" : uid, "email" : email, "name" : name, "profileImage" : self.imageUrl]
             usersReference.child(uid).updateChildValues(dict, withCompletionBlock: { (error, reference) in
                 if let error = error {
                     print(error.localizedDescription)
@@ -115,12 +115,21 @@ extension SingUpViewController: UIImagePickerControllerDelegate, UINavigationCon
         picker.dismiss(animated: true, completion: nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerEditedImage] as? UIImage
-        
-        imgProfile.image = image
-        picker.dismiss(animated: true, completion: nil)
-        
-        
-        
+        let imagesFilesManager = FilesManager()
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            let imagesFilesManager = FilesManager()
+            imagesFilesManager.uploadImage(image, completionBlock: { (url,id, error) in
+                print(url?.absoluteString)
+                self.imageUrl = url?.absoluteString
+            })
+            imgProfile.image = image
+            picker.dismiss(animated: true, completion: nil)
+//
+//        let image = info[UIImagePickerControllerEditedImage] as? UIImage
+//
+//        imgProfile.image = image
+//        picker.dismiss(animated: true, completion: nil)
+//
+        }
     }
 }

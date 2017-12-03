@@ -38,6 +38,7 @@
 		A4F3A6781FD0959E007B0425 /* logo_dos_meninos.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F3A6771FD0959E007B0425 /* logo_dos_meninos.png */; };
 		A4F3A67C1FD1C857007B0425 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F3A67B1FD1C857007B0425 /* UserCell.swift */; };
 		DA3CDC2C1FD448340012D598 /* ShowImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3CDC2B1FD448330012D598 /* ShowImageController.swift */; };
+		DA3CDC2E1FD46B2C0012D598 /* UserCellInvites.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3CDC2D1FD46B2C0012D598 /* UserCellInvites.swift */; };
 		DA400E711FD35C5600970469 /* LoginBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DA400E701FD35C5600970469 /* LoginBackground.jpg */; };
 		DAC598DB1FD3904A0084182A /* image_160.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC598DA1FD3903C0084182A /* image_160.png */; };
 		DB5AE6951FCC97A1008DC8F7 /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */; };
@@ -89,6 +90,7 @@
 		A4F3A6771FD0959E007B0425 /* logo_dos_meninos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_dos_meninos.png; sourceTree = "<group>"; };
 		A4F3A67B1FD1C857007B0425 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		DA3CDC2B1FD448330012D598 /* ShowImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageController.swift; sourceTree = "<group>"; };
+		DA3CDC2D1FD46B2C0012D598 /* UserCellInvites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellInvites.swift; sourceTree = "<group>"; };
 		DA400E701FD35C5600970469 /* LoginBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoginBackground.jpg; sourceTree = "<group>"; };
 		DAC598DA1FD3903C0084182A /* image_160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_160.png; sourceTree = "<group>"; };
 		DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			children = (
 				A40204FE1FC3607F0029B022 /* CellGroups.swift */,
 				A4F3A67B1FD1C857007B0425 /* UserCell.swift */,
+				DA3CDC2D1FD46B2C0012D598 /* UserCellInvites.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				A4578FC01FD06EB300E4DB8C /* Archive.swift in Sources */,
 				A4578FC81FD0775400E4DB8C /* SingUpViewController.swift in Sources */,
 				A4578FC11FD06EB300E4DB8C /* Group.swift in Sources */,
+				DA3CDC2E1FD46B2C0012D598 /* UserCellInvites.swift in Sources */,
 				A4578FC21FD06EB300E4DB8C /* Groups.swift in Sources */,
 				A4578FC31FD06EB300E4DB8C /* User.swift in Sources */,
 				75B7B4DD1FB9F4B70088B7EF /* ViewController.swift in Sources */,

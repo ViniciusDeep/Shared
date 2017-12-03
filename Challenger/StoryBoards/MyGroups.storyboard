@@ -34,18 +34,27 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xig-e8-wuM">
-                                                    <rect key="frame" x="104" y="40" width="183" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xig-e8-wuM">
+                                                    <rect key="frame" x="104" y="40" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wy2-gf-hy2">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wy2-gf-hy2">
                                                     <rect key="frame" x="15" y="18" width="68" height="63.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="68" id="3rq-hR-bwc"/>
+                                                        <constraint firstAttribute="height" constant="63.5" id="gGr-QO-OHV"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Wy2-gf-hy2" firstAttribute="leading" secondItem="Zeh-j9-hg3" secondAttribute="leading" constant="15" id="B0f-gk-MAG"/>
+                                                <constraint firstItem="xig-e8-wuM" firstAttribute="leading" secondItem="Wy2-gf-hy2" secondAttribute="trailing" constant="21" id="KOa-4W-nW3"/>
+                                                <constraint firstItem="Wy2-gf-hy2" firstAttribute="top" secondItem="Zeh-j9-hg3" secondAttribute="top" constant="18" id="Mww-VB-OaP"/>
+                                                <constraint firstAttribute="bottom" secondItem="Wy2-gf-hy2" secondAttribute="bottom" constant="18" id="rQj-m0-5y9"/>
+                                                <constraint firstItem="xig-e8-wuM" firstAttribute="centerY" secondItem="Wy2-gf-hy2" secondAttribute="centerY" id="sXT-pc-SR6"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imageGroup" destination="Wy2-gf-hy2" id="Uqu-Ka-6ZI"/>

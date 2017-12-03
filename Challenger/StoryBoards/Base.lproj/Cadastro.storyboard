@@ -172,7 +172,7 @@
                                     <action selector="imgSelected:" destination="Eez-Ik-KoA" eventType="touchUpInside" id="Da3-8a-nql"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imgPerfil" translatesAutoresizingMaskIntoConstraints="NO" id="xZI-Vo-jkj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imgPerfil" translatesAutoresizingMaskIntoConstraints="NO" id="xZI-Vo-jkj">
                                 <rect key="frame" x="117" y="103" width="140" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
