@@ -9,7 +9,6 @@
 import HandyJSON
 
 class Group: HandyJSON {
-    
     var name: String?
     var image: String?
     var key: String?

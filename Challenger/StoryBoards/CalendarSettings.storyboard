@@ -108,7 +108,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="CYP-9c-WcX" kind="presentation" id="sNx-ln-Vsn"/>
+                                            <segue destination="CYP-9c-WcX" kind="presentation" identifier="calendarInvites" id="sNx-ln-Vsn"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="fgb-8i-CkO" detailTextLabel="hvk-pQ-oHZ" style="IBUITableViewCellStyleValue1" id="KaN-Sm-K6f">
@@ -135,7 +135,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="BMU-on-kdd" kind="presentation" id="uhb-UE-7oY"/>
+                                            <segue destination="BMU-on-kdd" kind="presentation" identifier="CalendarRequests" id="uhb-UE-7oY"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>

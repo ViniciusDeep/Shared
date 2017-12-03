@@ -78,24 +78,13 @@ class SingUpViewController: UIViewController {
             guard let email = user.email else {
                 return print("Email inexiste")
             }
-            usersReference.child(uid).updateChildValues(["email": email], withCompletionBlock: { (error, reference) in
+            let dict = ["userID" : uid, "email" : email, "name" : name]
+            usersReference.child(uid).updateChildValues(dict, withCompletionBlock: { (error, reference) in
                 if let error = error {
                     print(error.localizedDescription)
                 }
                 print("Usuário salvo")
             })
-            usersReference.child(uid).updateChildValues(["name": name], withCompletionBlock: { (error, reference) in
-                if let error = error {
-                    print(error.localizedDescription)
-                }
-                print("Usuário salvo")
-            })
-        usersReference.child(uid).updateChildValues(["name": name], withCompletionBlock: { (error, reference) in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            print("Usuário salvo")
-        })
             Auth.auth().signIn(withEmail: "fsfs", password: "fdfsf", completion: { (user, error) in
                 
             })

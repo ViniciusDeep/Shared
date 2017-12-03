@@ -50,6 +50,11 @@ class CalendarMemberController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCell
+        if(members[indexPath.row].userID == group?.admin![0]){
+            cell.detailTextLabel?.text = "Admin"
+        }else{
+            cell.detailTextLabel?.text = "Member"
+        }
         cell.email.text = members[indexPath.row].name
        return cell
     }

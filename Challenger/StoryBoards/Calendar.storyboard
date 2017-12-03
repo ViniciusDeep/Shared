@@ -412,6 +412,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ImageOutlet" destination="Qtd-lK-9Gz" id="KRD-2D-ShK"/>
+                        <outlet property="downloadButtonOutlet" destination="yiw-x4-me2" id="1kS-FL-uIx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oe8-Es-unc" userLabel="First Responder" sceneMemberID="firstResponder"/>

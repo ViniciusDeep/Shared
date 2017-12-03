@@ -50,6 +50,9 @@ class CalendarSettingsController: UITableViewController{
         if let controller = nav.topViewController as? CalendarMemberController {
             controller.group = self.group
         }
+        if let controller = nav.topViewController as? CalendarInviteController{
+            controller.group = self.group
+        }
     }
 }
 extension CalendarSettingsController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
@@ -81,6 +84,9 @@ extension CalendarSettingsController {
     }
         if identifier == "showMembers" {
             performSegue(withIdentifier: "showMembers", sender: nil)
+        }
+        if identifier == "calendarRequests"{
+            performSegue(withIdentifier: "calendarInvites", sender: nil)
         }
 }
 }

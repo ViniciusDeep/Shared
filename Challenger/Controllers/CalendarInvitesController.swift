@@ -14,6 +14,7 @@ import FirebaseDatabase
 class CalendarInviteController: UIViewController{
     var users : [User] = []
     var result : [User] = []
+    var group : Group?
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var searchBarView: UISearchBar!
     override func viewDidLoad() {

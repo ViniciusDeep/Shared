@@ -7,6 +7,7 @@
 //
 import HandyJSON
 class User : HandyJSON {
+    var userID: String?
     var name: String?
     var email: String?
     var groups : [String]?

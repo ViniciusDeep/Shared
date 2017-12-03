@@ -15,6 +15,10 @@ import FirebaseDatabase
 class ShowImageController: UIViewController {
     var archive : String?
     @IBOutlet weak var ImageOutlet: UIImageView!
+    
+    @IBOutlet weak var downloadButtonOutlet: UIBarButtonItem!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let url = URL(string: archive!)
@@ -28,6 +32,7 @@ class ShowImageController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func downloadButton(_ sender: UIBarButtonItem) {
+        downloadButtonOutlet.isEnabled = false
         downloadImage()
     }
     func downloadImage() {
@@ -37,10 +42,23 @@ class ShowImageController: UIViewController {
                 print(error)
             }else {
                 let myImage : UIImage! = UIImage(data: data!)
-                UIImageWriteToSavedPhotosAlbum(myImage, nil, nil, nil)
+                UIImageWriteToSavedPhotosAlbum(myImage, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
             }
         }
-        
+    }
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+            if let error = error {
+                // we got back an error!
+                let ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                present(ac, animated: true)
+            } else {
+                let ac = UIAlertController(title: "Saved!", message: "Your altered image has been saved to your photos.", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                present(ac, animated: true)
+                downloadButtonOutlet.isEnabled = true
+            }
+    }
 //        storageRef.downloadURL { (url, error) in
 //            guard let imageURL = url, error == nil else{
 //                return
@@ -51,7 +69,6 @@ class ShowImageController: UIViewController {
 //            let image = UIImage(data: data as Data)
 //
 //        }
-    }
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
