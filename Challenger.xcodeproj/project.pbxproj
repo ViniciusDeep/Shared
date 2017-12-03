@@ -35,6 +35,7 @@
 		A4578FC61FD0703700E4DB8C /* Cadastro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4578FC41FD0703700E4DB8C /* Cadastro.storyboard */; };
 		A4578FC81FD0775400E4DB8C /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4578FC71FD0775400E4DB8C /* SingUpViewController.swift */; };
 		A4F3A6781FD0959E007B0425 /* logo_dos_meninos.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F3A6771FD0959E007B0425 /* logo_dos_meninos.png */; };
+		DA400E711FD35C5600970469 /* LoginBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DA400E701FD35C5600970469 /* LoginBackground.jpg */; };
 		DB33E0761FD1D61F002411F8 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB33E0751FD1D61F002411F8 /* UserCell.swift */; };
 		DB5AE6951FCC97A1008DC8F7 /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */; };
 		DB5B01431FC5E8E700BD5F1A /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5B01421FC5E8E700BD5F1A /* Calendar.storyboard */; };
@@ -83,6 +84,7 @@
 		A4578FC71FD0775400E4DB8C /* SingUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		A47A18371FC7491500F0B085 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A4F3A6771FD0959E007B0425 /* logo_dos_meninos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_dos_meninos.png; sourceTree = "<group>"; };
+		DA400E701FD35C5600970469 /* LoginBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoginBackground.jpg; sourceTree = "<group>"; };
 		DB33E0751FD1D61F002411F8 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
 		DB5B01421FC5E8E700BD5F1A /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 		A40205121FC363E20029B022 /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				DA400E701FD35C5600970469 /* LoginBackground.jpg */,
 				A4F3A6771FD0959E007B0425 /* logo_dos_meninos.png */,
 				A40205131FC363E20029B022 /* camera1600.png */,
 				A40205141FC363E20029B022 /* images-2.png */,
@@ -341,6 +344,7 @@
 				A40204F91FC360790029B022 /* SearchGroups.storyboard in Resources */,
 				A40204FA1FC360790029B022 /* TabBar.storyboard in Resources */,
 				A40205181FC363E30029B022 /* images-2.png in Resources */,
+				DA400E711FD35C5600970469 /* LoginBackground.jpg in Resources */,
 				A402051A1FC363E30029B022 /* slr_camera_application_slr_3037.png in Resources */,
 				A4F3A6781FD0959E007B0425 /* logo_dos_meninos.png in Resources */,
 				A4578FC61FD0703700E4DB8C /* Cadastro.storyboard in Resources */,

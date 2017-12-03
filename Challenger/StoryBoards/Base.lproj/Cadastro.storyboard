@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -47,6 +48,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginBackground.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="x06-Ma-KMc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbX-SZ-Iym">
                                 <rect key="frame" x="105" y="313" width="164" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -55,13 +59,6 @@
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jgr-7S-UV6"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oye-lS-E3I">
-                                <rect key="frame" x="16" y="209" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNE-hC-M9s">
                                 <rect key="frame" x="33" y="471" width="295" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -96,12 +93,26 @@
                                 <rect key="frame" x="84" y="80" width="207" height="97"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oye-lS-E3I">
+                                <rect key="frame" x="16" y="225" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="x06-Ma-KMc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ecq-h8-gJW"/>
+                            <constraint firstItem="x06-Ma-KMc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="I1w-Qb-T36"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="x06-Ma-KMc" secondAttribute="bottom" id="NIP-jp-9sK"/>
+                            <constraint firstItem="x06-Ma-KMc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pca-xq-pcn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="BKy-Zk-nvs"/>
                     <connections>
+                        <outlet property="backgroundImage" destination="x06-Ma-KMc" id="xJg-oJ-8Ub"/>
                         <outlet property="userEmail" destination="Oye-lS-E3I" id="lrh-5I-79Y"/>
                         <outlet property="userPassword" destination="5bL-ms-57I" id="7L7-wM-tbe"/>
                         <segue destination="LZj-qF-lBe" kind="show" identifier="userAuthenticated" id="ZvD-G1-O5e"/>
@@ -179,7 +190,6 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="Rqw-9e-6EK"/>
                     </view>
                     <connections>
@@ -195,6 +205,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LoginBackground.jpg" width="640" height="960"/>
         <image name="Logo" width="456" height="412"/>
         <image name="camera1600" width="24" height="24"/>
         <image name="imgPerfil" width="337" height="300"/>
@@ -203,6 +214,6 @@
         <image name="logo_dos_meninos.png" width="702" height="710"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZYi-qd-T3n"/>
+        <segue reference="ZvD-G1-O5e"/>
     </inferredMetricsTieBreakers>
 </document>

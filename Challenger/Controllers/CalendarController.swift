@@ -47,7 +47,7 @@ class CalendarController: UIViewController{
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.title = group?.name
         expandButtonOutlet.setImage(#imageLiteral(resourceName: "ic_expand_less"), for: UIControlState.normal)
-        
+        archiveButtonOutlet.isHidden=true
         let currentUser = Firebase.Auth.auth().currentUser
         email = currentUser?.email
         generateInDates = .forAllMonths
@@ -61,7 +61,6 @@ class CalendarController: UIViewController{
         calendarView.visibleDates { (visibleDates) in
             self.setupViewOfCalendar(from: visibleDates)
         }
-        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
@@ -79,7 +78,7 @@ class CalendarController: UIViewController{
         
         if let controller = segue.destination as? ShowImageController {
             guard let index = sender as? String else {
-                print("OOOI")
+                print("in imageView")
                 return
             }
             controller.archive = index
@@ -196,7 +195,7 @@ class CalendarController: UIViewController{
         guard let validCell = cell as? CustomCell else { return }
         //the date selected becomes yellow
         if validCell.isSelected {
-            validCell.dayLabel.textColor = UIColor.yellow
+            validCell.dayLabel.textColor = UIColor.white
         } else {
             let today = Date()
             formatter.dateFormat = "yyyy MM dd"
@@ -205,13 +204,13 @@ class CalendarController: UIViewController{
             let cellDateStr = formatter.string(from: cellState.date)
             //date right now is paint with yellow
             if todayDateStr == cellDateStr {
-                validCell.dayLabel.textColor = UIColor.yellow
-                //month days are white and non-month days are gray
+                validCell.dayLabel.textColor = UIColor.blue
+                //month days are black and non-month days are lightGray
             } else {
                 if cellState.dateBelongsTo == .thisMonth {
-                    validCell.dayLabel.textColor = UIColor.white
+                    validCell.dayLabel.textColor = UIColor.black
                 } else { //i.e. case it belongs to inDate or outDate
-                    validCell.dayLabel.textColor = UIColor.gray
+                    validCell.dayLabel.textColor = UIColor.lightGray
                 }
             }
         }
@@ -333,13 +332,13 @@ extension CalendarController : UITableViewDataSource, UITableViewDelegate {
         switch(archive.type!){
         case "text":
             let cell = tableView.dequeueReusableCell(withIdentifier: "Comment", for: indexPath)
-            cell.textLabel?.text = email
+            cell.textLabel?.text = email! + ":"
             cell.detailTextLabel?.text = archive.archive
             
             return cell
         case "jpeg":
             let cell = tableView.dequeueReusableCell(withIdentifier: "Archive", for: indexPath) as? FileArchiveCell
-            cell?.nameLabel.text = email
+            cell?.nameLabel.text = email! + ":"
             let url = URL(string: archives[indexPath.row].archive!)
             cell?.imageOutlet.sd_setImage(with: url ,completed: nil)
             return cell!
@@ -348,7 +347,15 @@ extension CalendarController : UITableViewDataSource, UITableViewDelegate {
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ShowImage", sender: archives[indexPath.row].archive)
+        let archive = archives[indexPath.row]
+        switch(archive.type!){
+        case "text":
+            break
+        case "jpeg":
+            performSegue(withIdentifier: "ShowImage", sender: archives[indexPath.row].archive)
+        default:
+            break
+        }
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -356,5 +363,16 @@ extension CalendarController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.archives.count
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let archive = archives[indexPath.row]
+        switch(archive.type!){
+        case "text":
+            return 43.5
+        case "jpeg":
+            return 114.5
+        default:
+            return 44
+        }
     }
 }

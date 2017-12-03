@@ -181,7 +181,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="groupImage" destination="bXx-BN-IXV" id="SnK-B4-6mp"/>
+                        <outlet property="groupImage" destination="bXx-BN-IXV" id="hKu-Ba-VMr"/>
                         <outlet property="groupName" destination="2XE-3V-bL2" id="cBa-We-NTG"/>
                         <outlet property="settingsTableCalendarView" destination="xyC-Cv-icB" id="ye9-Nv-i42"/>
                     </connections>
