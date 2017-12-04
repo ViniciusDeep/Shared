@@ -145,6 +145,7 @@ extension CalendarInviteController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         addGroupToUser(result[indexPath.row])
         addUserToGroup(result[indexPath.row])
+        self.dismiss(animated: true, completion: nil)
     }
 }
 extension CalendarInviteController: UISearchBarDelegate {
