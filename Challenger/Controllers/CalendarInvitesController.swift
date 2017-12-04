@@ -71,6 +71,30 @@ class CalendarInviteController: UIViewController{
             self.navigationController?.dismiss(animated: true, completion: nil)
         }
     }
+    func addUserToGroup(_ user : User){
+        var array  : [String] = []
+        let database = Database.database().reference()
+        let groupRef = database.child("group").child((group?.key)!)
+        groupRef.child("users").observeSingleEvent(of: .value) { (snapshot) in
+            if  let id = snapshot.value as? [String] {
+                array = id
+                array.append(user.userID!)
+                groupRef.updateChildValues(["users" : array as NSArray])
+                return
+            }
+            if let idS = snapshot.value as? String {
+                if(snapshot.exists()) {
+                    array = [idS]
+                    array.append(user.userID!)
+                    groupRef.updateChildValues(["users" : array as NSArray])
+                }
+            } else {
+                groupRef.updateChildValues(["users":  user.userID])
+            }
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        }
+
+    }
 }
 extension CalendarInviteController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,6 +113,7 @@ extension CalendarInviteController : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         addGroupToUser(result[indexPath.row])
+        addUserToGroup(result[indexPath.row])
     }
 }
 extension CalendarInviteController: UISearchBarDelegate {
