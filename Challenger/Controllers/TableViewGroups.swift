@@ -104,8 +104,8 @@ extension TableViewGroups : UITableViewDataSource, UITableViewDelegate {
         cell.nameGroup.text = groups[indexPath.row].name
         let url = URL(string: groups[indexPath.row].image!)
         cell.imageGroup.sd_setImage(with: url, completed: nil)
-        cell.imageGroup.layer.cornerRadius = cell.imageGroup.frame.size.width / 2
-        cell.imageGroup.layer.masksToBounds = true
+        //cell.imageGroup.layer.cornerRadius = cell.imageGroup.frame.size.width / 2
+        //cell.imageGroup.layer.masksToBounds = true
         return cell
     }
     

@@ -17,13 +17,14 @@ class SingUpViewController: UIViewController {
     
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var userEmail: UITextField!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var userName: UITextField!
     var imageUrl : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //saveButton.isEnabled = false
     }
     
     
@@ -123,6 +124,7 @@ extension SingUpViewController: UIImagePickerControllerDelegate, UINavigationCon
                 self.imageUrl = url?.absoluteString
             })
             imgProfile.image = image
+            //saveButton.isEnabled = true
             picker.dismiss(animated: true, completion: nil)
 //
 //        let image = info[UIImagePickerControllerEditedImage] as? UIImage

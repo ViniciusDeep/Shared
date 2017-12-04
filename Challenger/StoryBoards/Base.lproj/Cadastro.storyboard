@@ -172,9 +172,12 @@
                                     <action selector="imgSelected:" destination="Eez-Ik-KoA" eventType="touchUpInside" id="Da3-8a-nql"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imgPerfil" translatesAutoresizingMaskIntoConstraints="NO" id="xZI-Vo-jkj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgPerfil" translatesAutoresizingMaskIntoConstraints="NO" id="xZI-Vo-jkj">
                                 <rect key="frame" x="117" y="103" width="140" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="GGD-ai-Vlf"/>
+                                    <constraint firstAttribute="width" constant="140" id="v12-me-No6"/>
+                                </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kKG-1w-hE9">
                                 <rect key="frame" x="16" y="288" width="343" height="30"/>
@@ -199,10 +202,15 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xZI-Vo-jkj" firstAttribute="top" secondItem="Rqw-9e-6EK" secondAttribute="top" constant="83" id="LYc-t1-udf"/>
+                            <constraint firstItem="xZI-Vo-jkj" firstAttribute="leading" secondItem="Rqw-9e-6EK" secondAttribute="leading" constant="117" id="vnS-LE-NLP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Rqw-9e-6EK"/>
                     </view>
                     <connections>
                         <outlet property="imgProfile" destination="xZI-Vo-jkj" id="XDN-EJ-T1L"/>
+                        <outlet property="saveButton" destination="kgO-Ig-7jx" id="guz-LH-Igc"/>
                         <outlet property="userEmail" destination="jHO-0I-ezn" id="C2O-nG-r0s"/>
                         <outlet property="userName" destination="kKG-1w-hE9" id="jj7-PP-wpE"/>
                         <outlet property="userPassword" destination="hzj-pf-2Yk" id="2Xe-YK-Ge0"/>
@@ -223,6 +231,6 @@
         <image name="logo_dos_meninos.png" width="702" height="710"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZYi-qd-T3n"/>
+        <segue reference="ZvD-G1-O5e"/>
     </inferredMetricsTieBreakers>
 </document>

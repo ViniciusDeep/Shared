@@ -15,6 +15,7 @@ class MyAccountController: UIViewController {
 
     @IBOutlet weak var email: UILabel!
     
+    @IBOutlet weak var name: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var logOut: UIButton!
     
@@ -30,6 +31,8 @@ class MyAccountController: UIViewController {
             DispatchQueue.main.async {
                 self.profileImage.sd_setImage(with: URL(string: stringURL), completed: nil)
             }
+            self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
+            self.profileImage.layer.masksToBounds = true
         }
         
         email.text = user?.email

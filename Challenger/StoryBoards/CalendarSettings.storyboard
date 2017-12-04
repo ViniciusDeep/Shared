@@ -159,7 +159,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="lfr-he-KMl" style="IBUITableViewCellStyleDefault" id="glS-vX-aRF">
+                                    <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="lfr-he-KMl" style="IBUITableViewCellStyleDefault" id="glS-vX-aRF">
                                         <rect key="frame" x="0.0" y="366" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="glS-vX-aRF" id="yuQ-Hj-hSR">
@@ -212,21 +212,21 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3Xc-sI-Pmu">
-                                            <rect key="frame" x="131" y="30" width="41" height="20.5"/>
+                                            <rect key="frame" x="131" y="30" width="41" height="20"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FSJ-bO-ECz">
-                                            <rect key="frame" x="131" y="53.5" width="44" height="14.5"/>
+                                            <rect key="frame" x="131" y="53" width="44" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="imgPerfil" id="rYQ-SB-d9V">
-                                            <rect key="frame" x="16" y="0.0" width="100" height="99.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="100" height="99"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -407,7 +407,18 @@
                             <outlet property="delegate" destination="myU-QP-pHj" id="WcJ-wS-cqS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="2gt-w6-a55"/>
+                    <navigationItem key="navigationItem" id="2gt-w6-a55">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="f9Q-u9-8bh">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jct-da-BtO">
+                                <rect key="frame" x="16" y="7" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButton:" destination="myU-QP-pHj" eventType="touchUpInside" id="rUL-Mu-7Ub"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D1y-RF-mkx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

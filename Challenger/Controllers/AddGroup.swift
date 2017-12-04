@@ -17,7 +17,17 @@ class AddGroup: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         nameOutlet.delegate = self
+        saveButton.isEnabled = false
     }
+    
+    func allSelected(){
+        if( nameOutlet != nil && imageView != nil){
+            saveButton.isEnabled = true
+        }else{
+            saveButton.isEnabled = false
+        }
+    }
+    
     func sendMedia(image: Data, imageKey: String, completion: @escaping (_ url: URL) -> Void){
         let storage = Storage.storage()
         let storageRef = storage.reference().child("images/profileImageGroups")
@@ -93,6 +103,7 @@ class AddGroup: UIViewController, UITextFieldDelegate {
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         self.present(imagePicker, animated: true, completion: nil)
+        allSelected()
     }
     
     func verifyIfExists(_ name: String, completion: @escaping (_ result: Bool) -> Void)  {
@@ -188,5 +199,6 @@ extension AddGroup: UIImagePickerControllerDelegate, UINavigationControllerDeleg
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerEditedImage] as? UIImage
         picker.dismiss(animated: true, completion: {self.imageView.image = image})
+        
     }
 }

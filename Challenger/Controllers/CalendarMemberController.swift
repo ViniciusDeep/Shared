@@ -20,6 +20,7 @@ class CalendarMemberController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMembers()
+        
     }
 
     @IBAction func backButton(_ sender: Any) {
@@ -56,6 +57,9 @@ class CalendarMemberController: UITableViewController {
             cell.detailTextLabel?.text = "Member"
         }
         cell.email.text = members[indexPath.row].name
+        if let stringUrl = members[indexPath.row].profileImage {
+            cell.imageView?.sd_setImage(with: URL(string: stringUrl), completed: nil)
+        }
        return cell
     }
 }
