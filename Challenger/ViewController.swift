@@ -1,7 +1,7 @@
 //
 //  ViewController.swift
 //  Challenger
-//
+//IDSignInButton
 //  Created by Vinicius Mangueira Correia on 13/11/17.
 //  Copyright © 2017 Vinicius Mangueira Correia. All rights reserved.
 //
@@ -12,18 +12,48 @@ import Firebase
 import FirebaseAuth
 import GoogleSignIn
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, GIDSignInDelegate {
+    
+    
+    
 
     
     
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
     
+    @IBOutlet weak var signInButtonGoo: GIDSignInButton!
+    
+    
+    
+    
     @IBOutlet weak var backgroundImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundImage.isOpaque = true
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().signIn()
+        
     }
+    
+    
+    
+    
+    @IBAction func googleButton(_ sender: Any) {
+   
+    }
+    
+
+    
+    
+    
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+    }
+
+    
+    
     
     
     
