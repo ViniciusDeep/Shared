@@ -12,7 +12,7 @@ import Firebase
 import FirebaseAuth
 import GoogleSignIn
 
-class ViewController: UIViewController, GIDSignInDelegate {
+class ViewController: UIViewController, GIDSignInUIDelegate {
     
     
     
@@ -31,16 +31,18 @@ class ViewController: UIViewController, GIDSignInDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundImage.isOpaque = true
-        GIDSignIn.sharedInstance().delegate = self
-        GIDSignIn.sharedInstance().signIn()
+        GIDSignIn.sharedInstance().uiDelegate = self
+        
         
     }
+    
+    
     
     
     
     
     @IBAction func googleButton(_ sender: Any) {
-   
+        GIDSignIn.sharedInstance().signIn()
     }
     
 
@@ -48,10 +50,14 @@ class ViewController: UIViewController, GIDSignInDelegate {
     
     
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        
+    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+        print("")
     }
 
+    
+    func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
+        print("")
+    }
     
     
     
@@ -72,5 +78,8 @@ class ViewController: UIViewController, GIDSignInDelegate {
         }
         
     }
+    
+    
+    
     
 }
