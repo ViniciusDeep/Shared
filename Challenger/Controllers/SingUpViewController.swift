@@ -20,7 +20,7 @@ class SingUpViewController: UIViewController {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var userName: UITextField!
-    var imageUrl : String?
+    var image : UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,32 +64,38 @@ class SingUpViewController: UIViewController {
         guard let name = userName.text else {
             return
         }
-        
-        
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            guard let user = user else {
-                return print("Usuário inexiste")
-            }
-            if error != nil {
-                return print(error?.localizedDescription ?? "Empty")
-            }
-            let ref = Database.database().reference()
-            let usersReference = ref.child("users")
-            let uid = user.uid
-            guard let email = user.email else {
-                return print("Email inexiste")
-            }
-            let dict = ["userID" : uid, "email" : email, "name" : name, "profileImage" : self.imageUrl]
-            usersReference.child(uid).updateChildValues(dict, withCompletionBlock: { (error, reference) in
-                if let error = error {
-                    print(error.localizedDescription)
+        let imagesFilesManager = FilesManager()
+        var imageUrl : String?
+        imagesFilesManager.uploadImage(imgProfile.image!, completionBlock: { (url,id, error) in
+            print(url?.absoluteString)
+            imageUrl = url?.absoluteString
+            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                guard let user = user else {
+                    return print("Usuário inexiste")
                 }
-                print("Usuário salvo")
-            })
-            Auth.auth().signIn(withEmail: "fsfs", password: "fdfsf", completion: { (user, error) in
-                
-            })
-        }
+                if error != nil {
+                    return print(error?.localizedDescription ?? "Empty")
+                }
+                let ref = Database.database().reference()
+                let usersReference = ref.child("users")
+                let uid = user.uid
+                guard let email = user.email else {
+                    return print("Email inexiste")
+                }
+                let dict = ["userID" : uid, "email" : email, "name" : name, "profileImage" : imageUrl]
+                usersReference.child(uid).updateChildValues(dict, withCompletionBlock: { (error, reference) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                    print("Usuário salvo")
+                })
+                Auth.auth().signIn(withEmail: "fsfs", password: "fdfsf", completion: { (user, error) in
+                    
+                })
+            }
+        })
+        
+        
         
         //successfully autheticated
         
@@ -116,14 +122,9 @@ extension SingUpViewController: UIImagePickerControllerDelegate, UINavigationCon
         picker.dismiss(animated: true, completion: nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let imagesFilesManager = FilesManager()
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
-            let imagesFilesManager = FilesManager()
-            imagesFilesManager.uploadImage(image, completionBlock: { (url,id, error) in
-                print(url?.absoluteString)
-                self.imageUrl = url?.absoluteString
-            })
             imgProfile.image = image
+            self.image = image
             //saveButton.isEnabled = true
             picker.dismiss(animated: true, completion: nil)
 //
