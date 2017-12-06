@@ -28,7 +28,6 @@
 		A402051A1FC363E30029B022 /* slr_camera_application_slr_3037.png in Resources */ = {isa = PBXBuildFile; fileRef = A40205161FC363E20029B022 /* slr_camera_application_slr_3037.png */; };
 		A43645271FC4BC4B007BC6C3 /* MyAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */; };
 		A43645291FC6082B007BC6C3 /* RedirectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43645281FC6082B007BC6C3 /* RedirectViewController.swift */; };
-		A44573D01FCC9B8600F8F6DF /* SearchGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44573CF1FCC9B8600F8F6DF /* SearchGroupsViewController.swift */; };
 		A4578FC01FD06EB300E4DB8C /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4578FB91FD06E2B00E4DB8C /* Archive.swift */; };
 		A4578FC11FD06EB300E4DB8C /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4578FBB1FD06E2B00E4DB8C /* Group.swift */; };
 		A4578FC21FD06EB300E4DB8C /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4578FB81FD06E2B00E4DB8C /* Groups.swift */; };
@@ -41,6 +40,8 @@
 		DA3CDC2E1FD46B2C0012D598 /* UserCellInvites.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3CDC2D1FD46B2C0012D598 /* UserCellInvites.swift */; };
 		DA400E711FD35C5600970469 /* LoginBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DA400E701FD35C5600970469 /* LoginBackground.jpg */; };
 		DAC598DB1FD3904A0084182A /* image_160.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC598DA1FD3903C0084182A /* image_160.png */; };
+		DB183A531FD8600900577106 /* SearchGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB183A521FD8600900577106 /* SearchGroupsViewController.swift */; };
+		DB183A551FD8720600577106 /* UserGroupsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB183A541FD8720600577106 /* UserGroupsManager.swift */; };
 		DB5AE6951FCC97A1008DC8F7 /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */; };
 		DB5B01431FC5E8E700BD5F1A /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5B01421FC5E8E700BD5F1A /* Calendar.storyboard */; };
 		DB5B01451FC5EACE00BD5F1A /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */; };
@@ -78,7 +79,6 @@
 		A40205161FC363E20029B022 /* slr_camera_application_slr_3037.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slr_camera_application_slr_3037.png; sourceTree = "<group>"; };
 		A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountController.swift; sourceTree = "<group>"; };
 		A43645281FC6082B007BC6C3 /* RedirectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectViewController.swift; sourceTree = "<group>"; };
-		A44573CF1FCC9B8600F8F6DF /* SearchGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchGroupsViewController.swift; path = /Users/joao.albuquerque/Desktop/Challlenger/Challenger/Controllers/SearchGroupsViewController.swift; sourceTree = "<absolute>"; };
 		A4578FA01FCDDAFB00E4DB8C /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		A4578FB81FD06E2B00E4DB8C /* Groups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Groups.swift; path = "Challenger/New Group/Groups.swift"; sourceTree = SOURCE_ROOT; };
 		A4578FB91FD06E2B00E4DB8C /* Archive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Archive.swift; path = "Challenger/New Group/Archive.swift"; sourceTree = SOURCE_ROOT; };
@@ -93,6 +93,8 @@
 		DA3CDC2D1FD46B2C0012D598 /* UserCellInvites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellInvites.swift; sourceTree = "<group>"; };
 		DA400E701FD35C5600970469 /* LoginBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoginBackground.jpg; sourceTree = "<group>"; };
 		DAC598DA1FD3903C0084182A /* image_160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_160.png; sourceTree = "<group>"; };
+		DB183A521FD8600900577106 /* SearchGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchGroupsViewController.swift; sourceTree = "<group>"; };
+		DB183A541FD8720600577106 /* UserGroupsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupsManager.swift; sourceTree = "<group>"; };
 		DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
 		DB5B01421FC5E8E700BD5F1A /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
@@ -133,8 +135,8 @@
 				DA3CDC2B1FD448330012D598 /* ShowImageController.swift */,
 				A43645281FC6082B007BC6C3 /* RedirectViewController.swift */,
 				A4578FC71FD0775400E4DB8C /* SingUpViewController.swift */,
+				DB183A521FD8600900577106 /* SearchGroupsViewController.swift */,
 				75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */,
-				A44573CF1FCC9B8600F8F6DF /* SearchGroupsViewController.swift */,
 				A40205001FC360930029B022 /* AddGroup.swift */,
 				A40205011FC360930029B022 /* TableViewGroups.swift */,
 				A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */,
@@ -269,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				DB5AE6941FCC97A1008DC8F7 /* FilesManager.swift */,
+				DB183A541FD8720600577106 /* UserGroupsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -456,9 +459,11 @@
 				DBDEE12C1FCDF71E0078C664 /* FileArchiveCell.swift in Sources */,
 				DBBC5DD91FC7286B00124B18 /* CalendarInvitesController.swift in Sources */,
 				DA3CDC2C1FD448340012D598 /* ShowImageController.swift in Sources */,
+				DB183A531FD8600900577106 /* SearchGroupsViewController.swift in Sources */,
 				DB5B01451FC5EACE00BD5F1A /* CalendarController.swift in Sources */,
 				A4F3A67C1FD1C857007B0425 /* UserCell.swift in Sources */,
 				DB5AE6951FCC97A1008DC8F7 /* FilesManager.swift in Sources */,
+				DB183A551FD8720600577106 /* UserGroupsManager.swift in Sources */,
 				DB5B01481FC5EB1B00BD5F1A /* CustomCell.swift in Sources */,
 				75232CC31FD1AAFB003433E6 /* CalendarMemberController.swift in Sources */,
 				A43645271FC4BC4B007BC6C3 /* MyAccountController.swift in Sources */,
@@ -468,7 +473,6 @@
 				A43645291FC6082B007BC6C3 /* RedirectViewController.swift in Sources */,
 				A40205031FC360930029B022 /* TableViewGroups.swift in Sources */,
 				A40205111FC360A60029B022 /* SaveDelegate.swift in Sources */,
-				A44573D01FCC9B8600F8F6DF /* SearchGroupsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

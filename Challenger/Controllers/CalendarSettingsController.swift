@@ -7,13 +7,22 @@
 //
 import UIKit
 import Foundation
+import Firebase
+import FirebaseAuth
 
 class CalendarSettingsController: UITableViewController{
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var groupImage: UIButton!
     @IBOutlet weak var groupName: UILabel!
+    
+    @IBOutlet weak var leaveGroupOutlet: UIView!
+    @IBOutlet weak var deleteTableViewCell: UITableViewCell!
+    
+    @IBOutlet weak var RequestTableViewCell: UITableViewCell!
     var group : Group? = nil
+    let manager = UserGroupsManager()
+    let currentUser = Firebase.Auth.auth().currentUser
     
     @IBOutlet var settingsTableCalendarView: UITableView!
     override func viewDidLoad() {
@@ -29,6 +38,15 @@ class CalendarSettingsController: UITableViewController{
         self.imageView.layer.cornerRadius =
             self.imageView.frame.size.width / 20
         self.imageView.layer.masksToBounds = true
+        let currentUserId = currentUser?.uid
+        if(manager.userIsAdmin(currentUserId!, group!)){
+            RequestTableViewCell.isHidden = false
+            deleteTableViewCell.isHidden = false
+        }else{
+            RequestTableViewCell.isHidden = true
+            deleteTableViewCell.isHidden = true
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,6 +61,10 @@ class CalendarSettingsController: UITableViewController{
         
         self.present(imagepicker, animated: true, completion: nil)
     }
+    
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let nav = segue.destination as? UINavigationController else {
             return
@@ -88,5 +110,15 @@ extension CalendarSettingsController {
         if identifier == "calendarRequests"{
             performSegue(withIdentifier: "calendarInvites", sender: nil)
         }
-}
+        if identifier == "leaveGroup" {
+            let manager = UserGroupsManager()
+            let currentUserId = currentUser?.uid
+            manager.leaveGroup(currentUserId!, group!)
+        }
+        if identifier == "removeGroup" {
+            let manager = UserGroupsManager()
+            let currentUserId = currentUser?.uid
+            manager.removeGroup(group!)
+        }
+    }
 }

@@ -168,22 +168,21 @@ class AddGroup: UIViewController, UITextFieldDelegate {
         }
     }
     func addGroupToUser(_ key: String) {
-        var array  : [String] = []
+        var array  : [String: Bool] = [:]
         let database = Database.database().reference()
         let user = Firebase.Auth.auth().currentUser
         let userRef = database.child("users").child(user!.uid)
         userRef.child("groups").observeSingleEvent(of: .value) { (snapshot) in
             if  let id = snapshot.value as? [String] {
-                    array = id
-                    array.append(key)
-                    userRef.updateChildValues(["groups" : array as NSArray])
+
+                    array[key] = true
+                    userRef.updateChildValues(["groups" : array as NSDictionary])
                     return
             }
             if let idS = snapshot.value as? String {
                 if(snapshot.exists()) {
-                    array = [idS]
-                    array.append(key)
-                    userRef.updateChildValues(["groups" : array as NSArray])
+                    array[key] = true
+                    userRef.updateChildValues(["groups" : array as NSDictionary])
                 }
             } else {
                 userRef.updateChildValues(["groups":  key])
