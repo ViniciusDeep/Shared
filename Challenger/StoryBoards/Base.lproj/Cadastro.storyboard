@@ -54,11 +54,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pjc-VK-O9e">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ek-Rs-9Ll">
-                                        <rect key="frame" x="40" y="505" width="295" height="52"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button" image="loginFacebook"/>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbX-SZ-Iym">
                                         <rect key="frame" x="105" y="326" width="164" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -75,7 +70,7 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNE-hC-M9s" customClass="IDSignInButton" customModule="GIDSignInButton">
-                                        <rect key="frame" x="40" y="422" width="295" height="52"/>
+                                        <rect key="frame" x="40" y="364" width="295" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button" image="loginGoogle"/>
                                         <connections>
@@ -227,7 +222,6 @@
         <image name="camera1600" width="24" height="24"/>
         <image name="image_160.png" width="160" height="160"/>
         <image name="imgPerfil" width="582" height="582"/>
-        <image name="loginFacebook" width="573" height="100"/>
         <image name="loginGoogle" width="602" height="102"/>
         <image name="logo_dos_meninos.png" width="702" height="710"/>
     </resources>

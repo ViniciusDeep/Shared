@@ -13,10 +13,7 @@ import FirebaseAuth
 import GoogleSignIn
 
 class ViewController: UIViewController, GIDSignInUIDelegate {
-    
-    
-    
-
+   
     
     
     @IBOutlet weak var userEmail: UITextField!
@@ -30,35 +27,17 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var backgroundImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundImage.isOpaque = true
         GIDSignIn.sharedInstance().uiDelegate = self
-        
+        backgroundImage.isOpaque = true
         
     }
-    
-    
-    
-    
     
     
     @IBAction func googleButton(_ sender: Any) {
+        ManagerRootViewController.root = self
         GIDSignIn.sharedInstance().signIn()
+            
     }
-    
-
-    
-    
-    
-    
-    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
-        print("")
-    }
-
-    
-    func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
-        print("")
-    }
-    
     
     
     

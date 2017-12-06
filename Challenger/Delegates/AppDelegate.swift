@@ -12,6 +12,7 @@ import FirebaseDatabase
 import IQKeyboardManagerSwift
 import GoogleSignIn
 import FirebaseCore
+import FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
@@ -41,16 +42,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         
         
         if let error = error {
-            // ...
+            print("Failed to log in", error)
             return
         
         }
+    
+        
+        
+        guard let idToken = user.authentication.idToken else {return}
+        guard let accessToken = user.authentication.accessToken else {return}
         
         
         guard let authentication = user.authentication else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                       accessToken: authentication.accessToken)
-        // ...
+        let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                       accessToken: accessToken)
+        print("Sucess log into google")
+        
+        Firebase.Auth.auth().signIn(with: credential) { (user, error) in
+            if let err = error {
+                print("failed  to create user with google account")
+            }
+            
+            ManagerRootViewController.root?.performSegue(withIdentifier: "userAuthenticated", sender: nil)
+
+            guard let uid = user?.uid else {return}
+            print("sucess logged into firebase with google", uid)
+        }
+        
+        
+        
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
@@ -65,7 +85,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                 annotation: [:])    }
+                                                 annotation: [:])
+        
+    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -90,5 +112,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         // Saves changes in the application's managed object context before the application terminates.
     }
 
+}
+public struct ManagerRootViewController {
+    static var root: UIViewController?
 }
 
