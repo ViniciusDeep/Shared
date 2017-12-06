@@ -393,13 +393,70 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eca-oa-O4Q">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="requestCell" rowHeight="59" id="uTL-zD-ozm" customClass="RequestsCell" customModule="Challenger" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="59"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eca-oa-O4Q" id="wCJ-bE-6cB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uTL-zD-ozm" id="F2p-vv-V48">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgPerfil" translatesAutoresizingMaskIntoConstraints="NO" id="pYR-Fd-bys">
+                                            <rect key="frame" x="16" y="4" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="X6M-BX-Gz0"/>
+                                                <constraint firstAttribute="height" constant="50" id="eNm-Oh-KVr"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iaD-xb-9Lv">
+                                            <rect key="frame" x="74" y="11" width="293" height="35"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Guh-ky-vsl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOi-Z2-nPn">
+                                                    <rect key="frame" x="0.0" y="20.5" width="293" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrX-12-Kn0">
+                                            <rect key="frame" x="312" y="14" width="49" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Accept"/>
+                                            <connections>
+                                                <action selector="acceptAction:" destination="uTL-zD-ozm" eventType="touchUpInside" id="67M-qn-cXx"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wf5-lc-2b5">
+                                            <rect key="frame" x="232" y="14" width="43" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Reject">
+                                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="rejectAction:" destination="uTL-zD-ozm" eventType="touchUpInside" id="RxH-Jd-EkG"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="iaD-xb-9Lv" firstAttribute="leading" secondItem="pYR-Fd-bys" secondAttribute="trailing" constant="8" id="50l-M2-J8f"/>
+                                        <constraint firstItem="pYR-Fd-bys" firstAttribute="top" secondItem="F2p-vv-V48" secondAttribute="top" constant="4" id="Fvd-0I-CV6"/>
+                                        <constraint firstItem="iaD-xb-9Lv" firstAttribute="centerY" secondItem="pYR-Fd-bys" secondAttribute="centerY" id="MOw-gq-gHR"/>
+                                        <constraint firstAttribute="trailing" secondItem="iaD-xb-9Lv" secondAttribute="trailing" constant="8" id="laU-8Z-yy5"/>
+                                        <constraint firstItem="pYR-Fd-bys" firstAttribute="leading" secondItem="F2p-vv-V48" secondAttribute="leading" constant="16" id="rf1-3w-bBe"/>
+                                        <constraint firstAttribute="bottom" secondItem="pYR-Fd-bys" secondAttribute="bottom" constant="4.5" id="vsm-m6-tBq"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="email" destination="ZOi-Z2-nPn" id="GH1-uI-OUp"/>
+                                    <outlet property="name" destination="Guh-ky-vsl" id="Od0-jP-asZ"/>
+                                    <outlet property="profileImage" destination="pYR-Fd-bys" id="bpD-PG-WdB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -422,7 +479,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D1y-RF-mkx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3108" y="518"/>
+            <point key="canvasLocation" x="3108" y="517.6911544227886"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pvH-u2-pm6">

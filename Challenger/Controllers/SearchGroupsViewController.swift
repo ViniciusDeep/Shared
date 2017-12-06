@@ -54,8 +54,28 @@ class SearchGroupsViewController: UIViewController, UISearchBarDelegate {
             }
         })
     }
+    func addRequestToGroup(_ group : Group) {
+        if (group.invites == nil) {
+            group.invites = [(Firebase.Auth.auth().currentUser?.uid)!]
+            let json = group.toJSON()
+            Database.database().reference(withPath: "group").child(group.key!).updateChildValues(json!)
+        } else {
+            var array = group.invites!
+            array.append((Firebase.Auth.auth().currentUser?.uid)!)
+            group.invites = array
+            let json = group.toJSON()
+            Database.database().reference(withPath: "group").child(group.key!).updateChildValues(json!)
+        }
+    }
+    
+//    @objc func requestEntryButton(_ sender: Any) {
+//        let alert = UIAlertController(title: "Request entry", message: "Do you confirm requesting entry into this group?", preferredStyle: UIAlertControllerStyle.alert)
+//        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: nil))
+//        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
+//        self.present(alert, animated: true, completion: nil)
+//    }
+    
 }
-
 extension SearchGroupsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CellGroups
@@ -64,6 +84,8 @@ extension SearchGroupsViewController: UITableViewDelegate, UITableViewDataSource
         cell.imageGroup.sd_setImage(with: url, completed: nil)
         cell.imageGroup.layer.cornerRadius = cell.imageGroup.frame.size.width / 2
         cell.imageGroup.layer.masksToBounds = true
+//        cell.entryButton.tag = indexPath.row
+//        cell.entryButton.addTarget(self, action: #selector(SearchGroupsViewController.requestEntryButton(_:)), for: UIControlEvents.touchUpInside)
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,8 +96,16 @@ extension SearchGroupsViewController: UITableViewDelegate, UITableViewDataSource
         return 126
     }
 
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "groupSelected", sender: indexPath.row)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+                let alert = UIAlertController(title: "OPTIONS", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
+                alert.addAction(UIAlertAction(title: "Request group entry", style: UIAlertActionStyle.default, handler: { (_) -> Void in
+                    let secondAlert = UIAlertController(title: "Request entry", message: "Do you confirm requesting entry into this group?", preferredStyle: UIAlertControllerStyle.alert)
+                    secondAlert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: {(_) -> Void in self.addRequestToGroup(self.groups[indexPath.row])}))
+                            secondAlert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(secondAlert, animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true, completion: nil)
+        
+    }
     
 }

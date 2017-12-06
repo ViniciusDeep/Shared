@@ -53,6 +53,9 @@ class CalendarSettingsController: UITableViewController{
         if let controller = nav.topViewController as? CalendarInviteController{
             controller.group = self.group
         }
+        if let controller = nav.topViewController as? CalendarRequestController {
+            controller.group = self.group
+        }
     }
 }
 extension CalendarSettingsController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{

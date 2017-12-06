@@ -11,7 +11,6 @@ import UIKit
 class CellGroups: UITableViewCell {
 
     @IBOutlet weak var imageGroup: UIImageView!
-    
     @IBOutlet weak var nameGroup: UILabel!
     
     override func awakeFromNib() {
