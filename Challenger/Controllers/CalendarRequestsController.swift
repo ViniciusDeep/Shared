@@ -57,9 +57,21 @@ class CalendarRequestController: UITableViewController{
 
 extension CalendarRequestController: CellDelegate {
     func didTapAccept(index: IndexPath) {
+        let user = users[index.row]
+        if user.groups == nil {
+            user.groups = [(group?.key)!]
+        }
+        else if (user.groups?.isEmpty)! {
+            user.groups = [(group?.key)!]
+        } else {
+            var array = user.groups
+            array?.append((group?.key)!)
+            user.groups = array
+        }
+        let json = user.toJSON()
+        Firebase.Database.database().reference(withPath: "users").child(user.userID!).updateChildValues(json!)
         
     }
-    
     func didTapReject(index: IndexPath) {
         
     }
