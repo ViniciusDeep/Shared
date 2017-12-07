@@ -59,22 +59,29 @@ extension CalendarRequestController: CellDelegate {
     func didTapAccept(index: IndexPath) {
         let alert = UIAlertController(title: "Confirmation", message: "Are you sure to ACCEPT this request?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: {(alert) -> Void in return}))
-        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: {alert in
+            self.addGroupToUser(index: index)
+            self.addUserToGroup(index: index)
+            self.removeInvite(index: index)
+            self.users.remove(at: index.row)
+            self.tableView.deleteRows(at: [index], with: UITableViewRowAnimation.fade)
+            self.tableView.reloadData()
+        }))
         self.present(alert, animated: true, completion: nil)
         
-        addGroupToUser(index: index)
-        addUserToGroup(index: index)
-        removeInvite(index: index)
         
-         tableView.deleteRows(at: [index], with: UITableViewRowAnimation.fade)
     }
     func didTapReject(index: IndexPath) {
         let alert = UIAlertController(title: "Confirmation", message: "Are you sure to REJECT this request?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: {(alert) -> Void in return}))
-        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: {alert in self.removeInvite(index: index)
+            self.users.remove(at: index.row)
+            self.tableView.deleteRows(at: [index], with: UITableViewRowAnimation.fade)
+            self.tableView.reloadData()
+            
+        }))
         self.present(alert, animated: true, completion: nil)
-        removeInvite(index: index)
-        tableView.deleteRows(at: [index], with: UITableViewRowAnimation.fade)
+        
     }
     
     func addGroupToUser (index: IndexPath) {
@@ -113,7 +120,7 @@ extension CalendarRequestController: CellDelegate {
             }
         })
         let json = group?.toJSON()
-        Firebase.Database.database().reference(withPath: "group").child((group?.key)!).updateChildValues(json!)
+        Firebase.Database.database().reference(withPath: "group").child((group?.key)!).setValue(json!)
         
     }
     
