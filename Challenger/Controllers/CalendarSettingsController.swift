@@ -27,7 +27,7 @@ class CalendarSettingsController: UITableViewController{
         let url = URL(string: (group?.image)!)
         imageView.sd_setImage(with: url, completed: nil)
         self.imageView.layer.cornerRadius =
-            self.imageView.frame.size.width / 20
+            self.imageView.frame.size.width / 2
         self.imageView.layer.masksToBounds = true
     }
     
