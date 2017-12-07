@@ -54,34 +54,20 @@ class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
         let userRef = Database.database().reference(withPath: "users/" + user!.uid + "/groups")
         let groupsRef = Database.database().reference(withPath: "group" )
         userRef.observeSingleEvent(of: .value) { (snapshot) in
-            
-            if let arrayGroups = snapshot.value as? NSArray {
-                for i in arrayGroups {
-                    groupsRef.child(i as! String).observeSingleEvent(of: .value, with: { (snapshot) in
-                        if let dict = snapshot.value as? NSDictionary {
-                            let group = Group.deserialize(from: dict)
-                            if let group = group {
-                                self.groups.append(group)
-                                self.tableView.reloadData()
-                            }
+            let dataSnapshot = snapshot.children.allObjects as! [DataSnapshot]
+            dataSnapshot.forEach {
+                groupsRef.child($0.key).observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let dict = snapshot.value as? NSDictionary {
+                        let group = Group.deserialize(from: dict)
+                        if let group = group {
+                            self.groups.append(group)
+                            self.tableView.reloadData()
                         }
-                    })
-                }
-            }
-            
-                if let group = snapshot.value as? String {
-                    groupsRef.child(group).observeSingleEvent(of: .value, with: { (snapshot) in
-                        if let dict = snapshot.value as? NSDictionary{
-                            let group =  Group.deserialize(from: dict)
-                            if let group = group {
-                                self.groups.append(group)
-                                self.tableView.reloadData()
-                            }
-                        }
-                        })
-                }
+                    }
+                })
             }
         }
+     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()

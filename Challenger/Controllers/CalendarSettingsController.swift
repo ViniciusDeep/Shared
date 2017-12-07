@@ -21,7 +21,6 @@ class CalendarSettingsController: UITableViewController{
     
     @IBOutlet weak var RequestTableViewCell: UITableViewCell!
     var group : Group? = nil
-    let manager = UserGroupsManager()
     let currentUser = Firebase.Auth.auth().currentUser
     
     @IBOutlet var settingsTableCalendarView: UITableView!
@@ -39,7 +38,7 @@ class CalendarSettingsController: UITableViewController{
             self.imageView.frame.size.width / 20
         self.imageView.layer.masksToBounds = true
         let currentUserId = currentUser?.uid
-        if(manager.userIsAdmin(currentUserId!, group!)){
+        if(UserGroupsManager.userIsAdmin(currentUserId!, group!)){
             RequestTableViewCell.isHidden = false
             deleteTableViewCell.isHidden = false
         }else{
@@ -111,14 +110,12 @@ extension CalendarSettingsController {
             performSegue(withIdentifier: "calendarInvites", sender: nil)
         }
         if identifier == "leaveGroup" {
-            let manager = UserGroupsManager()
             let currentUserId = currentUser?.uid
-            manager.leaveGroup(currentUserId!, group!)
+            UserGroupsManager.leaveGroup(currentUserId!, group!)
         }
         if identifier == "removeGroup" {
-            let manager = UserGroupsManager()
             let currentUserId = currentUser?.uid
-            manager.removeGroup(group!)
+            UserGroupsManager.removeGroup(group!)
         }
     }
 }
