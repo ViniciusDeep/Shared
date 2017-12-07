@@ -58,20 +58,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hK3-oR-9xZ">
-                                <rect key="frame" x="24" y="441" width="343" height="30"/>
+                                <rect key="frame" x="16" y="471" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Manage Account"/>
                                 <connections>
                                     <segue destination="inN-J9-Hcy" kind="presentation" id="4s3-2d-DM5"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxV-8w-Alp">
-                                <rect key="frame" x="126" y="301" width="233" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHs-kc-Czb">
                                 <rect key="frame" x="32" y="500" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -94,6 +87,11 @@
                                     <action selector="changeImage:" destination="WSg-le-pT2" eventType="touchUpInside" id="4Q8-tW-Kg8"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gcH-zO-6gC">
+                                <rect key="frame" x="0.0" y="302" width="375" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="WBB-9a-LlU"/>
@@ -102,7 +100,6 @@
                     <connections>
                         <outlet property="email" destination="zd6-cu-SNe" id="MVA-oJ-phG"/>
                         <outlet property="logOut" destination="Vfc-DF-CIC" id="mX2-fW-5ux"/>
-                        <outlet property="name" destination="MxV-8w-Alp" id="w7G-hz-cnc"/>
                         <outlet property="profileImage" destination="Q8n-V6-Rny" id="qJr-tB-pe4"/>
                         <segue destination="TQo-s9-lTx" kind="presentation" identifier="Login" id="0KX-Nh-H4O"/>
                     </connections>

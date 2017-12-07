@@ -84,6 +84,11 @@ extension MyAccountController: UIImagePickerControllerDelegate, UINavigationCont
                 self.imageUrl = (url?.absoluteString)!
             })
             
+            //Upload at firebase.
+            
+            
+            
+            
             
             
             profileImage.image = image
