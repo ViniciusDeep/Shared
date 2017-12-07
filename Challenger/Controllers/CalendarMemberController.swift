@@ -30,10 +30,6 @@ class CalendarMemberController: UITableViewController {
         let ref = Database.database().reference()
         let userRef = Database.database().reference()
         ref.child("group").child((group?.key)!).child("users").observeSingleEvent(of: .value, with: { (snapshot) in
-//            let snapshots = snapshot.children.allObjects.flatMap { $0 as? DataSnapshot }
-//            let keys = snapshots.map { $0.key }
-//            var users = (snapshots.flatMap { User.deserialize(from: $0.value as? NSDictionary) })
-//             print(users)
             if let users = snapshot.value as? NSArray {
                 for user in users {
                     userRef.child("users").child(user as! String).observeSingleEvent(of: .value, with: { (snapshot) in
