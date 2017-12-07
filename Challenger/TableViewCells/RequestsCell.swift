@@ -10,6 +10,8 @@ import UIKit
 
 class RequestsCell: UITableViewCell {
 
+    @IBOutlet weak var rejectBtn: UIButton!
+    @IBOutlet weak var acceptBtn: UIButton!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
@@ -31,7 +33,11 @@ class RequestsCell: UITableViewCell {
     }
     
    
-    @IBAction func acceptAction(_ sender: Any) {
+    @IBAction func acceptAction(_ sender: UIButton) {
+        acceptBtn.isEnabled = false
+        rejectBtn.isEnabled = false
         delegateCell?.didTapAccept(index: indexPath!)
+        acceptBtn.isEnabled = true
+        rejectBtn.isEnabled = true
     }
 }

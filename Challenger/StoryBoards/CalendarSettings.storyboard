@@ -453,9 +453,11 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="acceptBtn" destination="xrX-12-Kn0" id="CeT-bb-rFb"/>
                                     <outlet property="email" destination="ZOi-Z2-nPn" id="GH1-uI-OUp"/>
                                     <outlet property="name" destination="Guh-ky-vsl" id="Od0-jP-asZ"/>
                                     <outlet property="profileImage" destination="pYR-Fd-bys" id="bpD-PG-WdB"/>
+                                    <outlet property="rejectBtn" destination="wf5-lc-2b5" id="359-VG-2vT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
