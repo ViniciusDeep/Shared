@@ -36,7 +36,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     @IBAction func googleButton(_ sender: Any) {
         ManagerRootViewController.root = self
         GIDSignIn.sharedInstance().signIn()
-            
+        
     }
     
     
