@@ -57,11 +57,14 @@ class CalendarRequestController: UITableViewController{
 
 extension CalendarRequestController: CellDelegate {
     func didTapAccept(index: IndexPath) {
+        
+        addGroupToUser(index: index)
+        addUserToGroup(index: index)
+        removeInvite(index: index)
+    }
+    func addGroupToUser (index: IndexPath) {
         let user = users[index.row]
         if user.groups == nil {
-            user.groups = [(group?.key)!]
-        }
-        else if (user.groups?.isEmpty)! {
             user.groups = [(group?.key)!]
         } else {
             var array = user.groups
@@ -70,8 +73,32 @@ extension CalendarRequestController: CellDelegate {
         }
         let json = user.toJSON()
         Firebase.Database.database().reference(withPath: "users").child(user.userID!).updateChildValues(json!)
-        
     }
+    func addUserToGroup(index: IndexPath) {
+        guard var arrayUsers = group?.users else {
+            group?.users = [users[index.row].userID!]
+            let json = group?.toJSON()
+            Firebase.Database.database().reference(withPath: "group").child((group?.key)!).updateChildValues(json!)
+            return
+        }
+        arrayUsers.append(users[index.row].userID!)
+        group?.users = arrayUsers
+        let json = group?.toJSON()
+        Firebase.Database.database().reference(withPath: "group").child((group?.key)!).updateChildValues(json!)
+    }
+    func removeInvite(index: IndexPath) {
+        group?.invites = group?.invites?.filter({ (invite) -> Bool in
+            if (invite == users[index.row].userID) {
+                return false
+            }else {
+                return true
+            }
+        })
+        let json = group?.toJSON()
+        Firebase.Database.database().reference(withPath: "group").child((group?.key)!).updateChildValues(json!)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func didTapReject(index: IndexPath) {
         
     }
