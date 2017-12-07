@@ -66,4 +66,22 @@ class FilesManager: NSObject {
 //            }
 //        }
 //    }
+    
+    
+    func deleteImage(image: UIImage, imageURL: String) {
+        
+        let autoID = Database.database().reference().childByAutoId().key
+        let imageRef = Firebase.Storage.storage().reference(forURL: "UploadedImages").child(autoID)
+        
+        imageRef.delete { (error) in
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+        }
+        
+        
+        
+        
+    }
+    
 }

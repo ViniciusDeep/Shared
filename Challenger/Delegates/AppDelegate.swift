@@ -10,9 +10,12 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import IQKeyboardManagerSwift
+import GoogleSignIn
+import FirebaseCore
+import FirebaseAuth
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
 
     var window: UIWindow?
 
@@ -24,8 +27,66 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ref.keepSynced(true)
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
-
+        
+        
+        
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        
+        
         return true
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        // ...
+        
+        
+        if let error = error {
+            print("Failed to log in", error)
+            return
+        
+        }
+    
+        
+        
+        guard let idToken = user.authentication.idToken else {return}
+        guard let accessToken = user.authentication.accessToken else {return}
+        
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                       accessToken: accessToken)
+        print("Sucess log into google")
+        
+        Firebase.Auth.auth().signIn(with: credential) { (user, error) in
+            if let err = error {
+                print("failed  to create user with google account")
+            }
+            
+            ManagerRootViewController.root?.performSegue(withIdentifier: "userAuthenticated", sender: nil)
+
+            guard let uid = user?.uid else {return}
+            print("sucess logged into firebase with google", uid)
+        }
+        
+        
+        
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
+    }
+   
+    
+    
+    
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url,
+                                                 sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                 annotation: [:])
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -51,5 +112,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
     }
 
+}
+public struct ManagerRootViewController {
+    static var root: UIViewController?
 }
 

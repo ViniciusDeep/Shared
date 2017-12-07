@@ -12,6 +12,7 @@
 		75B02A7B1FBB7AE8008DB651 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75B02A7A1FBB6255008DB651 /* GoogleService-Info.plist */; };
 		75B7B4DD1FB9F4B70088B7EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */; };
 		75B7B4E81FB9F4B70088B7EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B7B4E61FB9F4B70088B7EF /* LaunchScreen.storyboard */; };
+		75E5A5921FD717B40055674E /* SearchGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5A5911FD717B40055674E /* SearchGroupsViewController.swift */; };
 		A0B83FFA1F0F42A95A6B4844 /* Pods_Challenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C23F01DEAF4E8EF3841BB46 /* Pods_Challenger.framework */; };
 		A40204F91FC360790029B022 /* SearchGroups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40204F51FC360790029B022 /* SearchGroups.storyboard */; };
 		A40204FA1FC360790029B022 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40204F61FC360790029B022 /* TabBar.storyboard */; };
@@ -28,7 +29,6 @@
 		A402051A1FC363E30029B022 /* slr_camera_application_slr_3037.png in Resources */ = {isa = PBXBuildFile; fileRef = A40205161FC363E20029B022 /* slr_camera_application_slr_3037.png */; };
 		A43645271FC4BC4B007BC6C3 /* MyAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */; };
 		A43645291FC6082B007BC6C3 /* RedirectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43645281FC6082B007BC6C3 /* RedirectViewController.swift */; };
-		A44573D01FCC9B8600F8F6DF /* SearchGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44573CF1FCC9B8600F8F6DF /* SearchGroupsViewController.swift */; };
 		A4578FC01FD06EB300E4DB8C /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4578FB91FD06E2B00E4DB8C /* Archive.swift */; };
 		A4578FC11FD06EB300E4DB8C /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4578FBB1FD06E2B00E4DB8C /* Group.swift */; };
 		A4578FC21FD06EB300E4DB8C /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4578FB81FD06E2B00E4DB8C /* Groups.swift */; };
@@ -65,6 +65,7 @@
 		75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
 		75B7B4E71FB9F4B70088B7EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75B7B4E91FB9F4B70088B7EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75E5A5911FD717B40055674E /* SearchGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGroupsViewController.swift; sourceTree = "<group>"; };
 		7DA54C2C8B7686DADFA2C2FE /* Pods-Challenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Challenger/Pods-Challenger.release.xcconfig"; sourceTree = "<group>"; };
 		A40204F51FC360790029B022 /* SearchGroups.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchGroups.storyboard; sourceTree = "<group>"; };
 		A40204F61FC360790029B022 /* TabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
@@ -81,7 +82,6 @@
 		A40205161FC363E20029B022 /* slr_camera_application_slr_3037.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slr_camera_application_slr_3037.png; sourceTree = "<group>"; };
 		A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountController.swift; sourceTree = "<group>"; };
 		A43645281FC6082B007BC6C3 /* RedirectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectViewController.swift; sourceTree = "<group>"; };
-		A44573CF1FCC9B8600F8F6DF /* SearchGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchGroupsViewController.swift; path = /Users/joao.albuquerque/Desktop/Challlenger/Challenger/Controllers/SearchGroupsViewController.swift; sourceTree = "<absolute>"; };
 		A4578FA01FCDDAFB00E4DB8C /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		A4578FB81FD06E2B00E4DB8C /* Groups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Groups.swift; path = "Challenger/New Group/Groups.swift"; sourceTree = SOURCE_ROOT; };
 		A4578FB91FD06E2B00E4DB8C /* Archive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Archive.swift; path = "Challenger/New Group/Archive.swift"; sourceTree = SOURCE_ROOT; };
@@ -140,7 +140,7 @@
 				A43645281FC6082B007BC6C3 /* RedirectViewController.swift */,
 				A4578FC71FD0775400E4DB8C /* SingUpViewController.swift */,
 				75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */,
-				A44573CF1FCC9B8600F8F6DF /* SearchGroupsViewController.swift */,
+				75E5A5911FD717B40055674E /* SearchGroupsViewController.swift */,
 				A40205001FC360930029B022 /* AddGroup.swift */,
 				A40205011FC360930029B022 /* TableViewGroups.swift */,
 				A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */,
@@ -464,6 +464,7 @@
 				DBE3D68A1FC609A500067652 /* CalendarSettingsController.swift in Sources */,
 				DBBC5DDB1FC7289B00124B18 /* CalendarRequestsController.swift in Sources */,
 				DBDEE12C1FCDF71E0078C664 /* FileArchiveCell.swift in Sources */,
+				75E5A5921FD717B40055674E /* SearchGroupsViewController.swift in Sources */,
 				DBBC5DD91FC7286B00124B18 /* CalendarInvitesController.swift in Sources */,
 				DA3CDC2C1FD448340012D598 /* ShowImageController.swift in Sources */,
 				DB5B01451FC5EACE00BD5F1A /* CalendarController.swift in Sources */,
@@ -480,7 +481,6 @@
 				A43645291FC6082B007BC6C3 /* RedirectViewController.swift in Sources */,
 				A40205031FC360930029B022 /* TableViewGroups.swift in Sources */,
 				A40205111FC360A60029B022 /* SaveDelegate.swift in Sources */,
-				A44573D01FCC9B8600F8F6DF /* SearchGroupsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

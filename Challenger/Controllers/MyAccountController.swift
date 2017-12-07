@@ -10,14 +10,19 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import SDWebImage
+import FirebaseDatabase
+import FirebaseStorage
 
-class MyAccountController: UIViewController {
+
+class MyAccountController: UIViewController{
 
     @IBOutlet weak var email: UILabel!
-    
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var logOut: UIButton!
+    var imageUrl: String = ""
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,4 +54,50 @@ class MyAccountController: UIViewController {
         performSegue(withIdentifier: "Login", sender: nil)
     
     }
+    
+    @IBAction func changeImage(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
 }
+
+
+extension MyAccountController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let imagesFilesManager = FilesManager()
+        
+    
+        
+        
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            let imagesFilesManager = FilesManager()
+            imagesFilesManager.uploadImage(image, completionBlock: { (url,id, error) in
+                print(url?.absoluteString)
+                self.imageUrl = (url?.absoluteString)!
+            })
+            
+            //Upload at firebase.
+            
+            
+            
+            
+            
+            
+            profileImage.image = image
+            
+            picker.dismiss(animated: true, completion: nil)
+            
+        }
+    }
+}
+
+

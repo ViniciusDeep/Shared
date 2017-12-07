@@ -67,6 +67,21 @@ class SearchGroupsViewController: UIViewController, UISearchBarDelegate {
             Database.database().reference(withPath: "group").child(group.key!).updateChildValues(json!)
         }
     }
+    func verifyIfExists(_ group: Group) -> Bool {
+        let userUid = Firebase.Auth.auth().currentUser?.uid
+        let arrayMatchs = group.invites?.filter({ (invite) -> Bool in
+            if invite == userUid {
+                return true
+            }else {
+                return false
+            }
+        })
+        if arrayMatchs == nil {
+            return false
+        }else {
+            return true
+        }
+    }
 }
 extension SearchGroupsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -90,7 +105,14 @@ extension SearchGroupsViewController: UITableViewDelegate, UITableViewDataSource
                 alert.addAction(UIAlertAction(title: "Request group entry", style: UIAlertActionStyle.default, handler: { (_) -> Void in
                     let secondAlert = UIAlertController(title: "Request entry", message: "Do you confirm requesting entry into this group?", preferredStyle: UIAlertControllerStyle.alert)
                     secondAlert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
-                    secondAlert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: {(_) -> Void in self.addInviteToGroup(self.groups[indexPath.row])}))
+                    secondAlert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: {(_) -> Void in
+                        if self.verifyIfExists(self.groups[indexPath.row]) {
+                            let alert = UIAlertController(title: "Error", message: "Can`t request to this group again", preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                            return
+                        }
+                        self.addInviteToGroup(self.groups[indexPath.row])}))
                         self.present(secondAlert, animated: true, completion: nil)
                 }))
                 self.present(alert, animated: true, completion: nil)
