@@ -14,14 +14,15 @@ import FirebaseDatabase
 import FirebaseStorage
 
 
-class MyAccountController: UIViewController {
+class MyAccountController: UIViewController{
 
     @IBOutlet weak var email: UILabel!
-    
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var logOut: UIButton!
     var imageUrl: String = ""
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
