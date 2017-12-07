@@ -27,7 +27,7 @@ class CalendarSettingsController: UITableViewController{
         let url = URL(string: (group?.image)!)
         imageView.sd_setImage(with: url, completed: nil)
         self.imageView.layer.cornerRadius =
-            self.imageView.frame.size.width / 20
+            self.imageView.frame.size.width / 2
         self.imageView.layer.masksToBounds = true
     }
     
@@ -51,6 +51,9 @@ class CalendarSettingsController: UITableViewController{
             controller.group = self.group
         }
         if let controller = nav.topViewController as? CalendarInviteController{
+            controller.group = self.group
+        }
+        if let controller = nav.topViewController as? CalendarRequestController {
             controller.group = self.group
         }
     }

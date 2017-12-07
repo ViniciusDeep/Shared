@@ -54,8 +54,20 @@ class SearchGroupsViewController: UIViewController, UISearchBarDelegate {
             }
         })
     }
+    func addInviteToGroup(_ group : Group) {
+        if (group.invites == nil) {
+            group.invites = [(Firebase.Auth.auth().currentUser?.uid)!]
+            let json = group.toJSON()
+            Database.database().reference(withPath: "group").child(group.key!).updateChildValues(json!)
+        } else {
+            var array = group.invites!
+            array.append((Firebase.Auth.auth().currentUser?.uid)!)
+            group.invites = array
+            let json = group.toJSON()
+            Database.database().reference(withPath: "group").child(group.key!).updateChildValues(json!)
+        }
+    }
 }
-
 extension SearchGroupsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CellGroups
@@ -67,15 +79,22 @@ extension SearchGroupsViewController: UITableViewDelegate, UITableViewDataSource
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return groups.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 126
     }
 
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "groupSelected", sender: indexPath.row)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+                let alert = UIAlertController(title: "Options", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+                alert.addAction(UIAlertAction(title: "Request group entry", style: UIAlertActionStyle.default, handler: { (_) -> Void in
+                    let secondAlert = UIAlertController(title: "Request entry", message: "Do you confirm requesting entry into this group?", preferredStyle: UIAlertControllerStyle.alert)
+                    secondAlert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
+                    secondAlert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: {(_) -> Void in self.addInviteToGroup(self.groups[indexPath.row])}))
+                        self.present(secondAlert, animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true, completion: nil)
+        
+    }
     
 }

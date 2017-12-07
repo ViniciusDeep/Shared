@@ -47,7 +47,9 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         
         Auth.auth().signIn(withEmail: userEmail.text!, password: userPassword.text!) { (user, error) in
             if error != nil {
-                
+                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 return
                 
             }else {
