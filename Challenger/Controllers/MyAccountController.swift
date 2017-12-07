@@ -73,21 +73,23 @@ extension MyAccountController: UIImagePickerControllerDelegate, UINavigationCont
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let imagesFilesManager = FilesManager()
+        
+    
+        
+        
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             let imagesFilesManager = FilesManager()
             imagesFilesManager.uploadImage(image, completionBlock: { (url,id, error) in
                 print(url?.absoluteString)
                 self.imageUrl = (url?.absoluteString)!
             })
+            
+            
+            
             profileImage.image = image
-            //saveButton.isEnabled = true
+            
             picker.dismiss(animated: true, completion: nil)
-            //
-            //        let image = info[UIImagePickerControllerEditedImage] as? UIImage
-            //
-            //        imgProfile.image = image
-            //        picker.dismiss(animated: true, completion: nil)
-            //
+            
         }
     }
 }
