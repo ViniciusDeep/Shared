@@ -31,30 +31,28 @@ class CalendarRequestController: UITableViewController{
         self.dismiss(animated: true, completion: nil)
     }
     func loadUsers() {
-        let groupRef = Database.database().reference(withPath: "group").child((group?.key)!).child("invites")
+        let groupRef = Database.database().reference(withPath: "group").child((group?.key)!).child("invite")
         groupRef.observeSingleEvent(of: .value) { (snapshot) in
             if !snapshot.exists() {
                 return
             }
-            guard let users = snapshot.value as? NSArray else{
+            guard let dict = snapshot.value as? NSDictionary else {
                 return
             }
-            let usersRef = Database.database().reference()
-            for user in users {
-                usersRef.child("users").child(user as! String).observeSingleEvent(of: .value, with: { (snapshot) in
-                    guard let dict = snapshot.value as? NSDictionary else { return }
-                    let user = User.deserialize(from: dict)
-                    self.users.append(user!)
+            let userRef = Database.database().reference(withPath: "users")
+            for invite in dict.allKeys as! [String] {
+                userRef.child(invite).observeSingleEvent(of: .value, with: { (snapshot) in
+                    guard let dict = snapshot.value as? NSDictionary else{
+                        return
+                    }
+                    self.users.append(User.deserialize(from: dict)!)
                     self.tableView.reloadData()
                 })
-            }
-            
         }
-        
     }
     
 }
-
+}
 extension CalendarRequestController: CellDelegate {
     func didTapAccept(index: IndexPath) {
         let alert = UIAlertController(title: "Confirmation", message: "Are you sure to ACCEPT this request?", preferredStyle: UIAlertControllerStyle.alert)
