@@ -19,7 +19,13 @@ class CalendarMemberController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadMembers()
+//        members = UserGroupsManager.loadMembers(group!)
+        UserGroupsManager.loadMembers(group!) { (members) in
+            self.members.append(contentsOf: members)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
         
     }
 

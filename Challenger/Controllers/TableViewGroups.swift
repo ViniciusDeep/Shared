@@ -65,23 +65,11 @@ class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
                                 self.tableView.reloadData()
                             }
                         }
-                    })
-                }
-            }
-            
-                if let group = snapshot.value as? String {
-                    groupsRef.child(group).observeSingleEvent(of: .value, with: { (snapshot) in
-                        if let dict = snapshot.value as? NSDictionary{
-                            let group =  Group.deserialize(from: dict)
-                            if let group = group {
-                                self.groups.append(group)
-                                self.tableView.reloadData()
-                            }
-                        }
-                        })
-                }
+                    }
+                })
             }
         }
+     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
