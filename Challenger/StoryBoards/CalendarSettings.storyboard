@@ -142,8 +142,8 @@
                             </tableViewSection>
                             <tableViewSection id="161-mE-dE8">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="TWp-Qh-XpO" style="IBUITableViewCellStyleDefault" id="Qz6-Ly-Rlu">
-                                        <rect key="frame" x="0.0" y="344" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="leaveGroup" textLabel="TWp-Qh-XpO" style="IBUITableViewCellStyleDefault" id="Qz6-Ly-Rlu">
+                                        <rect key="frame" x="0.0" y="322" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qz6-Ly-Rlu" id="zob-Ev-5BO">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -159,8 +159,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="lfr-he-KMl" style="IBUITableViewCellStyleDefault" id="glS-vX-aRF">
-                                        <rect key="frame" x="0.0" y="388" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DeleteGroup" textLabel="lfr-he-KMl" style="IBUITableViewCellStyleDefault" id="glS-vX-aRF">
+                                        <rect key="frame" x="0.0" y="366" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="glS-vX-aRF" id="yuQ-Hj-hSR">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>

@@ -16,41 +16,12 @@ class UserGroupsManager : NSObject {
     class func addUserToGroup(_ userID : String, _ groupKey : String){
         var array  = [String : Bool]()
         let database = Database.database().reference()
-        let groupRef = database.child("group").child(groupKey)
-        groupRef.child("users").updateChildValues([userID: true])
-//        groupRef.child("users").observeSingleEvent(of: .value) { (snapshot) in
-//            if  let id = snapshot.value as? [String] {
-//                let user = [id : true]
-//
-//                groupRef.updateChildValues(["users" : user])
-//                return
-//            } else {
-//                groupRef.updateChildValues(["users":  userID])
-//            }
+        database.child("group").child(groupKey).child("users").updateChildValues([userID: true])
     }
     class func addGroupToUser(_ userID: String, _ groupKey : String) {
         var array  : [String] = []
         let database = Database.database().reference()
-        let userRef = database.child("users").child(userID)
-        userRef.child("groups").updateChildValues([groupKey : true])
-//        userRef.child("groups").observeSingleEvent(of: .value) { (snapshot) in
-//            if  let id = snapshot.value as? [String] {
-//                array = id
-//                array.append(groupKey)
-//                userRef.updateChildValues(["groups" : array as NSArray])
-//                return
-//            }
-//            if let idS = snapshot.value as? String {
-//                if(snapshot.exists()) {
-//                    array = [idS]
-//                    array.append(groupKey)
-//                    userRef.updateChildValues(["groups" : array as NSArray])
-//                }
-//            } else {
-//                userRef.updateChildValues(["groups":  groupKey])
-//            }
-//        }
-        
+        database.child("users").child(userID).child("groups").updateChildValues([groupKey : true])
     }
     
     
@@ -61,7 +32,7 @@ class UserGroupsManager : NSObject {
         ref.child("group").child(group.key!).child("users").child(userID).removeValue()
         ref.child("group").child(group.key!).child("admin").child(userID).removeValue()
         
-        if(group.users?.count == 1){
+        if(group.user?.count == 1){
             ref.child("group").child(group.key!).removeValue(completionBlock: { (error, ref) in
                 print(error?.localizedDescription)
             })
@@ -120,7 +91,7 @@ class UserGroupsManager : NSObject {
     class func userIsAdmin(_ userID: String, _ group : Group) -> Bool{
         if let admins = group.admin{
             for admin in admins{
-                if(userID == admin){
+                if(userID == admin.key){
                     return true
                 }
             }

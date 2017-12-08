@@ -39,13 +39,13 @@ class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
             controller.group = groups[index]
         }
     }
-    func didAdd( _ name: String, _ imageKey: String, _ admin: [String], _ users: [String],_ imageURL: String){
+    func didAdd( _ name: String, _ imageKey: String, _ admin: String, _ users: String,_ imageURL: String){
         let group = Group()
         group.name = name
         group.key = imageKey
-        group.admin = admin
+        group.admin = [admin: true]
         group.image = imageURL
-        group.users = users
+        group.user = [users: true]
         groups.append(group)
         tableView.reloadData()
     }
@@ -54,16 +54,14 @@ class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
         let userRef = Database.database().reference(withPath: "users/" + user!.uid + "/groups")
         let groupsRef = Database.database().reference(withPath: "group" )
         userRef.observeSingleEvent(of: .value) { (snapshot) in
-        
-            if let arrayGroups = snapshot.value as? NSArray {
-                for i in arrayGroups {
-                    groupsRef.child(i as! String).observeSingleEvent(of: .value, with: { (snapshot) in
-                        if let dict = snapshot.value as? NSDictionary {
-                            let group = Group.deserialize(from: dict)
-                            if let group = group {
-                                self.groups.append(group)
-                                self.tableView.reloadData()
-                            }
+            let dataSnapshot = snapshot.children.allObjects as! [DataSnapshot]
+            dataSnapshot.forEach {
+                groupsRef.child($0.key).observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let dict = snapshot.value as? NSDictionary {
+                        let group = Group.deserialize(from: dict)
+                        if let group = group {
+                            self.groups.append(group)
+                            self.tableView.reloadData()
                         }
                     }
                 })

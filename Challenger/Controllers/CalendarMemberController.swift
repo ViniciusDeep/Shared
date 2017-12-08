@@ -32,28 +32,13 @@ class CalendarMemberController: UITableViewController {
     @IBAction func backButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    func loadMembers() {
-        let ref = Database.database().reference()
-        let userRef = Database.database().reference()
-        ref.child("group").child((group?.key)!).child("users").observeSingleEvent(of: .value, with: { (snapshot) in
-            if let users = snapshot.value as? NSArray {
-                for user in users {
-                    userRef.child("users").child(user as! String).observeSingleEvent(of: .value, with: { (snapshot) in
-                        guard let dict = snapshot.value as? NSDictionary else { return }
-                        let user = User.deserialize(from: dict)
-                        self.members.append(user!)
-                        self.tableView.reloadData()
-                    })
-                }
-            }
-    })
-    }
+   
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return members.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UserCell
-        if(members[indexPath.row].userID == group?.admin![0]){
+        if(group?.admin![members[indexPath.row].userID!]) != nil {
             cell.detailTextLabel?.text = "Admin"
         }else{
             cell.detailTextLabel?.text = "Member"
