@@ -12,7 +12,7 @@ import Firebase
 import FirebaseAuth
 import GoogleSignIn
 
-class ViewController: UIViewController, GIDSignInUIDelegate {
+class ViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDelegate {
    
     
     
@@ -21,24 +21,35 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBOutlet weak var signInButtonGoo: GIDSignInButton!
     
+    @IBOutlet weak var loginBtn: UIButton!
     
+    @IBOutlet weak var signUpBtn: UIButton!
     
-    
-    @IBOutlet weak var backgroundImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
-        backgroundImage.isOpaque = true
+        userPassword.delegate = self
         
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        self.signUpBtn.layer.cornerRadius =
+            self.signUpBtn.frame.size.width / 10
+        self.signUpBtn.layer.masksToBounds = true
+        self.loginBtn.layer.cornerRadius =
+            self.loginBtn.frame.size.width / 10
+        self.loginBtn.layer.masksToBounds = true
+    }
     
     @IBAction func googleButton(_ sender: Any) {
         ManagerRootViewController.root = self
         GIDSignIn.sharedInstance().signIn()
         
     }
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        userPassword.resignFirstResponder()
+        loginButton(userPassword)
+        return true
+    }
     
     
     
@@ -59,7 +70,9 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         }
         
     }
-    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     
     
