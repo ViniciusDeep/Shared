@@ -90,7 +90,7 @@ extension CalendarRequestController: CellDelegate {
     }
     
     func addUserToGroup(index: IndexPath) {
-            group?.user = [users[index.row].userID! : true]
+        group?.users = [users[index.row].userID! : true]
             let json = group?.toJSON()
             Firebase.Database.database().reference(withPath: "group").child((group?.key)!).updateChildValues(json!)
             return
@@ -98,7 +98,7 @@ extension CalendarRequestController: CellDelegate {
     
     func removeInvite(index: IndexPath) {
         
-        group?.invite?.removeValue(forKey: users[index.row].userID!)
+        group?.invites?.removeValue(forKey: users[index.row].userID!)
         let json = group?.toJSON()
         Firebase.Database.database().reference(withPath: "group").child((group?.key)!).setValue(json!)
         
