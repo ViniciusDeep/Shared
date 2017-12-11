@@ -60,7 +60,7 @@ class UserGroupsManager : NSObject {
 ////        groupRef.removeValue()
 //    }
     class func userIsAdmin(_ userID: String, _ group : Group) -> Bool{
-        if let admins = group.admin{
+        if let admins = group.admins{
             for admin in admins{
                 if(userID == admin.key){
                     return true

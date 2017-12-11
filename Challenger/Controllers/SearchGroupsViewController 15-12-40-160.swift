@@ -56,12 +56,12 @@ class SearchGroupsViewController : UIViewController, UISearchBarDelegate {
     }
     func addInviteToGroup(_ group : Group) {
             let userUid = (Firebase.Auth.auth().currentUser?.uid)!
-            group.invite = [userUid : true]
+        group.invites = [userUid : true]
             let json = group.toJSON()
             Database.database().reference(withPath: "group").child(group.key!).updateChildValues(json!)
     }
     func verifyIfExists(_ group: Group) -> Bool {
-        guard let invite = group.invite else {
+        guard let invite = group.invites else {
             return false
         }
         if (invite[(Firebase.Auth.auth().currentUser?.uid)!] == nil){
