@@ -20,10 +20,8 @@ class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     var groups : [Group] = []
     let user = Firebase.Auth.auth().currentUser
-    var handle : AuthStateDidChangeListenerHandle?
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
@@ -83,7 +81,9 @@ class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
         groups.removeAll()
         loadGroups()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
 }
 
 extension TableViewGroups : UITableViewDataSource, UITableViewDelegate {

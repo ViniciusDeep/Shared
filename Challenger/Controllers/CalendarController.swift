@@ -40,8 +40,22 @@ class CalendarController: UIViewController{
     var numberOfRows : Int?
     var generateInDates : InDateCellGeneration?
     var generateOutDates : OutDateCellGeneration?
+    var handler : UInt?
+    let ref = Firebase.Database.database().reference(withPath: "archives")
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        ref.child((group?.key)!).observe( .childAdded) { (snapshot) in
+            guard let dict = snapshot.value as? NSDictionary else {
+                return
+            }
+            self.archives.append(Archive.deserialize(from: dict)!)
+            
+        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        ref.removeAllObservers()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -194,7 +208,7 @@ class CalendarController: UIViewController{
     
     func handleCellTextColor(cell: JTAppleCell?, cellState: CellState){
         guard let validCell = cell as? CustomCell else { return }
-        //the date selected becomes yellow
+        //the date selected becomes red
         if validCell.isSelected {
             validCell.dayLabel.textColor = UIColor.white
         } else {
@@ -203,7 +217,7 @@ class CalendarController: UIViewController{
             let todayDateStr = formatter.string(from: today)
             formatter.dateFormat = "yyyy MM dd"
             let cellDateStr = formatter.string(from: cellState.date)
-            //date right now is paint with yellow
+            //date right now is paint with red
             if todayDateStr == cellDateStr {
                 validCell.dayLabel.textColor = UIColor.blue
                 //month days are black and non-month days are lightGray
@@ -215,6 +229,7 @@ class CalendarController: UIViewController{
                 }
             }
         }
+       
     }
     func setupCalendarView(){
         calendarView.minimumLineSpacing = 0
@@ -275,8 +290,6 @@ extension CalendarController : JTAppleCalendarViewDelegate, JTAppleCalendarViewD
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
         cell.dayLabel.text = cellState.text
-        
-        
         handleCellSelected(cell: cell, cellState: cellState)
         handleCellTextColor(cell: cell, cellState: cellState)
         return cell

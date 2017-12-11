@@ -9,6 +9,7 @@ import UIKit
 import Foundation
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class CalendarSettingsController: UITableViewController{
     
@@ -45,6 +46,8 @@ class CalendarSettingsController: UITableViewController{
             RequestTableViewCell.isHidden = true
             deleteTableViewCell.isHidden = true
         }
+       
+        
         
     }
     
@@ -60,10 +63,7 @@ class CalendarSettingsController: UITableViewController{
         
         self.present(imagepicker, animated: true, completion: nil)
     }
-    
-    
-    
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let nav = segue.destination as? UINavigationController else {
             return
@@ -90,9 +90,6 @@ extension CalendarSettingsController: UIImagePickerControllerDelegate, UINavigat
         groupImage.setTitle("", for: UIControlState.normal)
         groupImage.setBackgroundImage(image, for: UIControlState.normal)
         picker.dismiss(animated: true, completion: nil)
-        
-        
-        
     }
 }
 extension CalendarSettingsController {
