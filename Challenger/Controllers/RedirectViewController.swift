@@ -26,12 +26,37 @@ class RedirectViewController: UIViewController {
         verifyIfSessionExists()
     }
     func verifyIfSessionExists() {
-        let user = Firebase.Auth.auth().currentUser
-        sleep(1)
-        if user != nil {
-            performSegue(withIdentifier: "userAuthenticated", sender: nil)
-        }else {
-            performSegue(withIdentifier: "userNotAuthenticated", sender: nil)
+//        if Auth.auth().currentUser != nil {
+//          performSegue(withIdentifier: "userAuthenticated", sender: nil)
+//        } else {
+//            performSegue(withIdentifier: "userNotAuthenticated", sender: nil)
+//        }
+        guard let currentUser =  Auth.auth().currentUser else {
+            self.performSegue(withIdentifier: "userNotAuthenticated", sender: nil)
+            return
         }
-    }
+        currentUser.reload(completion: { (error) in
+            if error != nil {
+                try! Firebase.Auth.auth().signOut()
+                let storyboard = UIStoryboard(name: "Cadastro", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "ViewController")
+                self.present(controller, animated: true, completion: nil)
+            }else {
+                self.performSegue(withIdentifier: "userAuthenticated", sender: nil)
+            }
+            
+        })
+//        
+//        Auth.auth().addStateDidChangeListener { (auth, user) in
+//            if user == nil {
+//               
+//            } else {
+//            }
+////        if user != nil {
+////
+////        }else {
+////
+////        }
+//    }
+}
 }

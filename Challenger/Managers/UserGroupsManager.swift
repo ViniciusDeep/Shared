@@ -32,12 +32,12 @@ class UserGroupsManager : NSObject {
         ref.child("group").child(group.key!).child("users").child(userID).removeValue()
         ref.child("group").child(group.key!).child("admin").child(userID).removeValue()
         
-        if(group.user?.count == 1){
+        if(group.users?.count == 1){
             ref.child("group").child(group.key!).removeValue(completionBlock: { (error, ref) in
                 print(error?.localizedDescription)
             })
         }else{
-            if(group.admin?.count == 1){
+            if(group.admins?.count == 1){
 //                let users = loadMembers(group)
                 loadMembers(group, completionHandler: { (members) in
                     print(members)
@@ -89,7 +89,7 @@ class UserGroupsManager : NSObject {
         })
     }
     class func userIsAdmin(_ userID: String, _ group : Group) -> Bool{
-        if let admins = group.admin{
+        if let admins = group.admins{
             for admin in admins{
                 if(userID == admin.key){
                     return true

@@ -46,9 +46,9 @@ class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
         let group = Group()
         group.name = name
         group.key = imageKey
-        group.admin = [admin: true]
+        group.admins = [admin: true]
         group.image = imageURL
-        group.user = [users: true]
+        group.users = [users: true]
         groups.append(group)
         tableView.reloadData()
     }
