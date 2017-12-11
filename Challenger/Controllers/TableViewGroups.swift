@@ -19,9 +19,11 @@ class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     var groups : [Group] = []
-    
+    let user = Firebase.Auth.auth().currentUser
+    var handle : AuthStateDidChangeListenerHandle?
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
@@ -29,6 +31,7 @@ class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
         loadGroups()
     }
+   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? AddGroup {
             controller.didCreateGroup = self
@@ -51,7 +54,10 @@ class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
     }
     func loadGroups() {
         let user = Firebase.Auth.auth().currentUser
-        let userRef = Database.database().reference(withPath: "users/" + user!.uid + "/groups")
+        guard let uid = user?.uid else {
+            return
+        }
+       let userRef = Database.database().reference(withPath: "users/" + uid + "/groups")
         let groupsRef = Database.database().reference(withPath: "group" )
         userRef.observeSingleEvent(of: .value) { (snapshot) in
             let dataSnapshot = snapshot.children.allObjects as! [DataSnapshot]
