@@ -51,7 +51,7 @@ class CalendarInviteController: UIViewController{
     func loadMembersGroup(){
         let ref = Database.database().reference()
         let userRef = Database.database().reference()
-        ref.child("group").child((group?.key)!).child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("group").child((group?.key)!).child("user").observeSingleEvent(of: .value, with: { (snapshot) in
             //            let snapshots = snapshot.children.allObjects.flatMap { $0 as? DataSnapshot }
             //            let keys = snapshots.map { $0.key }
             //            var users = (snapshots.flatMap { User.deserialize(from: $0.value as? NSDictionary) })

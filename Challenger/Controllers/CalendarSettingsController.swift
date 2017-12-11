@@ -114,11 +114,11 @@ extension CalendarSettingsController {
         }
         if identifier == "leaveGroup" {
             let currentUserId = currentUser?.uid
-            UserGroupsManager.leaveGroup(currentUserId!, group!)
+            //UserGroupsManager.leaveGroup(currentUserId!, group!)
         }
         if identifier == "removeGroup" {
             let currentUserId = currentUser?.uid
-            UserGroupsManager.removeGroup(group!)
+            //UserGroupsManager.removeGroup(group!)
         }
     }
 }
