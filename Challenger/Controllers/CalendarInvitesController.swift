@@ -77,42 +77,6 @@ class CalendarInviteController: UIViewController{
         return false
         
     }
-    func addGroupToUser(_ user: User) {
-        let database = Database.database().reference()
-        let userRef = database.child("users").child(user.userID!)
-        guard var groups  = user.groups else {
-            userRef.updateChildValues(["groups" : group?.key])
-            return
-        }
-        groups.append((group?.key)!)
-        userRef.updateChildValues(["groups" : groups])
-        self.navigationController?.dismiss(animated: true, completion: nil)
-        
-    }
-    func addUserToGroup(_ user : User){
-        var array  : [String] = []
-        let database = Database.database().reference()
-        let groupRef = database.child("group").child((group?.key)!)
-        groupRef.child("users").observeSingleEvent(of: .value) { (snapshot) in
-            if  let id = snapshot.value as? [String] {
-                array = id
-                array.append(user.userID!)
-                groupRef.updateChildValues(["users" : array as NSArray])
-                return
-            }
-            if let idS = snapshot.value as? String {
-                if(snapshot.exists()) {
-                    array = [idS]
-                    array.append(user.userID!)
-                    groupRef.updateChildValues(["users" : array as NSArray])
-                }
-            } else {
-                groupRef.updateChildValues(["users":  user.userID])
-            }
-            self.navigationController?.dismiss(animated: true, completion: nil)
-        }
-
-    }
 }
 extension CalendarInviteController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -132,10 +96,10 @@ extension CalendarInviteController : UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        addGroupToUser(result[indexPath.row])
-        addUserToGroup(result[indexPath.row])
-        self.dismiss(animated: true, completion: nil)
-}
+        UserGroupsManager.addGroupToUser(result[indexPath.row].userID!, (group?.key!)!)
+        UserGroupsManager.addUserToGroup(result[indexPath.row].userID!, (group?.key!)!)
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
 }
 extension CalendarInviteController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

@@ -12,34 +12,72 @@ import Firebase
 import FirebaseAuth
 import GoogleSignIn
 
-class ViewController: UIViewController, GIDSignInUIDelegate {
+class ViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDelegate {
    
     
     
     @IBOutlet weak var userEmail: UITextField!
+    
     @IBOutlet weak var userPassword: UITextField!
     
-    @IBOutlet weak var signInButtonGoo: GIDSignInButton!
+    @IBOutlet weak var loginBtn: UIButton!
     
+    @IBOutlet weak var signUpBtn: UIButton!
     
-    
-    
-    @IBOutlet weak var backgroundImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
-        backgroundImage.isOpaque = true
+        userPassword.delegate = self
         
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        self.signUpBtn.layer.cornerRadius =
+            self.signUpBtn.frame.size.width / 10
+        self.signUpBtn.layer.masksToBounds = true
+        self.loginBtn.layer.cornerRadius =
+            self.loginBtn.frame.size.width / 10
+        self.loginBtn.layer.masksToBounds = true
+    }
     
     @IBAction func googleButton(_ sender: Any) {
         ManagerRootViewController.root = self
         GIDSignIn.sharedInstance().signIn()
         
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        userPassword.resignFirstResponder()
+        loginButton(userPassword)
+        return true
+    }
     
-    
+    @IBAction func forgotPass(_ sender: Any) {
+        let alert = UIAlertController(title: "Forgot Password?", message: "Type your email", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addTextField(configurationHandler: nil)
+        alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler: {(_) -> Void in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: {(_) -> Void in
+            guard let text = alert.textFields?.first?.text else {
+                return
+            }
+            Auth.auth().sendPasswordReset(withEmail: text) { error in
+                if error == nil {
+                    let alert = UIAlertController(title: "Sucess", message: "Password has been sent to your email", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: {(_) -> Void in
+                       return
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }else {
+                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: {(_) -> Void in
+                       return
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     
     @IBAction func loginButton(_ sender: Any) {
@@ -59,7 +97,9 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         }
         
     }
-    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     
     

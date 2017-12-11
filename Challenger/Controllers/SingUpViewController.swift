@@ -70,8 +70,13 @@ class SingUpViewController: UIViewController {
             print(url?.absoluteString)
             imageUrl = url?.absoluteString
             Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                if let error = error {
+                    let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (_) -> Void in return}))
+                    self.present(alert, animated: true, completion: nil)
+                }
                 guard let user = user else {
-                    return print("Usuário inexiste")
+                    return
                 }
                 if error != nil {
                     return print(error?.localizedDescription ?? "Empty")
@@ -80,38 +85,24 @@ class SingUpViewController: UIViewController {
                 let usersReference = ref.child("users")
                 let uid = user.uid
                 guard let email = user.email else {
-                    return print("Email inexiste")
+                    return
                 }
                 let dict = ["userID" : uid, "email" : email, "name" : name, "profileImage" : imageUrl]
                 usersReference.child(uid).updateChildValues(dict, withCompletionBlock: { (error, reference) in
                     if let error = error {
-                        print(error.localizedDescription)
+                        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (_) -> Void in return}))
+                        self.present(alert, animated: true, completion: nil)
                     }
-                    print("Usuário salvo")
-                })
-                Auth.auth().signIn(withEmail: "fsfs", password: "fdfsf", completion: { (user, error) in
-                    
+                    let alert = UIAlertController(title: "Error", message: "User registered.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (_) -> Void in  self.dismiss(animated: true, completion: nil)}))
+                    self.present(alert, animated: true, completion: nil)
                 })
             }
         })
         
         
-        
-        //successfully autheticated
-        
-        
-        //
-        //        let values = ["email": email]
-        //        ref.onDisconnectUpdateChildValues(values) { (err, ref) in
-        //            if err != nil {
-        //                print(err)
-        //                return
-        //            }
-        //            print("Saved user sucessfully into the FIREBASE DB")
-        //        }
-        //
-        //        usersReference.childByAutoId().setValue(values)
-        self.dismiss(animated: true, completion: nil)
+    
     }
 }
 
@@ -125,14 +116,8 @@ extension SingUpViewController: UIImagePickerControllerDelegate, UINavigationCon
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             imgProfile.image = image
             self.image = image
-            //saveButton.isEnabled = true
             picker.dismiss(animated: true, completion: nil)
-//
-//        let image = info[UIImagePickerControllerEditedImage] as? UIImage
-//
-//        imgProfile.image = image
-//        picker.dismiss(animated: true, completion: nil)
-//
+
         }
     }
 }

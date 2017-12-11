@@ -5,7 +5,7 @@ import HandyJSON
 
 let dictionary = [String: String]()
 
-class SearchGroupsViewController: UIViewController, UISearchBarDelegate {
+class SearchGroupsViewController : UIViewController, UISearchBarDelegate {
 
     var groups : [Group] = []
     @IBOutlet weak var searchBar: UISearchBar!
@@ -55,28 +55,16 @@ class SearchGroupsViewController: UIViewController, UISearchBarDelegate {
         })
     }
     func addInviteToGroup(_ group : Group) {
-        if (group.invites == nil) {
-            group.invites = [(Firebase.Auth.auth().currentUser?.uid)!]
+            let userUid = (Firebase.Auth.auth().currentUser?.uid)!
+            group.invite = [userUid : true]
             let json = group.toJSON()
             Database.database().reference(withPath: "group").child(group.key!).updateChildValues(json!)
-        } else {
-            var array = group.invites!
-            array.append((Firebase.Auth.auth().currentUser?.uid)!)
-            group.invites = array
-            let json = group.toJSON()
-            Database.database().reference(withPath: "group").child(group.key!).updateChildValues(json!)
-        }
     }
     func verifyIfExists(_ group: Group) -> Bool {
-        let userUid = Firebase.Auth.auth().currentUser?.uid
-        let arrayMatchs = group.invites?.filter({ (invite) -> Bool in
-            if invite == userUid {
-                return true
-            }else {
-                return false
-            }
-        })
-        if arrayMatchs == nil {
+        guard let invite = group.invite else {
+            return false
+        }
+        if (invite[(Firebase.Auth.auth().currentUser?.uid)!] == nil){
             return false
         }else {
             return true

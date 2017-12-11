@@ -11,8 +11,7 @@ class User : HandyJSON {
     var name: String?
     var email: String?
     var profileImage: String?
-    var groups : [String]?
-    var pendingInvitations : [String]?
+    var group : [String : Bool]?
     required init() {
     }
 }
