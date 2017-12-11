@@ -93,7 +93,7 @@ class SingUpViewController: UIViewController {
                         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (_) -> Void in return}))
                         self.present(alert, animated: true, completion: nil)
                     }
-                    let alert = UIAlertController(title: "Error", message: "User registered.", preferredStyle: UIAlertControllerStyle.alert)
+                    let alert = UIAlertController(title: "Sucess", message: "User registered.", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (_) -> Void in  self.dismiss(animated: true, completion: nil)}))
                     self.present(alert, animated: true, completion: nil)
                 })
@@ -116,7 +116,6 @@ extension SingUpViewController: UIImagePickerControllerDelegate, UINavigationCon
             imgProfile.image = image
             self.image = image
             picker.dismiss(animated: true, completion: nil)
-
         }
     }
 }
