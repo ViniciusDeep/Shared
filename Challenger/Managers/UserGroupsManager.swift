@@ -14,12 +14,10 @@ import FirebaseStorage
 
 class UserGroupsManager : NSObject {
     class func addUserToGroup(_ userID : String, _ groupKey : String){
-        var array  = [String : Bool]()
         let database = Database.database().reference()
         database.child("group").child(groupKey).child("users").updateChildValues([userID: true])
     }
     class func addGroupToUser(_ userID: String, _ groupKey : String) {
-        var array  : [String] = []
         let database = Database.database().reference()
         database.child("users").child(userID).child("groups").updateChildValues([groupKey : true])
     }

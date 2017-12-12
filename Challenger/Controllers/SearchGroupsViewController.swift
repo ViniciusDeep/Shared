@@ -23,9 +23,10 @@ class SearchGroupsViewController : UIViewController, UISearchBarDelegate {
             self.groups.remove(at: 0)
             self.tableView.reloadData()
         }
-        guard let text = searchBar.text else {
+        guard var text = searchBar.text else {
             return
         }
+        text = text.lowercased()
         let ref = Database.database().reference()
         ref.child("group").observeSingleEvent(of: .value, with: { (snapshot) in
             let snapshots = snapshot.children.allObjects.flatMap { $0 as? DataSnapshot }
@@ -38,7 +39,7 @@ class SearchGroupsViewController : UIViewController, UISearchBarDelegate {
                     group.key = keys[index]
                     return group
             }
-            let group = groups.filter { $0.name! == text }.first
+            let group = groups.filter { $0.name!.lowercased() == text }.first
             if let group = group {
                 self.groups.append(group)
                 self.tableView.reloadData()

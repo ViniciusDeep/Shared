@@ -113,15 +113,18 @@ class SingUpViewController: UIViewController {
                     Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                         if error != nil {
                             let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: {(_) -> Void in
+                                self.saveButton.isEnabled = true
+                                self.cancelButton.isEnabled = true
+                            }))
                             self.present(alert, animated: true, completion: nil)
+                            
                             return
                         }else {
                             self.performSegue(withIdentifier: "userAuthenticated", sender: sender)
                         }
                     }
-                    self.saveButton.isEnabled = true
-                    self.cancelButton.isEnabled = true
+                    
                     }})
             }
         })

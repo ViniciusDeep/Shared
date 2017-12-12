@@ -58,9 +58,9 @@ extension CalendarRequestController: CellDelegate {
         let alert = UIAlertController(title: "Confirmation", message: "Are you sure to ACCEPT this request?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: {(alert) -> Void in return}))
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: {alert in
-            self.addGroupToUser(index: index)
-            self.addUserToGroup(index: index)
-            self.removeInvite(index: index)
+            UserGroupsManager.addGroupToUser(self.users[index.row].userID!, (self.group?.key)!)
+            UserGroupsManager.addUserToGroup(self.users[index.row].userID!, (self.group?.key)!)
+        //    self.removeInvite(index: index)
             self.users.remove(at: index.row)
             self.tableView.deleteRows(at: [index], with: UITableViewRowAnimation.fade)
             self.tableView.reloadData()
@@ -82,25 +82,22 @@ extension CalendarRequestController: CellDelegate {
         
     }
     
-    func addGroupToUser (index: IndexPath) {
-        let user = users[index.row]
-            user.group = [(group?.key)! : true]
-        let json = user.toJSON()
-        Firebase.Database.database().reference(withPath: "users").child(user.userID!).updateChildValues(json!)
-    }
-    
-    func addUserToGroup(index: IndexPath) {
-        group?.users = [users[index.row].userID! : true]
-            let json = group?.toJSON()
-            Firebase.Database.database().reference(withPath: "group").child((group?.key)!).updateChildValues(json!)
-            return
-    }
+//    func addGroupToUser (index: IndexPath) {
+//        let user = users[index.row]
+//            user.group = [(group?.key)! : true]
+//        let json = user.toJSON()
+//        Firebase.Database.database().reference(withPath: "users").child(user.userID!).updateChildValues(json!)
+//    }
+//
+//    func addUserToGroup(index: IndexPath) {
+//        group?.users = [users[index.row].userID! : true]
+//            let json = group?.toJSON()
+//            Firebase.Database.database().reference(withPath: "group").child((group?.key)!).updateChildValues(json!)
+//            return
+//    }
     
     func removeInvite(index: IndexPath) {
-        
-        group?.invites?.removeValue(forKey: users[index.row].userID!)
-        let json = group?.toJSON()
-        Firebase.Database.database().reference(withPath: "group").child((group?.key)!).setValue(json!)
+        Firebase.Database.database().reference(withPath: "group").child((group?.key)!).child("invites").child(users[index.row].userID!).removeValue()
         
     }
     
