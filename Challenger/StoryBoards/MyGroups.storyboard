@@ -133,12 +133,12 @@
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UV-q2-DEE">
                                 <rect key="frame" x="7" y="288" width="111" height="111"/>
-                                <state key="normal" title="Button" image="iconeCamera"/>
+                                <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="cameraButton:" destination="n8L-zu-IqG" eventType="touchUpInside" id="FpY-Ag-da7"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p61-pr-rgz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera1600.png" translatesAutoresizingMaskIntoConstraints="NO" id="p61-pr-rgz">
                                 <rect key="frame" x="7" y="288" width="111" height="111"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="111" id="T4G-02-Eej"/>
@@ -199,7 +199,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera1600.png" width="1600" height="1600"/>
         <image name="ic_group_black" width="24" height="24"/>
-        <image name="iconeCamera" width="512" height="512"/>
     </resources>
 </document>

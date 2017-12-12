@@ -12,8 +12,7 @@ class AddGroup: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
-    //var didCreateGroup : DidAddGroup? = nil
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         nameOutlet.delegate = self
