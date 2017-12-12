@@ -168,7 +168,7 @@ extension CalendarSettingsController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let identifier = tableView.cellForRow(at: indexPath)?.reuseIdentifier else {
             return
-    }
+        }
         if identifier == "showMembers" {
             performSegue(withIdentifier: "showMembers", sender: nil)
         }

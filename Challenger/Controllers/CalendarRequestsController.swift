@@ -31,7 +31,7 @@ class CalendarRequestController: UITableViewController{
         self.dismiss(animated: true, completion: nil)
     }
     func loadUsers() {
-        let groupRef = Database.database().reference(withPath: "group").child((group?.key)!).child("invite")
+        let groupRef = Database.database().reference(withPath: "group").child((group?.key)!).child("invites")
         groupRef.observeSingleEvent(of: .value) { (snapshot) in
             if !snapshot.exists() {
                 return

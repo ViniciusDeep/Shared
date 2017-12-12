@@ -102,7 +102,7 @@
                                     <action selector="forgotPass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Yp-3l-dBH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ek-Rs-9Ll">
+                            <button opaque="NO" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ek-Rs-9Ll">
                                 <rect key="frame" x="40" y="402" width="295" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="295" id="jK7-37-dPx"/>

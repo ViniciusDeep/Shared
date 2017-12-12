@@ -40,6 +40,7 @@
 		A4ACEF2A1FD880330048160A /* CellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ACEF291FD880330048160A /* CellDelegate.swift */; };
 		A4F3A6781FD0959E007B0425 /* logo_dos_meninos.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F3A6771FD0959E007B0425 /* logo_dos_meninos.png */; };
 		A4F3A67C1FD1C857007B0425 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F3A67B1FD1C857007B0425 /* UserCell.swift */; };
+		DA123D4E1FDF8CE0007BB02F /* ManageAccountControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123D4D1FDF8CE0007BB02F /* ManageAccountControllerTableViewController.swift */; };
 		DA3CDC2C1FD448340012D598 /* ShowImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3CDC2B1FD448330012D598 /* ShowImageController.swift */; };
 		DA3CDC2E1FD46B2C0012D598 /* UserCellInvites.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3CDC2D1FD46B2C0012D598 /* UserCellInvites.swift */; };
 		DA400E711FD35C5600970469 /* LoginBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DA400E701FD35C5600970469 /* LoginBackground.jpg */; };
@@ -96,6 +97,7 @@
 		A4ACEF291FD880330048160A /* CellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDelegate.swift; sourceTree = "<group>"; };
 		A4F3A6771FD0959E007B0425 /* logo_dos_meninos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_dos_meninos.png; sourceTree = "<group>"; };
 		A4F3A67B1FD1C857007B0425 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		DA123D4D1FDF8CE0007BB02F /* ManageAccountControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAccountControllerTableViewController.swift; sourceTree = "<group>"; };
 		DA3CDC2B1FD448330012D598 /* ShowImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageController.swift; sourceTree = "<group>"; };
 		DA3CDC2D1FD46B2C0012D598 /* UserCellInvites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellInvites.swift; sourceTree = "<group>"; };
 		DA400E701FD35C5600970469 /* LoginBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoginBackground.jpg; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				A4578FC71FD0775400E4DB8C /* SingUpViewController.swift */,
 				75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */,
 				A40205001FC360930029B022 /* AddGroup.swift */,
+				DA123D4D1FDF8CE0007BB02F /* ManageAccountControllerTableViewController.swift */,
 				A40205011FC360930029B022 /* TableViewGroups.swift */,
 				A43645261FC4BC4B007BC6C3 /* MyAccountController.swift */,
 				DB5B01441FC5EACE00BD5F1A /* CalendarController.swift */,
@@ -484,6 +487,7 @@
 				A40205101FC360A60029B022 /* AppDelegate.swift in Sources */,
 				A43645291FC6082B007BC6C3 /* RedirectViewController.swift in Sources */,
 				A40205031FC360930029B022 /* TableViewGroups.swift in Sources */,
+				DA123D4E1FDF8CE0007BB02F /* ManageAccountControllerTableViewController.swift in Sources */,
 				A40205111FC360A60029B022 /* SaveDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
