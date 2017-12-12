@@ -63,7 +63,7 @@ class CalendarController: UIViewController{
         expandButtonOutlet.setImage(#imageLiteral(resourceName: "ic_expand_less"), for: UIControlState.normal)
         //archiveButtonOutlet.isHidden=true
         let currentUser = Firebase.Auth.auth().currentUser
-        email = currentUser?.email
+        //email = currentUser?.email
         generateInDates = .forAllMonths
         generateOutDates = .tillEndOfGrid
         numberOfRows = nil
@@ -148,7 +148,7 @@ class CalendarController: UIViewController{
             let timestamp = dateSelected?.timeIntervalSince1970
             let textFilesManager = FilesManager()
             let autoID = Database.database().reference().childByAutoId().key
-            let newArchive = Archive(name: autoID,groupID: group?.key, date: timestamp, archive: self.textFieldOutlet.text!, type: "text")
+            let newArchive = Archive(name: Auth.auth().currentUser?.email,groupID: group?.key, date: timestamp, archive: self.textFieldOutlet.text!, type: "text")
             textFilesManager.uploadArchive(archive: newArchive)
             self.archives.append(newArchive)
             self.tableView.reloadData()
@@ -329,7 +329,7 @@ extension CalendarController : UIImagePickerControllerDelegate, UINavigationCont
             imagesFilesManager.uploadImage(image, completionBlock: { (url,id, error) in
                 print(url?.absoluteString)
                 imageUrl = url?.absoluteString
-                let newArchive = Archive(name: id,groupID: self.group?.key, date: timestamp, archive: imageUrl!, type: "jpeg")
+                let newArchive = Archive(name: Auth.auth().currentUser?.email,groupID: self.group?.key, date: timestamp, archive: imageUrl!, type: "jpeg")
                 imagesFilesManager.uploadArchive(archive: newArchive)
                 self.archives.append(newArchive)
                 self.tableView.reloadData()
@@ -347,13 +347,13 @@ extension CalendarController : UITableViewDataSource, UITableViewDelegate {
         switch(archive.type!){
         case "text":
             let cell = tableView.dequeueReusableCell(withIdentifier: "Comment", for: indexPath)
-            cell.textLabel?.text = email! + ":"
+            cell.textLabel?.text = archive.name! + ":"
             cell.detailTextLabel?.text = archive.archive
             
             return cell
         case "jpeg":
             let cell = tableView.dequeueReusableCell(withIdentifier: "Archive", for: indexPath) as? FileArchiveCell
-            cell?.nameLabel.text = email! + ":"
+            cell?.nameLabel.text = archive.name! + ":"
             let url = URL(string: archives[indexPath.row].archive!)
             cell?.imageOutlet.sd_setImage(with: url ,completed: nil)
             return cell!
