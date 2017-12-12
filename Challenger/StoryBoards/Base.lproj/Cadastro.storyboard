@@ -164,6 +164,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="BKy-Zk-nvs"/>
                     <connections>
+                        <outlet property="forgotPassword" destination="pVc-Hf-XGs" id="a2q-cm-UyI"/>
                         <outlet property="loginBtn" destination="FbX-SZ-Iym" id="R2R-dh-ka9"/>
                         <outlet property="signUpBtn" destination="8CI-md-ebh" id="Ks1-eI-3Z0"/>
                         <outlet property="userEmail" destination="Oye-lS-E3I" id="lrh-5I-79Y"/>

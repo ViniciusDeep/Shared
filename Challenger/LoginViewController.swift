@@ -16,6 +16,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDel
    
     
     
+    @IBOutlet weak var forgotPassword: UIButton!
     @IBOutlet weak var userEmail: UITextField!
     
     @IBOutlet weak var userPassword: UITextField!
@@ -37,6 +38,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDel
         self.loginBtn.layer.cornerRadius =
             self.loginBtn.frame.size.width / 10
         self.loginBtn.layer.masksToBounds = true
+        self.forgotPassword.layer.cornerRadius =
+            self.forgotPassword.frame.size.width / 10
+        self.forgotPassword.layer.masksToBounds = true
+        
     }
     
     @IBAction func googleButton(_ sender: Any) {
