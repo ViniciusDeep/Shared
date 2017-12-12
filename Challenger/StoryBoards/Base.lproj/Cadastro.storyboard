@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o9P-7c-dfs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o9P-7c-dfs">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -50,12 +50,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZHm-wW-gqn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-594.39999999999998" y="133.5832083958021"/>
+            <point key="canvasLocation" x="-362" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Challenger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Challenger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -181,7 +181,7 @@
                 <viewControllerPlaceholder storyboardName="TabBar" id="LZj-qF-lBe" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xnf-wJ-B5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="22" y="657"/>
+            <point key="canvasLocation" x="476" y="671"/>
         </scene>
         <!--Sing Up View Controller-->
         <scene sceneID="qr6-Rs-m7P">
@@ -191,25 +191,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qnc-7w-yhI">
-                                <rect key="frame" x="0.0" y="17" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem id="p3p-16-vGs">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="1bc-gp-K0g">
-                                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <action selector="BackButton:" destination="Eez-Ik-KoA" id="KhF-S3-Qce"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="kgO-Ig-7jx">
-                                            <connections>
-                                                <action selector="signButton:" destination="Eez-Ik-KoA" id="azE-1w-X2U"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dra-2d-6fp">
                                 <rect key="frame" x="117.5" y="103" width="140" height="140"/>
                                 <state key="normal" image="camera1600"/>
@@ -245,6 +226,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qnc-7w-yhI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="p3p-16-vGs">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="1bc-gp-K0g">
+                                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="BackButton:" destination="Eez-Ik-KoA" id="KhF-S3-Qce"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="kgO-Ig-7jx">
+                                            <connections>
+                                                <action selector="signButton:" destination="Eez-Ik-KoA" id="azE-1w-X2U"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -267,11 +267,13 @@
                         <viewLayoutGuide key="safeArea" id="Rqw-9e-6EK"/>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="1bc-gp-K0g" id="l1l-ch-BVS"/>
                         <outlet property="imgProfile" destination="xZI-Vo-jkj" id="XDN-EJ-T1L"/>
                         <outlet property="saveButton" destination="kgO-Ig-7jx" id="guz-LH-Igc"/>
                         <outlet property="userEmail" destination="jHO-0I-ezn" id="C2O-nG-r0s"/>
                         <outlet property="userName" destination="kKG-1w-hE9" id="jj7-PP-wpE"/>
                         <outlet property="userPassword" destination="hzj-pf-2Yk" id="2Xe-YK-Ge0"/>
+                        <segue destination="LZj-qF-lBe" kind="showDetail" identifier="userAuthenticated" id="bpT-q0-6d4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOb-gK-7Jz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -289,6 +291,6 @@
         <image name="logo_dos_meninos.png" width="702" height="710"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZvD-G1-O5e"/>
+        <segue reference="bpT-q0-6d4"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,7 +12,7 @@ import Firebase
 import FirebaseAuth
 import GoogleSignIn
 
-class ViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDelegate {
+class LoginViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDelegate {
    
     
     

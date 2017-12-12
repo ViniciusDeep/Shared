@@ -12,28 +12,20 @@ import FirebaseDatabase
 import Firebase
 import FirebaseStorage
 
-
 class SingUpViewController: UIViewController {
-    
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var userName: UITextField!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     var image : UIImage?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //saveButton.isEnabled = false
     }
-    
-    
-    
-    
     override func viewDidAppear(_ animated: Bool) {
         self.imgProfile.layer.cornerRadius = self.imgProfile.frame.size.width / 2;
         self.imgProfile.layer.masksToBounds = true
-        
     }
     
     
@@ -42,9 +34,7 @@ class SingUpViewController: UIViewController {
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
-        
         self.present(imagePicker, animated: true, completion: nil)
-        
     }
     
     
@@ -57,11 +47,25 @@ class SingUpViewController: UIViewController {
     
     @IBAction func signButton(_ sender: Any) {
     saveButton.isEnabled = false
-        guard let email = userEmail.text, let password = userPassword.text else {
-            print("form is not valid")
+    cancelButton.isEnabled = false
+        if userEmail.text == "" {
+            self.saveButton.isEnabled = true
+            self.cancelButton.isEnabled = true
             return
         }
-        guard let name = userName.text else {
+        if userPassword.text == "" {
+            self.saveButton.isEnabled = true
+            self.cancelButton.isEnabled = true
+            return
+        }
+        if  userName.text == "" {
+            self.saveButton.isEnabled = true
+            self.cancelButton.isEnabled = true
+            return
+        }
+        guard let email = userEmail.text, let password = userPassword.text, let name = userName.text else {
+            self.saveButton.isEnabled = true
+            self.cancelButton.isEnabled = true
             return
         }
         let imagesFilesManager = FilesManager()
@@ -72,19 +76,28 @@ class SingUpViewController: UIViewController {
             Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                 if let error = error {
                     let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (_) -> Void in return}))
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (_) -> Void in
+                        self.saveButton.isEnabled = true
+                        self.cancelButton.isEnabled = true
+                        return}))
                     self.present(alert, animated: true, completion: nil)
                 }
                 guard let user = user else {
+                    self.saveButton.isEnabled = true
+                    self.cancelButton.isEnabled = true
                     return
                 }
                 if error != nil {
+                    self.saveButton.isEnabled = true
+                    self.cancelButton.isEnabled = true
                     return print(error?.localizedDescription ?? "Empty")
                 }
                 let ref = Database.database().reference()
                 let usersReference = ref.child("users")
                 let uid = user.uid
                 guard let email = user.email else {
+                    self.saveButton.isEnabled = true
+                    self.cancelButton.isEnabled = true
                     return
                 }
                 let dict = ["userID" : uid, "email" : email, "name" : name, "profileImage" : imageUrl]
@@ -93,29 +106,29 @@ class SingUpViewController: UIViewController {
                         let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
                         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (_) -> Void in return}))
                         self.present(alert, animated: true, completion: nil)
+                        self.saveButton.isEnabled = true
+                        self.cancelButton.isEnabled = true
+                    } else {
+                   
+                    Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+                        if error != nil {
+                            let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                            return
+                        }else {
+                            self.performSegue(withIdentifier: "userAuthenticated", sender: sender)
+                        }
                     }
-                    let alert = UIAlertController(title: "Sucess", message: "User registered.", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (_) -> Void in  self.dismiss(animated: true, completion: nil)}))
-                    self.present(alert, animated: true, completion: nil)
                     self.saveButton.isEnabled = true
-//                    Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-//                        if error != nil {
-//                            let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-//                            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-//                            self.present(alert, animated: true, completion: nil)
-//                            return
-//
-//                        }else {
-//                            self.performSegue(withIdentifier: "userAuthenticated", sender: sender)
-//                        }
-//
-//                    }
-                })
+                    self.cancelButton.isEnabled = true
+                    }})
             }
         })
-        
     }
-    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }
 
 

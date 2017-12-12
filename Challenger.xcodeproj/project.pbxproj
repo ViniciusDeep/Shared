@@ -10,7 +10,7 @@
 		75232CC31FD1AAFB003433E6 /* CalendarMemberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75232CC21FD1AAFB003433E6 /* CalendarMemberController.swift */; };
 		7548749B1FBB4DB300EE2613 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7548749A1FBB4DB300EE2613 /* Assets.xcassets */; };
 		75B02A7B1FBB7AE8008DB651 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75B02A7A1FBB6255008DB651 /* GoogleService-Info.plist */; };
-		75B7B4DD1FB9F4B70088B7EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */; };
+		75B7B4DD1FB9F4B70088B7EF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B4DC1FB9F4B70088B7EF /* LoginViewController.swift */; };
 		75B7B4E81FB9F4B70088B7EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B7B4E61FB9F4B70088B7EF /* LaunchScreen.storyboard */; };
 		A0B83FFA1F0F42A95A6B4844 /* Pods_Challenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C23F01DEAF4E8EF3841BB46 /* Pods_Challenger.framework */; };
 		A40204F91FC360790029B022 /* SearchGroups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40204F51FC360790029B022 /* SearchGroups.storyboard */; };
@@ -34,7 +34,7 @@
 		A4578FC31FD06EB300E4DB8C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4578FBA1FD06E2B00E4DB8C /* User.swift */; };
 		A4578FC61FD0703700E4DB8C /* Cadastro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4578FC41FD0703700E4DB8C /* Cadastro.storyboard */; };
 		A4578FC81FD0775400E4DB8C /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4578FC71FD0775400E4DB8C /* SingUpViewController.swift */; };
-		A484812F1FDB31030068DF19 /* SearchGroupsViewController 15-12-40-160.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484812E1FDB31020068DF19 /* SearchGroupsViewController 15-12-40-160.swift */; };
+		A484812F1FDB31030068DF19 /* SearchGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484812E1FDB31020068DF19 /* SearchGroupsViewController.swift */; };
 		A4ACEF261FD860E60048160A /* 674023-signin_login_enter_entry_sign_log_in-512.png in Resources */ = {isa = PBXBuildFile; fileRef = A4ACEF251FD860E60048160A /* 674023-signin_login_enter_entry_sign_log_in-512.png */; };
 		A4ACEF281FD87E180048160A /* RequestsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ACEF271FD87E180048160A /* RequestsCell.swift */; };
 		A4ACEF2A1FD880330048160A /* CellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ACEF291FD880330048160A /* CellDelegate.swift */; };
@@ -64,7 +64,7 @@
 		7548749A1FBB4DB300EE2613 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75B02A7A1FBB6255008DB651 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		75B7B4D71FB9F4B70088B7EF /* Challenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
+		75B7B4DC1FB9F4B70088B7EF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
 		75B7B4E71FB9F4B70088B7EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75B7B4E91FB9F4B70088B7EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DA54C2C8B7686DADFA2C2FE /* Pods-Challenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Challenger/Pods-Challenger.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		A4578FC51FD0703700E4DB8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Cadastro.storyboard; sourceTree = "<group>"; };
 		A4578FC71FD0775400E4DB8C /* SingUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		A47A18371FC7491500F0B085 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		A484812E1FDB31020068DF19 /* SearchGroupsViewController 15-12-40-160.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SearchGroupsViewController 15-12-40-160.swift"; sourceTree = "<group>"; };
+		A484812E1FDB31020068DF19 /* SearchGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchGroupsViewController.swift; sourceTree = "<group>"; };
 		A4ACEF251FD860E60048160A /* 674023-signin_login_enter_entry_sign_log_in-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "674023-signin_login_enter_entry_sign_log_in-512.png"; sourceTree = "<group>"; };
 		A4ACEF271FD87E180048160A /* RequestsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsCell.swift; sourceTree = "<group>"; };
 		A4ACEF291FD880330048160A /* CellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDelegate.swift; sourceTree = "<group>"; };
@@ -140,11 +140,11 @@
 		754874971FBA3DFF00EE2613 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A484812E1FDB31020068DF19 /* SearchGroupsViewController 15-12-40-160.swift */,
+				A484812E1FDB31020068DF19 /* SearchGroupsViewController.swift */,
 				DA3CDC2B1FD448330012D598 /* ShowImageController.swift */,
 				A43645281FC6082B007BC6C3 /* RedirectViewController.swift */,
 				A4578FC71FD0775400E4DB8C /* SingUpViewController.swift */,
-				75B7B4DC1FB9F4B70088B7EF /* ViewController.swift */,
+				75B7B4DC1FB9F4B70088B7EF /* LoginViewController.swift */,
 				A40205001FC360930029B022 /* AddGroup.swift */,
 				DA123D4D1FDF8CE0007BB02F /* ManageAccountControllerTableViewController.swift */,
 				A40205011FC360930029B022 /* TableViewGroups.swift */,
@@ -466,7 +466,7 @@
 				DA3CDC2E1FD46B2C0012D598 /* UserCellInvites.swift in Sources */,
 				A4578FC21FD06EB300E4DB8C /* Groups.swift in Sources */,
 				A4578FC31FD06EB300E4DB8C /* User.swift in Sources */,
-				75B7B4DD1FB9F4B70088B7EF /* ViewController.swift in Sources */,
+				75B7B4DD1FB9F4B70088B7EF /* LoginViewController.swift in Sources */,
 				DBE3D68A1FC609A500067652 /* CalendarSettingsController.swift in Sources */,
 				DBBC5DDB1FC7289B00124B18 /* CalendarRequestsController.swift in Sources */,
 				DBDEE12C1FCDF71E0078C664 /* FileArchiveCell.swift in Sources */,
@@ -480,7 +480,7 @@
 				A4ACEF281FD87E180048160A /* RequestsCell.swift in Sources */,
 				DB5B01481FC5EB1B00BD5F1A /* CustomCell.swift in Sources */,
 				75232CC31FD1AAFB003433E6 /* CalendarMemberController.swift in Sources */,
-				A484812F1FDB31030068DF19 /* SearchGroupsViewController 15-12-40-160.swift in Sources */,
+				A484812F1FDB31030068DF19 /* SearchGroupsViewController.swift in Sources */,
 				A43645271FC4BC4B007BC6C3 /* MyAccountController.swift in Sources */,
 				A40205021FC360930029B022 /* AddGroup.swift in Sources */,
 				A40204FF1FC3607F0029B022 /* CellGroups.swift in Sources */,

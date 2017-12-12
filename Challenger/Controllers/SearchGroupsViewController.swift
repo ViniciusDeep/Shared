@@ -18,15 +18,6 @@ class SearchGroupsViewController : UIViewController, UISearchBarDelegate {
         tableView.dataSource = self
         searchBar.delegate = self
     }
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let nav = segue.destination as? UINavigationController else { return }
-//        if let controller = nav.topViewController  as? CalendarController {
-//            guard let index = sender as? Int else { return }
-//            controller.group = groups[index]
-//        }
-//    }
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if !groups.isEmpty {
             self.groups.remove(at: 0)
@@ -41,7 +32,7 @@ class SearchGroupsViewController : UIViewController, UISearchBarDelegate {
             
             let keys = snapshots.map { $0.key }
             
-            var groups = (snapshots.flatMap { Group.deserialize(from: $0.value as? NSDictionary) })
+            let groups = (snapshots.flatMap { Group.deserialize(from: $0.value as? NSDictionary) })
                 .enumerated()
                 .flatMap { index, group -> Group in
                     group.key = keys[index]

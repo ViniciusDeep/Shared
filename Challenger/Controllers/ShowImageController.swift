@@ -59,22 +59,4 @@ class ShowImageController: UIViewController {
                 downloadButtonOutlet.isEnabled = true
             }
     }
-//        storageRef.downloadURL { (url, error) in
-//            guard let imageURL = url, error == nil else{
-//                return
-//            }
-//            guard let data = NSData(contentsOf: imageURL) else {
-//                return
-//            }
-//            let image = UIImage(data: data as Data)
-//
-//        }
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }

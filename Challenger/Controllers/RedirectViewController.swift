@@ -14,23 +14,15 @@ class RedirectViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     override func viewDidAppear(_ animated: Bool) {
         verifyIfSessionExists()
     }
     func verifyIfSessionExists() {
-//        if Auth.auth().currentUser != nil {
-//          performSegue(withIdentifier: "userAuthenticated", sender: nil)
-//        } else {
-//            performSegue(withIdentifier: "userNotAuthenticated", sender: nil)
-//        }
         guard let currentUser =  Auth.auth().currentUser else {
             self.performSegue(withIdentifier: "userNotAuthenticated", sender: nil)
             return
@@ -44,19 +36,6 @@ class RedirectViewController: UIViewController {
             }else {
                 self.performSegue(withIdentifier: "userAuthenticated", sender: nil)
             }
-            
         })
-//        
-//        Auth.auth().addStateDidChangeListener { (auth, user) in
-//            if user == nil {
-//               
-//            } else {
-//            }
-////        if user != nil {
-////
-////        }else {
-////
-////        }
-//    }
 }
 }
