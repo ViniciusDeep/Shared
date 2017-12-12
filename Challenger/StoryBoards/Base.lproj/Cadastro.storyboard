@@ -96,7 +96,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVc-Hf-XGs">
                                 <rect key="frame" x="18" y="606" width="112" height="30"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <state key="normal" title="Forgot account?"/>
                                 <connections>
                                     <action selector="forgotPass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Yp-3l-dBH"/>
