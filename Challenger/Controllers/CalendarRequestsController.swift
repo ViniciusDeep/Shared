@@ -61,7 +61,9 @@ extension CalendarRequestController: CellDelegate {
             UserGroupsManager.addGroupToUser(self.users[index.row].userID!, (self.group?.key)!)
             UserGroupsManager.addUserToGroup(self.users[index.row].userID!, (self.group?.key)!)
         //    self.removeInvite(index: index)
+            self.group?.users![self.users[index.row].userID!] = true
             self.users.remove(at: index.row)
+            
             self.tableView.deleteRows(at: [index], with: UITableViewRowAnimation.fade)
             self.tableView.reloadData()
         }))

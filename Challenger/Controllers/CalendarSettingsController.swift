@@ -101,6 +101,7 @@ class CalendarSettingsController: UITableViewController{
                     var admins : [String:Bool] = [:]
                     group.admins = [members[0].userID! : true]
                     ref.child("group").child(group.key!).child("admins").setValue([members[0].userID!:true])
+                     self.navigationController?.dismiss(animated: true, completion: nil)
                 })
             }
         }
