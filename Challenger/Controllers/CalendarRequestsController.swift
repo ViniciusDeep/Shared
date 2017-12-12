@@ -60,7 +60,7 @@ extension CalendarRequestController: CellDelegate {
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: {alert in
             UserGroupsManager.addGroupToUser(self.users[index.row].userID!, (self.group?.key)!)
             UserGroupsManager.addUserToGroup(self.users[index.row].userID!, (self.group?.key)!)
-        //    self.removeInvite(index: index)
+            self.removeInvite(index: index)
             self.group?.users![self.users[index.row].userID!] = true
             self.users.remove(at: index.row)
             

@@ -16,7 +16,6 @@ class AddGroup: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         nameOutlet.delegate = self
-        saveButton.isEnabled = false
     }
     
     func allSelected(){
