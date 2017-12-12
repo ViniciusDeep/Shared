@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eHl-Or-yGE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eHl-Or-yGE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,14 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SAt-hM-AHT">
-                                <rect key="frame" x="-1" y="64" width="375" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="SAt-hM-AHT">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-77-ai5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-77-ai5">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CustomCell" rowHeight="100" id="usQ-YZ-Rmu" customClass="CellGroups" customModule="Challenger" customModuleProvider="target">
@@ -65,6 +63,15 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bpT-77-ai5" firstAttribute="trailing" secondItem="PZP-Og-3dW" secondAttribute="trailing" id="1Hg-dh-KWg"/>
+                            <constraint firstItem="PZP-Og-3dW" firstAttribute="trailing" secondItem="SAt-hM-AHT" secondAttribute="trailing" id="RZG-Rm-Vup"/>
+                            <constraint firstItem="bpT-77-ai5" firstAttribute="top" secondItem="SAt-hM-AHT" secondAttribute="bottom" id="UJ2-5A-bHB"/>
+                            <constraint firstItem="SAt-hM-AHT" firstAttribute="top" secondItem="PZP-Og-3dW" secondAttribute="top" id="fD8-dP-mOM"/>
+                            <constraint firstItem="bpT-77-ai5" firstAttribute="leading" secondItem="PZP-Og-3dW" secondAttribute="leading" id="nSF-9W-XUS"/>
+                            <constraint firstItem="SAt-hM-AHT" firstAttribute="leading" secondItem="OSw-fj-NjU" secondAttribute="leading" id="tMF-OK-jSG"/>
+                            <constraint firstAttribute="bottom" secondItem="bpT-77-ai5" secondAttribute="bottom" id="tu3-zE-5G0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PZP-Og-3dW"/>
                     </view>
                     <navigationItem key="navigationItem" title="MyGroups" id="scK-Ie-Hk0">
@@ -124,27 +131,39 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UV-q2-DEE">
-                                <rect key="frame" x="22" y="294" width="81" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UV-q2-DEE">
+                                <rect key="frame" x="7" y="288" width="111" height="111"/>
                                 <state key="normal" title="Button" image="iconeCamera"/>
                                 <connections>
                                     <action selector="cameraButton:" destination="n8L-zu-IqG" eventType="touchUpInside" id="FpY-Ag-da7"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p61-pr-rgz">
-                                <rect key="frame" x="7" y="275" width="111" height="111"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p61-pr-rgz">
+                                <rect key="frame" x="7" y="288" width="111" height="111"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="111" id="T4G-02-Eej"/>
+                                    <constraint firstAttribute="width" constant="111" id="qAY-Mk-Ln0"/>
+                                </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add name to group" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IVj-45-5TW">
-                                <rect key="frame" x="134" y="294" width="195" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add name to group" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IVj-45-5TW">
+                                <rect key="frame" x="134" y="328.5" width="195" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3UV-q2-DEE" firstAttribute="width" secondItem="p61-pr-rgz" secondAttribute="width" id="9fZ-mX-oJX"/>
+                            <constraint firstItem="IVj-45-5TW" firstAttribute="leading" secondItem="p61-pr-rgz" secondAttribute="trailing" constant="16" id="DZu-45-T9S"/>
+                            <constraint firstItem="3UV-q2-DEE" firstAttribute="centerY" secondItem="p61-pr-rgz" secondAttribute="centerY" id="E1a-3L-Mjz"/>
+                            <constraint firstItem="3UV-q2-DEE" firstAttribute="centerX" secondItem="p61-pr-rgz" secondAttribute="centerX" id="JRR-Pp-zy3"/>
+                            <constraint firstItem="cqo-x7-AiS" firstAttribute="trailing" secondItem="IVj-45-5TW" secondAttribute="trailing" constant="46" id="Wc9-l8-jkH"/>
+                            <constraint firstItem="p61-pr-rgz" firstAttribute="centerY" secondItem="cqo-x7-AiS" secondAttribute="centerY" id="YSr-VC-kHe"/>
+                            <constraint firstItem="IVj-45-5TW" firstAttribute="centerY" secondItem="p61-pr-rgz" secondAttribute="centerY" id="fJs-FH-S55"/>
+                            <constraint firstItem="p61-pr-rgz" firstAttribute="leading" secondItem="cqo-x7-AiS" secondAttribute="leading" constant="7" id="qjE-D6-8hb"/>
+                            <constraint firstItem="3UV-q2-DEE" firstAttribute="height" secondItem="p61-pr-rgz" secondAttribute="height" id="x5R-ai-y5k"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cqo-x7-AiS"/>
                     </view>
                     <connections>

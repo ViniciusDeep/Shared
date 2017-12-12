@@ -27,7 +27,7 @@ class CalendarController: UIViewController{
     
     @IBOutlet weak var expandButtonOutlet: UIButton!
     @IBOutlet weak var imageButtonOutlet: UIButton!
-    @IBOutlet weak var archiveButtonOutlet: UIButton!
+    //@IBOutlet weak var archiveButtonOutlet: UIButton!
     @IBOutlet weak var textFieldOutlet: UITextField!
     @IBOutlet weak var sendButtonOutlet: UIButton!
     
@@ -45,13 +45,13 @@ class CalendarController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         
-        ref.child((group?.key)!).observe( .childAdded) { (snapshot) in
-            guard let dict = snapshot.value as? NSDictionary else {
-                return
-            }
-            self.archives.append(Archive.deserialize(from: dict)!)
-            
-        }
+//        ref.child((group?.key)!).observe( .childAdded) { (snapshot) in
+//            guard let dict = snapshot.value as? NSDictionary else {
+//                return
+//            }
+//            self.archives.append(Archive.deserialize(from: dict)!)
+//            
+//        }
     }
     override func viewWillDisappear(_ animated: Bool) {
         ref.removeAllObservers()
@@ -61,7 +61,7 @@ class CalendarController: UIViewController{
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.title = group?.name
         expandButtonOutlet.setImage(#imageLiteral(resourceName: "ic_expand_less"), for: UIControlState.normal)
-        archiveButtonOutlet.isHidden=true
+        //archiveButtonOutlet.isHidden=true
         let currentUser = Firebase.Auth.auth().currentUser
         email = currentUser?.email
         generateInDates = .forAllMonths
@@ -167,13 +167,13 @@ class CalendarController: UIViewController{
         if(hide){
             tableView.isHidden = true
             imageButtonOutlet.isHidden = true
-            archiveButtonOutlet.isHidden = true
+            //archiveButtonOutlet.isHidden = true
             textFieldOutlet.isHidden = true
             sendButtonOutlet.isHidden = true
         }else{
             tableView.isHidden = false
             imageButtonOutlet.isHidden = false
-            archiveButtonOutlet.isHidden = false
+            //archiveButtonOutlet.isHidden = false
             textFieldOutlet.isHidden = false
             sendButtonOutlet.isHidden = false
         }
@@ -201,6 +201,7 @@ class CalendarController: UIViewController{
         guard let validCell = cell as? CustomCell else { return }
         if validCell.isSelected {
             validCell.selectedView.isHidden = false
+            validCell.notificationView.isHidden = true
         } else {
             validCell.selectedView.isHidden = true
         }

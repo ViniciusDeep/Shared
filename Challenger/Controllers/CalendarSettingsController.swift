@@ -65,7 +65,7 @@ class CalendarSettingsController: UITableViewController{
         self.present(imagepicker, animated: true, completion: nil)
     }
 
-    func loadMembers() -> [User]{
+    func loadMembers(completion: @escaping([User]) -> Void){
         var members : [User] = []
         let ref = Database.database().reference()
         ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -78,8 +78,8 @@ class CalendarSettingsController: UITableViewController{
                     }
                 }
             }
+            completion(members)
         })
-        return members
     }
     
     //Leave Group
@@ -88,32 +88,36 @@ class CalendarSettingsController: UITableViewController{
         ref.child("users").child(userID).child("groups").child(group.key!).removeValue()
         ref.child("group").child(group.key!).child("users").child(userID).removeValue()
         ref.child("group").child(group.key!).child("admin").child(userID).removeValue()
-        group.admins?.removeAll()
         if(group.users?.count == 1){
             ref.child("group").child(group.key!).removeValue(completionBlock: { (error, ref) in
                 print(error?.localizedDescription)
+                self.navigationController?.dismiss(animated: true, completion: nil)
             })
         }else{
             if(group.admins?.count == 1){
-                let members = loadMembers()
-                print(members)
-                var admins : [String:Bool] = [:]
-                let firstUserID = ref.child("users").child(members[0].userID!)
-                group.admins = [members[0].userID! : true]
-                ref.child("group").child(group.key!).child("admin").setValue([firstUserID:true])
+                group.admins?.removeAll()
+                loadMembers(completion: { (members) in
+                    print(members)
+                    var admins : [String:Bool] = [:]
+                    group.admins = [members[0].userID! : true]
+                    ref.child("group").child(group.key!).child("admins").setValue([members[0].userID!:true])
+                })
             }
         }
     }
     //remove group
     func removeGroup(){
         let ref = Database.database().reference()
-        let members = loadMembers()
-        for user in members {
-            userRef.child(user.userID!).child("groups").child((group?.key)!).removeValue()
+        loadMembers { (members) in
+            for user in members {
+                self.userRef.child(user.userID!).child("groups").child((self.group?.key)!).removeValue()
+            }
+            ref.child("group").child((self.group?.key!)!).removeValue(completionBlock: { (error, ref) in
+                print(error?.localizedDescription)
+                self.navigationController?.dismiss(animated: true, completion: nil)
+            })
         }
-        ref.child("group").child((group?.key!)!).removeValue(completionBlock: { (error, ref) in
-            print(error?.localizedDescription)
-        })
+        
     }
     func userIsAdmin(_ userID: String, _ group : Group) -> Bool{
         if let admins = group.admins{
@@ -174,12 +178,10 @@ extension CalendarSettingsController {
         if identifier == "leaveGroup" {
             let currentUserId = currentUser?.uid
             leaveGroup(currentUserId!, group!)
-            self.navigationController?.dismiss(animated: true, completion: nil)
         }
         if identifier == "deleteGroup" {
             let currentUserId = currentUser?.uid
             removeGroup()
-            self.navigationController?.dismiss(animated: true, completion: nil)
         }
     }
 }

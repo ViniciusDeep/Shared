@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IyX-3g-DQU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IyX-3g-DQU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
                     <tabBarItem key="tabBarItem" title="MyAccount" image="ic_account_circle_black" id="Ksv-zc-Las"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="H8P-8M-eo7">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -39,10 +39,12 @@
                                 <rect key="frame" x="108" y="94" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vfc-DF-CIC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vfc-DF-CIC">
                                 <rect key="frame" x="16" y="553" width="343" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="ntO-Pg-eIl"/>
+                                </constraints>
                                 <state key="normal" title="Log Out">
                                     <color key="titleColor" white="0.95111029439999994" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -57,23 +59,24 @@
                                     <action selector="logOut:" destination="4Ah-ZP-bEn" eventType="touchUpInside" id="i2G-Xh-Yvx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zd6-cu-SNe">
-                                <rect key="frame" x="76" y="265" width="222" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zd6-cu-SNe">
+                                <rect key="frame" x="60" y="265" width="255" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84b-BB-p4e">
-                                <rect key="frame" x="108" y="94" width="150" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84b-BB-p4e">
+                                <rect key="frame" x="112.5" y="94" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Aho-GE-tiK"/>
+                                    <constraint firstAttribute="width" constant="150" id="Qwx-pd-A9z"/>
+                                </constraints>
                                 <connections>
                                     <action selector="changeImage:" destination="WSg-le-pT2" eventType="touchUpInside" id="4Q8-tW-Kg8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hK3-oR-9xZ">
-                                <rect key="frame" x="12" y="387" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hK3-oR-9xZ">
+                                <rect key="frame" x="16" y="387" width="343" height="30"/>
                                 <state key="normal" title="Manage Account"/>
                                 <connections>
                                     <segue destination="inN-J9-Hcy" kind="presentation" id="4s3-2d-DM5"/>
@@ -81,6 +84,22 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WBB-9a-LlU" firstAttribute="trailing" secondItem="Vfc-DF-CIC" secondAttribute="trailing" constant="16" id="6CV-rX-3Xq"/>
+                            <constraint firstItem="hK3-oR-9xZ" firstAttribute="top" secondItem="zd6-cu-SNe" secondAttribute="bottom" constant="101" id="6UK-Zt-1cp"/>
+                            <constraint firstItem="WBB-9a-LlU" firstAttribute="bottom" secondItem="Vfc-DF-CIC" secondAttribute="bottom" constant="18" id="CSu-HY-MiC"/>
+                            <constraint firstItem="WBB-9a-LlU" firstAttribute="trailing" secondItem="zd6-cu-SNe" secondAttribute="trailing" constant="60" id="TnL-LU-qDe"/>
+                            <constraint firstItem="hK3-oR-9xZ" firstAttribute="centerX" secondItem="WBB-9a-LlU" secondAttribute="centerX" id="VR6-RM-nok"/>
+                            <constraint firstItem="zd6-cu-SNe" firstAttribute="leading" secondItem="WBB-9a-LlU" secondAttribute="leading" constant="60" id="fjY-y7-Fww"/>
+                            <constraint firstItem="Vfc-DF-CIC" firstAttribute="leading" secondItem="WBB-9a-LlU" secondAttribute="leading" constant="16" id="fzV-YN-j8k"/>
+                            <constraint firstItem="84b-BB-p4e" firstAttribute="top" secondItem="WBB-9a-LlU" secondAttribute="top" constant="30" id="nEp-Df-hvV"/>
+                            <constraint firstItem="zd6-cu-SNe" firstAttribute="top" secondItem="84b-BB-p4e" secondAttribute="bottom" constant="21" id="nFY-4g-2Xa"/>
+                            <constraint firstItem="Vfc-DF-CIC" firstAttribute="centerX" secondItem="WBB-9a-LlU" secondAttribute="centerX" id="rcQ-cY-fB6"/>
+                            <constraint firstItem="hK3-oR-9xZ" firstAttribute="leading" secondItem="WBB-9a-LlU" secondAttribute="leading" constant="16" id="txa-Jw-PIn"/>
+                            <constraint firstItem="WBB-9a-LlU" firstAttribute="trailing" secondItem="hK3-oR-9xZ" secondAttribute="trailing" constant="16" id="vE8-XL-3pd"/>
+                            <constraint firstItem="zd6-cu-SNe" firstAttribute="centerX" secondItem="WBB-9a-LlU" secondAttribute="centerX" id="vzQ-7F-xKh"/>
+                            <constraint firstItem="84b-BB-p4e" firstAttribute="centerX" secondItem="WBB-9a-LlU" secondAttribute="centerX" id="yt7-Jy-hU7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WBB-9a-LlU"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Account" id="oj8-Aj-NCN"/>

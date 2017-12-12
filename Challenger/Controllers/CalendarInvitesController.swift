@@ -98,6 +98,7 @@ extension CalendarInviteController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         UserGroupsManager.addGroupToUser(result[indexPath.row].userID!, (group?.key!)!)
         UserGroupsManager.addUserToGroup(result[indexPath.row].userID!, (group?.key!)!)
+        group?.users![result[indexPath.row].userID!] = true
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
 }

@@ -14,12 +14,17 @@ import FirebaseDatabase
 import SDWebImage
 import HandyJSON
 
-class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
+class TableViewGroups: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var searchBar: UISearchBar!
-    var groups : [Group] = []
+    var groups : [Group] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     let user = Firebase.Auth.auth().currentUser
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -27,12 +32,10 @@ class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
         searchBar.delegate = self
         tableView.tableFooterView = UIView()
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
-        loadGroups()
     }
-   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? AddGroup {
-            controller.didCreateGroup = self
+            //controller.didCreateGroup = self
         }
         guard let nav = segue.destination as? UINavigationController else { return }
         if let controller = nav.topViewController  as? CalendarController {
@@ -40,16 +43,16 @@ class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
             controller.group = groups[index]
         }
     }
-    func didAdd( _ name: String, _ imageKey: String, _ admin: String, _ users: String,_ imageURL: String){
-        let group = Group()
-        group.name = name
-        group.key = imageKey
-        group.admins = [admin: true]
-        group.image = imageURL
-        group.users = [users: true]
-        groups.append(group)
-        tableView.reloadData()
-    }
+//    func didAdd( _ name: String, _ imageKey: String, _ admin: String, _ users: String,_ imageURL: String){
+//        let group = Group()
+//        group.name = name
+//        group.key = imageKey
+//        group.admins = [admin: true]
+//        group.image = imageURL
+//        group.users = [users: true]
+//        groups.append(group)
+//        tableView.reloadData()
+//    }
     func loadGroups() {
         let user = Firebase.Auth.auth().currentUser
         guard let uid = user?.uid else {
@@ -59,13 +62,13 @@ class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
         let groupsRef = Database.database().reference(withPath: "group" )
         userRef.observeSingleEvent(of: .value) { (snapshot) in
             let dataSnapshot = snapshot.children.allObjects as! [DataSnapshot]
+            self.groups.removeAll()
             dataSnapshot.forEach {
                 groupsRef.child($0.key).observeSingleEvent(of: .value, with: { (snapshot) in
                     if let dict = snapshot.value as? NSDictionary {
                         let group = Group.deserialize(from: dict)
                         if let group = group {
                             self.groups.append(group)
-                            self.tableView.reloadData()
                         }
                     }
                 })
@@ -78,11 +81,10 @@ class TableViewGroups: UIViewController, DidAddGroup, UISearchBarDelegate {
     }
    
     @IBAction func reloadButton(_ sender: Any) {
-        groups.removeAll()
         loadGroups()
     }
     override func viewWillAppear(_ animated: Bool) {
-        
+        loadGroups()
     }
 }
 

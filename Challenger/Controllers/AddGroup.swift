@@ -12,7 +12,7 @@ class AddGroup: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
-    var didCreateGroup : DidAddGroup? = nil
+    //var didCreateGroup : DidAddGroup? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,7 +157,7 @@ class AddGroup: UIViewController, UITextFieldDelegate {
             sendMedia(image: imageData , imageKey: key, completion: {(url) in
                 database.child("group").child(key).updateChildValues(["name": name, "image": url.absoluteString, "admins": [uid : true], "users": [uid : true], "key" : key])
                 self.dismiss(animated: true, completion: {
-                    self.didCreateGroup?.didAdd(name, key, uid, uid, url.absoluteString)
+                    //self.didCreateGroup?.didAdd(name, key, uid, uid, url.absoluteString)
                 })
             })
             UserGroupsManager.addGroupToUser(uid, key)
