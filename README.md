@@ -1,8 +1,9 @@
 # SHARED
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
-[![Platform](https://img.shields.io/cocoapods/p/FireRecord.svg?style=flat)](http://cocoapods.org/pods/FireRecord)
+[![Swift Standard](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://medium.com/@peter.lafferty/resources-for-ios-coding-standards-and-styles-7f0badf4581b)
+[![Platform](https://img.shields.io/cocoapods/p/FireRecord.svg?style=flat)](https://github.com/BohdanOrlov/iOS-Developer-Roadmap)
 
+An iOS and Android SHARED app created with Swift and FireBase. If you would like to request a feature, find a bug, have a question, or would like to leave feedback, open an issue! ⭐️ this repo to show support!
 ## Info
 * **Platform:** iOS 
 * **Framework for Learning:** CBL
